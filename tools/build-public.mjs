@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8').replace(/^\uFEFF/, ''));
+const questions = read('practice-questions.json');
+const answers = read('practice-answers.json');
+const lessons = read('lessons.json');
+const sources = fs.existsSync(path.join(root, 'data', 'sources.json')) ? read('sources.json') : [];
+const publicSources = sources.map(s => {
+  const {file, questionFile, answerFile, localFile, localQuestionFile, localAnswerFile, ...safe} = s;
+  return {...safe, note: `${s.note || ''} 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.`.trim()};
+});
+if (!publicSources.some(s => s.id === 'kodit-recruit')) publicSources.unshift({id:'kodit-recruit', title:'신용보증기금 NCS 채용 안내', publisher:'신용보증기금', kind:'guide', url:'https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11181&mi=4275', note:'직업기초능력과 직무수행능력 평가 안내. 세부 범위·비중은 지원하는 채용 공고를 확인하세요.'});
+if (!publicSources.some(s => s.publisher?.includes('한국산업인력공단'))) publicSources.push({id:'ncs-official',title:'NCS 공식 채용모델 필기문항 자료실',publisher:'한국산업인력공단',kind:'official-sample',url:'https://www.ncs.go.kr/blind/rh13/bbs_lib_list.do?libDstinCd=59',note:'공식 공개 예시와 채용 참고자료를 확인할 수 있습니다.'});
+const dist = path.join(root, 'study-web', 'dist');
+const dataDir = path.join(dist, 'data'); fs.mkdirSync(dataDir,{recursive:true});
+const json = value => JSON.stringify(value,null,2)+'\n';
+for (const [name, value] of [['questions.json',questions],['answers.json',answers],['lessons.json',lessons],['sources.json',publicSources]]) fs.writeFileSync(path.join(dataDir,name),json(value));
+fs.writeFileSync(path.join(dataDir,'question-bank.js'),'window.STUDY_QUESTIONS='+JSON.stringify(questions)+';\n');
+fs.writeFileSync(path.join(dataDir,'answer-key.js'),'window.STUDY_ANSWERS='+JSON.stringify(answers)+';\n');
+fs.writeFileSync(path.join(dataDir,'learning-data.js'),'window.STUDY_LESSONS='+JSON.stringify(lessons)+';\nwindow.STUDY_SOURCES='+JSON.stringify(publicSources)+';\n');
+const docs = path.join(root,'docs'); fs.mkdirSync(docs,{recursive:true}); fs.cpSync(dist,docs,{recursive:true}); fs.writeFileSync(path.join(docs,'.nojekyll'),'');
+console.log(JSON.stringify({publicQuestions:questions.length,answers:Object.keys(answers).length,lessons:lessons.length,sources:publicSources.length,output:'docs'}));

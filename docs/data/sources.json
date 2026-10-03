@@ -1,0 +1,142 @@
+[
+  {
+    "id": "kodit-recruit",
+    "title": "신용보증기금 NCS 채용 안내",
+    "publisher": "신용보증기금",
+    "kind": "guide",
+    "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11181&mi=4275",
+    "note": "직업기초능력과 직무수행능력 평가 안내. 세부 범위·비중은 지원하는 채용 공고를 확인하세요."
+  },
+  {
+    "id": "ncs-2024-communication",
+    "title": "(2024년 개발) NCS직업기초능력(의사소통능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20250918091911564&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20250918091905448&filedetlSeq=20250918091905824&downlDstinCd=09",
+    "questionCount": 140,
+    "note": "공식 채용모델 예시문항이며 신용보증기금 실제 기출문제가 아닙니다. 제3자 출처가 포함되어 개별 공개 재배포 허락은 확인되지 않았습니다. 원본·분리본은 개인 학습용 로컬 파일로만 보관합니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2024-math",
+    "title": "(2024년 개발) NCS직업기초능력(수리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20250918091818964&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20250918091811871&filedetlSeq=20250918091812220&downlDstinCd=09",
+    "questionCount": 140,
+    "note": "공식 채용모델 예시문항이며 신용보증기금 실제 기출문제가 아닙니다. 제3자 출처가 포함되어 개별 공개 재배포 허락은 확인되지 않았습니다. 원본·분리본은 개인 학습용 로컬 파일로만 보관합니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2024-problem",
+    "title": "(2024년 개발) NCS직업기초능력(문제해결능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20250918091722082&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20250918091713733&filedetlSeq=20250918091714115&downlDstinCd=09",
+    "questionCount": 140,
+    "note": "공식 채용모델 예시문항이며 신용보증기금 실제 기출문제가 아닙니다. 제3자 출처가 포함되어 개별 공개 재배포 허락은 확인되지 않았습니다. 원본·분리본은 개인 학습용 로컬 파일로만 보관합니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2024-resource",
+    "title": "(2024년 개발) NCS직업기초능력(자원관리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20250918092159016&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20250918092153984&filedetlSeq=20250918092154561&downlDstinCd=09",
+    "questionCount": 140,
+    "note": "공식 채용모델 예시문항이며 신용보증기금 실제 기출문제가 아닙니다. 제3자 출처가 포함되어 개별 공개 재배포 허락은 확인되지 않았습니다. 원본·분리본은 개인 학습용 로컬 파일로만 보관합니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2023-communication",
+    "title": "(2023년 개발) NCS 직업기초능력(의사소통능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20240229154506632&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20240229154433598&filedetlSeq=20240229154434110&downlDstinCd=09",
+    "questionCount": 120,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2023-math",
+    "title": "(2023년 개발) NCS 직업기초능력(수리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20240229154551724&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20240229154727435&filedetlSeq=20240229154727961&downlDstinCd=09",
+    "questionCount": 120,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2023-problem",
+    "title": "(2023년 개발) NCS 직업기초능력(문제해결능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20240229154826626&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20240229154901054&filedetlSeq=20240229154901878&downlDstinCd=09",
+    "questionCount": 120,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-2023-resource",
+    "title": "(2023년 개발) NCS 직업기초능력(자원관리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20240229155225924&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20240229155220057&filedetlSeq=20240229155221084&downlDstinCd=09",
+    "questionCount": 120,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-archive-communication",
+    "title": "NCS 직업기초능력(의사소통능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20230426165719826&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20230426170413757&filedetlSeq=20230426170414306&downlDstinCd=09",
+    "questionCount": 160,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-archive-math",
+    "title": "NCS 직업기초능력(수리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20230426165651729&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20230426165647744&filedetlSeq=20230426165648272&downlDstinCd=09",
+    "questionCount": 90,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-archive-problem",
+    "title": "NCS 직업기초능력(문제해결능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20230426165613493&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20230426165608527&filedetlSeq=20230426165609044&downlDstinCd=09",
+    "questionCount": 130,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  },
+  {
+    "id": "ncs-archive-resource",
+    "title": "NCS 직업기초능력(자원관리능력)",
+    "publisher": "한국산업인력공단",
+    "kind": "official-sample",
+    "url": "https://ncs.go.kr/blind/rh13/bbs_lib_view.do?libDstinCd=48&libSeq=20230426165811696&menuId=MN02020302",
+    "downloadUrl": "https://ncs.go.kr/common/file/downloadFile.do?sysDstinCd=01&fileMstky=20230426165809612&filedetlSeq=20230426165810110&downlDstinCd=09",
+    "questionCount": 110,
+    "note": "공식 채용모델 예시문항이며 실제 신용보증기금 기출이 아닙니다. 원본은 개인 학습용 로컬 다운로드에 포함하며, 개별 공개 재배포 권한은 확인되지 않았습니다. 공개 웹에서는 공식 출처 링크로 원문을 제공합니다.",
+    "checkedAt": "2026-10-03"
+  }
+]

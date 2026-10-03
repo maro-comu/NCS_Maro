@@ -1,0 +1,12 @@
+{
+  "name": "maro-kodit-it-study",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "신용보증기금 IT 직렬 NCS·프로그래밍·DB 학습 웹",
+  "scripts": {
+    "build": "node tools/build-public.mjs",
+    "check": "node tools/validate-content.mjs",
+    "serve": "python -m http.server 8843 --bind 127.0.0.1 --directory docs"
+  }
+}

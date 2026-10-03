@@ -1,0 +1,23 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8').replace(/^\uFEFF/,''));
+const official=read('private-study/ncs-questions.json');
+const officialAnswers=read('private-study/ncs-answers.json');
+const practice=read('data/practice-questions.json');
+const practiceAnswers=read('data/practice-answers.json');
+const localPath=value=>value && !/^https?:/i.test(value)?'../../'+value.replaceAll('\\','/').replace(/^\.\//,''):value;
+const questions=[...official.map(q=>({...q,pdf:localPath(q.pdf)})),...practice];
+const answers={...officialAnswers,...practiceAnswers};
+const sources=read('private-study/sources.json').map(s=>({...s,file:localPath(s.file),questionFile:localPath(s.questionFile),answerFile:localPath(s.answerFile)}));
+const lessons=read('data/lessons.json');
+for(const q of questions){if(!answers[q.id]||!Number.isInteger(answers[q.id].correctIndex)||answers[q.id].correctIndex<0||answers[q.id].correctIndex>=q.options.length)throw Error('Missing/invalid answer '+q.id);if(q.pdf&&!fs.existsSync(path.resolve(root,q.pdf.slice(6))))throw Error('Missing PDF '+q.pdf);}
+const dir=path.join(root,'private-study/web');fs.mkdirSync(path.join(dir,'data'),{recursive:true});
+for(const file of ['index.html','styles.css','app.js'])fs.copyFileSync(path.join(root,'study-web/dist',file),path.join(dir,file));
+const json=value=>JSON.stringify(value,null,2)+'\n';
+for(const [name,value]of [['questions.json',questions],['answers.json',answers],['lessons.json',lessons],['sources.json',sources]])fs.writeFileSync(path.join(dir,'data',name),json(value));
+fs.writeFileSync(path.join(dir,'data/question-bank.js'),'window.STUDY_QUESTIONS='+JSON.stringify(questions)+';\n');
+fs.writeFileSync(path.join(dir,'data/answer-key.js'),'window.STUDY_ANSWERS='+JSON.stringify(answers)+';\n');
+fs.writeFileSync(path.join(dir,'data/learning-data.js'),'window.STUDY_LESSONS='+JSON.stringify(lessons)+';\nwindow.STUDY_SOURCES='+JSON.stringify(sources)+';\n');
+console.log(JSON.stringify({official:official.length,practice:practice.length,total:questions.length,answers:Object.keys(answers).length,output:'private-study/web'}));

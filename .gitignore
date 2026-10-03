@@ -1,0 +1,16 @@
+# Official originals and private, device-only learning copies are not redistributed.
+/downloads/
+/private-study/
+/tmp/
+/output/
+**/.openai/
+**/.sites-runtime/
+**/node_modules/
+**/__pycache__/
+*.tar.gz
+*.log
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
