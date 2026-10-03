@@ -1,0 +1,1902 @@
+{
+  "extra-prog-0001": {
+    "correctIndex": 2,
+    "explanation": "enumerate의 start는 첫 원소의 번호다. 번호와 값을 각각 곱한 뒤 세 항을 합산한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0002": {
+    "correctIndex": 3,
+    "explanation": "zip은 기본적으로 가장 짧은 입력이 끝나면 종료한다. 세 번째 x는 짝이 없으므로 합산되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0003": {
+    "correctIndex": 0,
+    "explanation": "B가 없으므로 get의 기본값이 사용된다. B에 기본값과 b의 합을 저장하고 기존 A를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0004": {
+    "correctIndex": 1,
+    "explanation": "대칭차 ^는 양쪽 중 정확히 한쪽에만 있는 원소를 남긴다. 공통 두 원소를 제외하고 n과 n+4를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0005": {
+    "correctIndex": 2,
+    "explanation": "Python의 //는 음의 무한대 방향으로 내림한다. a=(a//3)×3+(a%3)이 성립하고 양수 제수의 나머지는 0 이상이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0006": {
+    "correctIndex": 3,
+    "explanation": "break를 실행하기 전 1부터 n−1까지 더한다. break로 끝나므로 for의 else는 실행되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0007": {
+    "correctIndex": 0,
+    "explanation": "next가 첫 원소를 소비한다. sum은 남은 세 원소 2(n+1), 2(n+2), 2(n+3)만 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0008": {
+    "correctIndex": 1,
+    "explanation": "두 호출은 같은 count를 갱신한다. 반환값은 n+d, n+2d이므로 합은 2n+3d다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0009": {
+    "correctIndex": 0,
+    "explanation": "try에서 첫 값을 기록한 뒤 except에서 두 번째 값, finally에서 세 번째 값을 기록한다. 처리된 예외가 있어도 finally는 실행된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0010": {
+    "correctIndex": 3,
+    "explanation": "−점수를 키로 쓰면 점수 내림차순이다. 같은 점수 A와 B는 두 번째 키 이름 오름차순으로 정렬된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0011": {
+    "correctIndex": 2,
+    "explanation": "A 키는 마지막 쌍의 값으로 덮어쓴다. A=2(n+2), B=2(n+1)이므로 합은 4n+6이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0012": {
+    "correctIndex": 1,
+    "explanation": "gcd(a,b)=gcd(b,a%b)를 반복하며 두 번째 값이 0이면 첫 값을 반환한다. 6n과 9n의 최대공약수는 3n이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0013": {
+    "correctIndex": 0,
+    "explanation": "전개는 최상위 속성만 복사한다. item 참조는 공유하지만 숫자 count의 대입은 b의 속성만 바꾼다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0014": {
+    "correctIndex": 3,
+    "explanation": "초기 누적값 n에 1×n, 2×(n+1), 3×(n+2)를 차례로 더한다. 콜백 인덱스는 0부터다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0015": {
+    "correctIndex": 2,
+    "explanation": "||는 0을 falsy로 보아 대체하지만 ??는 null 또는 undefined일 때만 대체한다. null에는 기본값을 사용한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0016": {
+    "correctIndex": 1,
+    "explanation": "false&&와 true||는 오른쪽을 평가하지 않는다. 마지막 true&&만 bump를 한 번 호출한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0017": {
+    "correctIndex": 0,
+    "explanation": "기본 매개변수는 undefined 또는 인수가 생략된 경우 적용된다. null과 0에는 적용되지 않으며 null은 함수 본문의 조건에서 처리한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0018": {
+    "correctIndex": 3,
+    "explanation": "두 번째 원소는 빈 자리로 건너뛴다. rest에는 세 번째와 네 번째 원소만 들어가므로 합은 n+(n+2)+(n+3)이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0019": {
+    "correctIndex": 2,
+    "explanation": "객체 키는 구조가 같아도 서로 다른 참조이면 다른 키다. Map 크기는 2이고 first에 연결한 값은 그대로다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0020": {
+    "correctIndex": 1,
+    "explanation": "삭제한 원소를 다시 추가하면 새로운 삽입 위치인 맨 뒤에 놓인다. Set의 반복은 삽입 순서를 따른다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0021": {
+    "correctIndex": 0,
+    "explanation": "profile이 null이면 ?.가 뒤의 접근을 중단하고 undefined를 반환한다. ??가 기본 숫자를 선택한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0022": {
+    "correctIndex": 3,
+    "explanation": "인덱스 1부터 두 원소를 삭제하고 대체값 하나를 삽입한다. splice의 반환은 삭제된 원소 배열이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0023": {
+    "correctIndex": 2,
+    "explanation": "make를 obj의 메서드로 호출했으므로 내부 화살표 함수는 obj를 this로 포착한다. 이후 call로 this를 교체하지 못한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0024": {
+    "correctIndex": 1,
+    "explanation": "async 함수는 첫 await까지 즉시 실행된다. await 이후는 마이크로태스크로 재개되므로 바깥의 동기 로그가 중간에 출력된다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0025": {
+    "correctIndex": 2,
+    "explanation": "enumerate의 start는 첫 원소의 번호다. 번호와 값을 각각 곱한 뒤 세 항을 합산한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0026": {
+    "correctIndex": 0,
+    "explanation": "zip은 기본적으로 가장 짧은 입력이 끝나면 종료한다. 세 번째 x는 짝이 없으므로 합산되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0027": {
+    "correctIndex": 3,
+    "explanation": "B가 없으므로 get의 기본값이 사용된다. B에 기본값과 b의 합을 저장하고 기존 A를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0028": {
+    "correctIndex": 1,
+    "explanation": "대칭차 ^는 양쪽 중 정확히 한쪽에만 있는 원소를 남긴다. 공통 두 원소를 제외하고 n과 n+4를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0029": {
+    "correctIndex": 2,
+    "explanation": "Python의 //는 음의 무한대 방향으로 내림한다. a=(a//3)×3+(a%3)이 성립하고 양수 제수의 나머지는 0 이상이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0030": {
+    "correctIndex": 0,
+    "explanation": "break를 실행하기 전 1부터 n−1까지 더한다. break로 끝나므로 for의 else는 실행되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0031": {
+    "correctIndex": 3,
+    "explanation": "next가 첫 원소를 소비한다. sum은 남은 세 원소 2(n+1), 2(n+2), 2(n+3)만 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0032": {
+    "correctIndex": 1,
+    "explanation": "두 호출은 같은 count를 갱신한다. 반환값은 n+d, n+2d이므로 합은 2n+3d다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0033": {
+    "correctIndex": 2,
+    "explanation": "try에서 첫 값을 기록한 뒤 except에서 두 번째 값, finally에서 세 번째 값을 기록한다. 처리된 예외가 있어도 finally는 실행된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0034": {
+    "correctIndex": 0,
+    "explanation": "−점수를 키로 쓰면 점수 내림차순이다. 같은 점수 A와 B는 두 번째 키 이름 오름차순으로 정렬된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0035": {
+    "correctIndex": 3,
+    "explanation": "A 키는 마지막 쌍의 값으로 덮어쓴다. A=2(n+2), B=2(n+1)이므로 합은 4n+6이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0036": {
+    "correctIndex": 1,
+    "explanation": "gcd(a,b)=gcd(b,a%b)를 반복하며 두 번째 값이 0이면 첫 값을 반환한다. 6n과 9n의 최대공약수는 3n이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0037": {
+    "correctIndex": 2,
+    "explanation": "전개는 최상위 속성만 복사한다. item 참조는 공유하지만 숫자 count의 대입은 b의 속성만 바꾼다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0038": {
+    "correctIndex": 0,
+    "explanation": "초기 누적값 n에 1×n, 2×(n+1), 3×(n+2)를 차례로 더한다. 콜백 인덱스는 0부터다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0039": {
+    "correctIndex": 3,
+    "explanation": "||는 0을 falsy로 보아 대체하지만 ??는 null 또는 undefined일 때만 대체한다. null에는 기본값을 사용한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0040": {
+    "correctIndex": 1,
+    "explanation": "false&&와 true||는 오른쪽을 평가하지 않는다. 마지막 true&&만 bump를 한 번 호출한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0041": {
+    "correctIndex": 3,
+    "explanation": "기본 매개변수는 undefined 또는 인수가 생략된 경우 적용된다. null과 0에는 적용되지 않으며 null은 함수 본문의 조건에서 처리한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0042": {
+    "correctIndex": 2,
+    "explanation": "두 번째 원소는 빈 자리로 건너뛴다. rest에는 세 번째와 네 번째 원소만 들어가므로 합은 n+(n+2)+(n+3)이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0043": {
+    "correctIndex": 0,
+    "explanation": "객체 키는 구조가 같아도 서로 다른 참조이면 다른 키다. Map 크기는 2이고 first에 연결한 값은 그대로다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0044": {
+    "correctIndex": 1,
+    "explanation": "삭제한 원소를 다시 추가하면 새로운 삽입 위치인 맨 뒤에 놓인다. Set의 반복은 삽입 순서를 따른다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0045": {
+    "correctIndex": 3,
+    "explanation": "profile이 null이면 ?.가 뒤의 접근을 중단하고 undefined를 반환한다. ??가 기본 숫자를 선택한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0046": {
+    "correctIndex": 2,
+    "explanation": "인덱스 1부터 두 원소를 삭제하고 대체값 하나를 삽입한다. splice의 반환은 삭제된 원소 배열이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0047": {
+    "correctIndex": 0,
+    "explanation": "make를 obj의 메서드로 호출했으므로 내부 화살표 함수는 obj를 this로 포착한다. 이후 call로 this를 교체하지 못한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0048": {
+    "correctIndex": 1,
+    "explanation": "async 함수는 첫 await까지 즉시 실행된다. await 이후는 마이크로태스크로 재개되므로 바깥의 동기 로그가 중간에 출력된다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0049": {
+    "correctIndex": 1,
+    "explanation": "enumerate의 start는 첫 원소의 번호다. 번호와 값을 각각 곱한 뒤 세 항을 합산한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0050": {
+    "correctIndex": 3,
+    "explanation": "zip은 기본적으로 가장 짧은 입력이 끝나면 종료한다. 세 번째 x는 짝이 없으므로 합산되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0051": {
+    "correctIndex": 0,
+    "explanation": "B가 없으므로 get의 기본값이 사용된다. B에 기본값과 b의 합을 저장하고 기존 A를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0052": {
+    "correctIndex": 2,
+    "explanation": "대칭차 ^는 양쪽 중 정확히 한쪽에만 있는 원소를 남긴다. 공통 두 원소를 제외하고 n과 n+4를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0053": {
+    "correctIndex": 1,
+    "explanation": "Python의 //는 음의 무한대 방향으로 내림한다. a=(a//3)×3+(a%3)이 성립하고 양수 제수의 나머지는 0 이상이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0054": {
+    "correctIndex": 0,
+    "explanation": "break를 실행하기 전 1부터 n−1까지 더한다. break로 끝나므로 for의 else는 실행되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0055": {
+    "correctIndex": 3,
+    "explanation": "next가 첫 원소를 소비한다. sum은 남은 세 원소 2(n+1), 2(n+2), 2(n+3)만 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0056": {
+    "correctIndex": 2,
+    "explanation": "두 호출은 같은 count를 갱신한다. 반환값은 n+d, n+2d이므로 합은 2n+3d다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0057": {
+    "correctIndex": 1,
+    "explanation": "try에서 첫 값을 기록한 뒤 except에서 두 번째 값, finally에서 세 번째 값을 기록한다. 처리된 예외가 있어도 finally는 실행된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0058": {
+    "correctIndex": 0,
+    "explanation": "−점수를 키로 쓰면 점수 내림차순이다. 같은 점수 A와 B는 두 번째 키 이름 오름차순으로 정렬된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0059": {
+    "correctIndex": 3,
+    "explanation": "A 키는 마지막 쌍의 값으로 덮어쓴다. A=2(n+2), B=2(n+1)이므로 합은 4n+6이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0060": {
+    "correctIndex": 2,
+    "explanation": "gcd(a,b)=gcd(b,a%b)를 반복하며 두 번째 값이 0이면 첫 값을 반환한다. 6n과 9n의 최대공약수는 3n이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0061": {
+    "correctIndex": 1,
+    "explanation": "전개는 최상위 속성만 복사한다. item 참조는 공유하지만 숫자 count의 대입은 b의 속성만 바꾼다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0062": {
+    "correctIndex": 0,
+    "explanation": "초기 누적값 n에 1×n, 2×(n+1), 3×(n+2)를 차례로 더한다. 콜백 인덱스는 0부터다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0063": {
+    "correctIndex": 3,
+    "explanation": "||는 0을 falsy로 보아 대체하지만 ??는 null 또는 undefined일 때만 대체한다. null에는 기본값을 사용한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0064": {
+    "correctIndex": 2,
+    "explanation": "false&&와 true||는 오른쪽을 평가하지 않는다. 마지막 true&&만 bump를 한 번 호출한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0065": {
+    "correctIndex": 0,
+    "explanation": "기본 매개변수는 undefined 또는 인수가 생략된 경우 적용된다. null과 0에는 적용되지 않으며 null은 함수 본문의 조건에서 처리한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0066": {
+    "correctIndex": 1,
+    "explanation": "두 번째 원소는 빈 자리로 건너뛴다. rest에는 세 번째와 네 번째 원소만 들어가므로 합은 n+(n+2)+(n+3)이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0067": {
+    "correctIndex": 3,
+    "explanation": "객체 키는 구조가 같아도 서로 다른 참조이면 다른 키다. Map 크기는 2이고 first에 연결한 값은 그대로다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0068": {
+    "correctIndex": 2,
+    "explanation": "삭제한 원소를 다시 추가하면 새로운 삽입 위치인 맨 뒤에 놓인다. Set의 반복은 삽입 순서를 따른다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0069": {
+    "correctIndex": 0,
+    "explanation": "profile이 null이면 ?.가 뒤의 접근을 중단하고 undefined를 반환한다. ??가 기본 숫자를 선택한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0070": {
+    "correctIndex": 3,
+    "explanation": "인덱스 1부터 두 원소를 삭제하고 대체값 하나를 삽입한다. splice의 반환은 삭제된 원소 배열이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0071": {
+    "correctIndex": 1,
+    "explanation": "make를 obj의 메서드로 호출했으므로 내부 화살표 함수는 obj를 this로 포착한다. 이후 call로 this를 교체하지 못한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0072": {
+    "correctIndex": 2,
+    "explanation": "async 함수는 첫 await까지 즉시 실행된다. await 이후는 마이크로태스크로 재개되므로 바깥의 동기 로그가 중간에 출력된다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0073": {
+    "correctIndex": 0,
+    "explanation": "enumerate의 start는 첫 원소의 번호다. 번호와 값을 각각 곱한 뒤 세 항을 합산한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0074": {
+    "correctIndex": 3,
+    "explanation": "zip은 기본적으로 가장 짧은 입력이 끝나면 종료한다. 세 번째 x는 짝이 없으므로 합산되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0075": {
+    "correctIndex": 1,
+    "explanation": "B가 없으므로 get의 기본값이 사용된다. B에 기본값과 b의 합을 저장하고 기존 A를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0076": {
+    "correctIndex": 2,
+    "explanation": "대칭차 ^는 양쪽 중 정확히 한쪽에만 있는 원소를 남긴다. 공통 두 원소를 제외하고 n과 n+4를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0077": {
+    "correctIndex": 0,
+    "explanation": "Python의 //는 음의 무한대 방향으로 내림한다. a=(a//3)×3+(a%3)이 성립하고 양수 제수의 나머지는 0 이상이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0078": {
+    "correctIndex": 3,
+    "explanation": "break를 실행하기 전 1부터 n−1까지 더한다. break로 끝나므로 for의 else는 실행되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0079": {
+    "correctIndex": 1,
+    "explanation": "next가 첫 원소를 소비한다. sum은 남은 세 원소 2(n+1), 2(n+2), 2(n+3)만 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0080": {
+    "correctIndex": 2,
+    "explanation": "두 호출은 같은 count를 갱신한다. 반환값은 n+d, n+2d이므로 합은 2n+3d다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0081": {
+    "correctIndex": 3,
+    "explanation": "try에서 첫 값을 기록한 뒤 except에서 두 번째 값, finally에서 세 번째 값을 기록한다. 처리된 예외가 있어도 finally는 실행된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0082": {
+    "correctIndex": 1,
+    "explanation": "−점수를 키로 쓰면 점수 내림차순이다. 같은 점수 A와 B는 두 번째 키 이름 오름차순으로 정렬된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0083": {
+    "correctIndex": 0,
+    "explanation": "A 키는 마지막 쌍의 값으로 덮어쓴다. A=2(n+2), B=2(n+1)이므로 합은 4n+6이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0084": {
+    "correctIndex": 2,
+    "explanation": "gcd(a,b)=gcd(b,a%b)를 반복하며 두 번째 값이 0이면 첫 값을 반환한다. 6n과 9n의 최대공약수는 3n이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0085": {
+    "correctIndex": 3,
+    "explanation": "전개는 최상위 속성만 복사한다. item 참조는 공유하지만 숫자 count의 대입은 b의 속성만 바꾼다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0086": {
+    "correctIndex": 1,
+    "explanation": "초기 누적값 n에 1×n, 2×(n+1), 3×(n+2)를 차례로 더한다. 콜백 인덱스는 0부터다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0087": {
+    "correctIndex": 0,
+    "explanation": "||는 0을 falsy로 보아 대체하지만 ??는 null 또는 undefined일 때만 대체한다. null에는 기본값을 사용한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0088": {
+    "correctIndex": 2,
+    "explanation": "false&&와 true||는 오른쪽을 평가하지 않는다. 마지막 true&&만 bump를 한 번 호출한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0089": {
+    "correctIndex": 3,
+    "explanation": "기본 매개변수는 undefined 또는 인수가 생략된 경우 적용된다. null과 0에는 적용되지 않으며 null은 함수 본문의 조건에서 처리한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0090": {
+    "correctIndex": 1,
+    "explanation": "두 번째 원소는 빈 자리로 건너뛴다. rest에는 세 번째와 네 번째 원소만 들어가므로 합은 n+(n+2)+(n+3)이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0091": {
+    "correctIndex": 0,
+    "explanation": "객체 키는 구조가 같아도 서로 다른 참조이면 다른 키다. Map 크기는 2이고 first에 연결한 값은 그대로다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0092": {
+    "correctIndex": 2,
+    "explanation": "삭제한 원소를 다시 추가하면 새로운 삽입 위치인 맨 뒤에 놓인다. Set의 반복은 삽입 순서를 따른다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0093": {
+    "correctIndex": 2,
+    "explanation": "profile이 null이면 ?.가 뒤의 접근을 중단하고 undefined를 반환한다. ??가 기본 숫자를 선택한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0094": {
+    "correctIndex": 1,
+    "explanation": "인덱스 1부터 두 원소를 삭제하고 대체값 하나를 삽입한다. splice의 반환은 삭제된 원소 배열이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0095": {
+    "correctIndex": 0,
+    "explanation": "make를 obj의 메서드로 호출했으므로 내부 화살표 함수는 obj를 this로 포착한다. 이후 call로 this를 교체하지 못한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0096": {
+    "correctIndex": 3,
+    "explanation": "async 함수는 첫 await까지 즉시 실행된다. await 이후는 마이크로태스크로 재개되므로 바깥의 동기 로그가 중간에 출력된다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0097": {
+    "correctIndex": 0,
+    "explanation": "enumerate의 start는 첫 원소의 번호다. 번호와 값을 각각 곱한 뒤 세 항을 합산한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0098": {
+    "correctIndex": 1,
+    "explanation": "zip은 기본적으로 가장 짧은 입력이 끝나면 종료한다. 세 번째 x는 짝이 없으므로 합산되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0099": {
+    "correctIndex": 2,
+    "explanation": "B가 없으므로 get의 기본값이 사용된다. B에 기본값과 b의 합을 저장하고 기존 A를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0100": {
+    "correctIndex": 3,
+    "explanation": "대칭차 ^는 양쪽 중 정확히 한쪽에만 있는 원소를 남긴다. 공통 두 원소를 제외하고 n과 n+4를 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0101": {
+    "correctIndex": 0,
+    "explanation": "Python의 //는 음의 무한대 방향으로 내림한다. a=(a//3)×3+(a%3)이 성립하고 양수 제수의 나머지는 0 이상이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0102": {
+    "correctIndex": 1,
+    "explanation": "break를 실행하기 전 1부터 n−1까지 더한다. break로 끝나므로 for의 else는 실행되지 않는다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0103": {
+    "correctIndex": 2,
+    "explanation": "next가 첫 원소를 소비한다. sum은 남은 세 원소 2(n+1), 2(n+2), 2(n+3)만 더한다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0104": {
+    "correctIndex": 3,
+    "explanation": "두 호출은 같은 count를 갱신한다. 반환값은 n+d, n+2d이므로 합은 2n+3d다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0105": {
+    "correctIndex": 0,
+    "explanation": "try에서 첫 값을 기록한 뒤 except에서 두 번째 값, finally에서 세 번째 값을 기록한다. 처리된 예외가 있어도 finally는 실행된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0106": {
+    "correctIndex": 1,
+    "explanation": "−점수를 키로 쓰면 점수 내림차순이다. 같은 점수 A와 B는 두 번째 키 이름 오름차순으로 정렬된다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0107": {
+    "correctIndex": 2,
+    "explanation": "A 키는 마지막 쌍의 값으로 덮어쓴다. A=2(n+2), B=2(n+1)이므로 합은 4n+6이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0108": {
+    "correctIndex": 3,
+    "explanation": "gcd(a,b)=gcd(b,a%b)를 반복하며 두 번째 값이 0이면 첫 값을 반환한다. 6n과 9n의 최대공약수는 3n이다. 실제 Python 3 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0109": {
+    "correctIndex": 2,
+    "explanation": "전개는 최상위 속성만 복사한다. item 참조는 공유하지만 숫자 count의 대입은 b의 속성만 바꾼다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0110": {
+    "correctIndex": 0,
+    "explanation": "초기 누적값 n에 1×n, 2×(n+1), 3×(n+2)를 차례로 더한다. 콜백 인덱스는 0부터다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0111": {
+    "correctIndex": 1,
+    "explanation": "||는 0을 falsy로 보아 대체하지만 ??는 null 또는 undefined일 때만 대체한다. null에는 기본값을 사용한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0112": {
+    "correctIndex": 3,
+    "explanation": "false&&와 true||는 오른쪽을 평가하지 않는다. 마지막 true&&만 bump를 한 번 호출한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0113": {
+    "correctIndex": 2,
+    "explanation": "기본 매개변수는 undefined 또는 인수가 생략된 경우 적용된다. null과 0에는 적용되지 않으며 null은 함수 본문의 조건에서 처리한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0114": {
+    "correctIndex": 0,
+    "explanation": "두 번째 원소는 빈 자리로 건너뛴다. rest에는 세 번째와 네 번째 원소만 들어가므로 합은 n+(n+2)+(n+3)이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0115": {
+    "correctIndex": 1,
+    "explanation": "객체 키는 구조가 같아도 서로 다른 참조이면 다른 키다. Map 크기는 2이고 first에 연결한 값은 그대로다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0116": {
+    "correctIndex": 3,
+    "explanation": "삭제한 원소를 다시 추가하면 새로운 삽입 위치인 맨 뒤에 놓인다. Set의 반복은 삽입 순서를 따른다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0117": {
+    "correctIndex": 2,
+    "explanation": "profile이 null이면 ?.가 뒤의 접근을 중단하고 undefined를 반환한다. ??가 기본 숫자를 선택한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0118": {
+    "correctIndex": 0,
+    "explanation": "인덱스 1부터 두 원소를 삭제하고 대체값 하나를 삽입한다. splice의 반환은 삭제된 원소 배열이다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0119": {
+    "correctIndex": 1,
+    "explanation": "make를 obj의 메서드로 호출했으므로 내부 화살표 함수는 obj를 this로 포착한다. 이후 call로 this를 교체하지 못한다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0120": {
+    "correctIndex": 3,
+    "explanation": "async 함수는 첫 await까지 즉시 실행된다. await 이후는 마이크로태스크로 재개되므로 바깥의 동기 로그가 중간에 출력된다. 실제 Node.js 실행 결과와 대조했다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0121": {
+    "correctIndex": 2,
+    "explanation": "i별 실행 횟수 1+2+…+4=4×5÷2=10회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0122": {
+    "correctIndex": 0,
+    "explanation": "실행 시작값은 1부터 8까지 2의 거듭제곱이다. 마지막 값도 경계보다 작아서 총 4회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0123": {
+    "correctIndex": 1,
+    "explanation": "합병 단계는 log₂(16)=4개이고 각 단계에서 16개를 처리한다. 곱하면 64회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0124": {
+    "correctIndex": 3,
+    "explanation": "깊이별 노드 수 1+2+…+2^3=2^4−1=15개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0125": {
+    "correctIndex": 1,
+    "explanation": "큰 첫 원소 8가 매 비교에서 오른쪽으로 이동한다. 한 패스는 전체 정렬 완료를 보장하지 않는다. 결과는 [4,6,5,7,8]다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0126": {
+    "correctIndex": 2,
+    "explanation": "P1은 0ms, P2는 4ms, P3는 10ms 대기한다. 합은 14ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0127": {
+    "correctIndex": 0,
+    "explanation": "실행 순서는 P2,P3,P1이다. 대기는 0, 4, 10ms로 합은 14ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0128": {
+    "correctIndex": 3,
+    "explanation": "P1과 P2가 각각 4ms씩 사용한 뒤 P3 차례다. 첫 응답은 시각 8ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0129": {
+    "correctIndex": 1,
+    "explanation": "주소를 페이지 크기로 나눈 나머지가 오프셋이다. 52=3×16+4이므로 4바이트다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0130": {
+    "correctIndex": 2,
+    "explanation": "세 페이지와 추가 4바이트가 필요하므로 ceil((52)/16)=4페이지다. 마지막 페이지의 일부가 비어도 할당 단위는 페이지다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0131": {
+    "correctIndex": 0,
+    "explanation": "직렬 부분 1/4이 최소 실행시간 비율이다. 최대 향상은 1÷(1/4)=4배다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0132": {
+    "correctIndex": 3,
+    "explanation": "acquire는 하나를 소비하고 release는 하나를 되돌린다. 4−3+1=2개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0133": {
+    "correctIndex": 1,
+    "explanation": "첫 이동 8, 다음 이동 12, 마지막 이동 7로 총 27이다. 대기 요청을 가까운 순서로 재정렬하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0134": {
+    "correctIndex": 2,
+    "explanation": "4MB=32Mb다. 32÷16=2초다. byte와 bit 사이에 8배 차이가 있다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0135": {
+    "correctIndex": 0,
+    "explanation": "호스트 비트는 4개이므로 주소는 2^4개다. 네트워크·브로드캐스트 두 주소를 제외하면 14개다. /31 예외는 이 문제에 해당하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0136": {
+    "correctIndex": 3,
+    "explanation": "한 주기는 4+12=16ms다. 이용률 4÷16×100=25%다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0137": {
+    "correctIndex": 1,
+    "explanation": "IP 전체 길이에서 IP 헤더와 UDP 헤더를 뺀다. 140−20−8=112바이트다. 링크 계층 헤더는 주어진 길이에 포함되지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0138": {
+    "correctIndex": 2,
+    "explanation": "ACK는 마지막 바이트 다음 번호다. 1040+80=1120이다. 시작 바이트도 길이에 포함되므로 추가로 1을 더하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0139": {
+    "correctIndex": 3,
+    "explanation": "32−28=4개의 나머지 비트가 자유로워서 2^4=16개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0140": {
+    "correctIndex": 0,
+    "explanation": "세 키 모두 기본 해시는 4이다. 4과 5이 차 있어 다음 빈 칸 6에 저장한다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0141": {
+    "correctIndex": 1,
+    "explanation": "행 우선 오프셋은 (행번호×열수+열번호)×원소크기다. 1000+(2×6+0)×4=1048다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0142": {
+    "correctIndex": 3,
+    "explanation": "검색 실패를 확정하려면 12개 원소를 모두 확인한다. 인덱스의 최댓값과 비교 횟수를 혼동하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0143": {
+    "correctIndex": 2,
+    "explanation": "서로 다른 두 정점을 고르는 조합 C(4,2)=4×3÷2이다. 무방향이므로 두 방향을 따로 세지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0144": {
+    "correctIndex": 0,
+    "explanation": "닫는 괄호가 나오기 전 여는 괄호 4개가 모두 쌓인다. 이후에는 줄어들기만 하므로 최대는 4개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0145": {
+    "correctIndex": 1,
+    "explanation": "i별 실행 횟수 1+2+…+5=5×6÷2=15회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0146": {
+    "correctIndex": 3,
+    "explanation": "실행 시작값은 1부터 16까지 2의 거듭제곱이다. 마지막 값도 경계보다 작아서 총 5회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0147": {
+    "correctIndex": 2,
+    "explanation": "합병 단계는 log₂(32)=5개이고 각 단계에서 32개를 처리한다. 곱하면 160회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0148": {
+    "correctIndex": 0,
+    "explanation": "깊이별 노드 수 1+2+…+2^4=2^5−1=31개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0149": {
+    "correctIndex": 3,
+    "explanation": "큰 첫 원소 9가 매 비교에서 오른쪽으로 이동한다. 한 패스는 전체 정렬 완료를 보장하지 않는다. 결과는 [5,7,6,8,9]다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0150": {
+    "correctIndex": 1,
+    "explanation": "P1은 0ms, P2는 5ms, P3는 12ms 대기한다. 합은 17ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0151": {
+    "correctIndex": 2,
+    "explanation": "실행 순서는 P2,P3,P1이다. 대기는 0, 5, 12ms로 합은 17ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0152": {
+    "correctIndex": 0,
+    "explanation": "P1과 P2가 각각 5ms씩 사용한 뒤 P3 차례다. 첫 응답은 시각 10ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0153": {
+    "correctIndex": 3,
+    "explanation": "주소를 페이지 크기로 나눈 나머지가 오프셋이다. 101=3×32+5이므로 5바이트다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0154": {
+    "correctIndex": 2,
+    "explanation": "세 페이지와 추가 5바이트가 필요하므로 ceil((101)/32)=4페이지다. 마지막 페이지의 일부가 비어도 할당 단위는 페이지다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0155": {
+    "correctIndex": 1,
+    "explanation": "직렬 부분 1/5이 최소 실행시간 비율이다. 최대 향상은 1÷(1/5)=5배다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0156": {
+    "correctIndex": 0,
+    "explanation": "acquire는 하나를 소비하고 release는 하나를 되돌린다. 5−3+1=3개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0157": {
+    "correctIndex": 3,
+    "explanation": "첫 이동 8, 다음 이동 12, 마지막 이동 7로 총 27이다. 대기 요청을 가까운 순서로 재정렬하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0158": {
+    "correctIndex": 2,
+    "explanation": "5MB=40Mb다. 40÷20=2초다. byte와 bit 사이에 8배 차이가 있다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0159": {
+    "correctIndex": 1,
+    "explanation": "호스트 비트는 5개이므로 주소는 2^5개다. 네트워크·브로드캐스트 두 주소를 제외하면 30개다. /31 예외는 이 문제에 해당하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0160": {
+    "correctIndex": 0,
+    "explanation": "한 주기는 5+15=20ms다. 이용률 5÷20×100=25%다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0161": {
+    "correctIndex": 3,
+    "explanation": "IP 전체 길이에서 IP 헤더와 UDP 헤더를 뺀다. 150−20−8=122바이트다. 링크 계층 헤더는 주어진 길이에 포함되지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0162": {
+    "correctIndex": 2,
+    "explanation": "ACK는 마지막 바이트 다음 번호다. 1050+100=1150이다. 시작 바이트도 길이에 포함되므로 추가로 1을 더하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0163": {
+    "correctIndex": 1,
+    "explanation": "32−27=5개의 나머지 비트가 자유로워서 2^5=32개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0164": {
+    "correctIndex": 0,
+    "explanation": "세 키 모두 기본 해시는 5이다. 5과 6이 차 있어 다음 빈 칸 7에 저장한다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0165": {
+    "correctIndex": 3,
+    "explanation": "행 우선 오프셋은 (행번호×열수+열번호)×원소크기다. 1000+(2×6+1)×4=1052다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0166": {
+    "correctIndex": 2,
+    "explanation": "검색 실패를 확정하려면 15개 원소를 모두 확인한다. 인덱스의 최댓값과 비교 횟수를 혼동하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0167": {
+    "correctIndex": 1,
+    "explanation": "서로 다른 두 정점을 고르는 조합 C(5,2)=5×4÷2이다. 무방향이므로 두 방향을 따로 세지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0168": {
+    "correctIndex": 0,
+    "explanation": "닫는 괄호가 나오기 전 여는 괄호 5개가 모두 쌓인다. 이후에는 줄어들기만 하므로 최대는 5개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0169": {
+    "correctIndex": 2,
+    "explanation": "i별 실행 횟수 1+2+…+6=6×7÷2=21회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0170": {
+    "correctIndex": 1,
+    "explanation": "실행 시작값은 1부터 32까지 2의 거듭제곱이다. 마지막 값도 경계보다 작아서 총 6회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0171": {
+    "correctIndex": 3,
+    "explanation": "합병 단계는 log₂(64)=6개이고 각 단계에서 64개를 처리한다. 곱하면 384회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0172": {
+    "correctIndex": 0,
+    "explanation": "깊이별 노드 수 1+2+…+2^5=2^6−1=63개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0173": {
+    "correctIndex": 2,
+    "explanation": "큰 첫 원소 10가 매 비교에서 오른쪽으로 이동한다. 한 패스는 전체 정렬 완료를 보장하지 않는다. 결과는 [6,8,7,9,10]다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0174": {
+    "correctIndex": 1,
+    "explanation": "P1은 0ms, P2는 6ms, P3는 14ms 대기한다. 합은 20ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0175": {
+    "correctIndex": 3,
+    "explanation": "실행 순서는 P2,P3,P1이다. 대기는 0, 6, 14ms로 합은 20ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0176": {
+    "correctIndex": 0,
+    "explanation": "P1과 P2가 각각 6ms씩 사용한 뒤 P3 차례다. 첫 응답은 시각 12ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0177": {
+    "correctIndex": 2,
+    "explanation": "주소를 페이지 크기로 나눈 나머지가 오프셋이다. 198=3×64+6이므로 6바이트다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0178": {
+    "correctIndex": 1,
+    "explanation": "세 페이지와 추가 6바이트가 필요하므로 ceil((198)/64)=4페이지다. 마지막 페이지의 일부가 비어도 할당 단위는 페이지다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0179": {
+    "correctIndex": 3,
+    "explanation": "직렬 부분 1/6이 최소 실행시간 비율이다. 최대 향상은 1÷(1/6)=6배다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0180": {
+    "correctIndex": 0,
+    "explanation": "acquire는 하나를 소비하고 release는 하나를 되돌린다. 6−3+1=4개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0181": {
+    "correctIndex": 3,
+    "explanation": "첫 이동 8, 다음 이동 12, 마지막 이동 7로 총 27이다. 대기 요청을 가까운 순서로 재정렬하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0182": {
+    "correctIndex": 1,
+    "explanation": "6MB=48Mb다. 48÷24=2초다. byte와 bit 사이에 8배 차이가 있다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0183": {
+    "correctIndex": 2,
+    "explanation": "호스트 비트는 6개이므로 주소는 2^6개다. 네트워크·브로드캐스트 두 주소를 제외하면 62개다. /31 예외는 이 문제에 해당하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0184": {
+    "correctIndex": 0,
+    "explanation": "한 주기는 6+18=24ms다. 이용률 6÷24×100=25%다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0185": {
+    "correctIndex": 0,
+    "explanation": "IP 전체 길이에서 IP 헤더와 UDP 헤더를 뺀다. 160−20−8=132바이트다. 링크 계층 헤더는 주어진 길이에 포함되지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0186": {
+    "correctIndex": 3,
+    "explanation": "ACK는 마지막 바이트 다음 번호다. 1060+120=1180이다. 시작 바이트도 길이에 포함되므로 추가로 1을 더하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0187": {
+    "correctIndex": 2,
+    "explanation": "32−26=6개의 나머지 비트가 자유로워서 2^6=64개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0188": {
+    "correctIndex": 1,
+    "explanation": "세 키 모두 기본 해시는 6이다. 6과 7이 차 있어 다음 빈 칸 8에 저장한다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0189": {
+    "correctIndex": 3,
+    "explanation": "행 우선 오프셋은 (행번호×열수+열번호)×원소크기다. 1000+(2×6+2)×4=1056다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0190": {
+    "correctIndex": 0,
+    "explanation": "검색 실패를 확정하려면 18개 원소를 모두 확인한다. 인덱스의 최댓값과 비교 횟수를 혼동하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0191": {
+    "correctIndex": 2,
+    "explanation": "서로 다른 두 정점을 고르는 조합 C(6,2)=6×5÷2이다. 무방향이므로 두 방향을 따로 세지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0192": {
+    "correctIndex": 1,
+    "explanation": "닫는 괄호가 나오기 전 여는 괄호 6개가 모두 쌓인다. 이후에는 줄어들기만 하므로 최대는 6개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0193": {
+    "correctIndex": 3,
+    "explanation": "i별 실행 횟수 1+2+…+7=7×8÷2=28회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0194": {
+    "correctIndex": 0,
+    "explanation": "실행 시작값은 1부터 64까지 2의 거듭제곱이다. 마지막 값도 경계보다 작아서 총 7회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0195": {
+    "correctIndex": 2,
+    "explanation": "합병 단계는 log₂(128)=7개이고 각 단계에서 128개를 처리한다. 곱하면 896회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0196": {
+    "correctIndex": 1,
+    "explanation": "깊이별 노드 수 1+2+…+2^6=2^7−1=127개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0197": {
+    "correctIndex": 2,
+    "explanation": "큰 첫 원소 11가 매 비교에서 오른쪽으로 이동한다. 한 패스는 전체 정렬 완료를 보장하지 않는다. 결과는 [7,9,8,10,11]다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0198": {
+    "correctIndex": 0,
+    "explanation": "P1은 0ms, P2는 7ms, P3는 16ms 대기한다. 합은 23ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0199": {
+    "correctIndex": 3,
+    "explanation": "실행 순서는 P2,P3,P1이다. 대기는 0, 7, 16ms로 합은 23ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0200": {
+    "correctIndex": 1,
+    "explanation": "P1과 P2가 각각 7ms씩 사용한 뒤 P3 차례다. 첫 응답은 시각 14ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0201": {
+    "correctIndex": 2,
+    "explanation": "주소를 페이지 크기로 나눈 나머지가 오프셋이다. 391=3×128+7이므로 7바이트다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0202": {
+    "correctIndex": 0,
+    "explanation": "세 페이지와 추가 7바이트가 필요하므로 ceil((391)/128)=4페이지다. 마지막 페이지의 일부가 비어도 할당 단위는 페이지다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0203": {
+    "correctIndex": 3,
+    "explanation": "직렬 부분 1/7이 최소 실행시간 비율이다. 최대 향상은 1÷(1/7)=7배다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0204": {
+    "correctIndex": 1,
+    "explanation": "acquire는 하나를 소비하고 release는 하나를 되돌린다. 7−3+1=5개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0205": {
+    "correctIndex": 2,
+    "explanation": "첫 이동 8, 다음 이동 12, 마지막 이동 7로 총 27이다. 대기 요청을 가까운 순서로 재정렬하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0206": {
+    "correctIndex": 0,
+    "explanation": "7MB=56Mb다. 56÷28=2초다. byte와 bit 사이에 8배 차이가 있다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0207": {
+    "correctIndex": 3,
+    "explanation": "호스트 비트는 7개이므로 주소는 2^7개다. 네트워크·브로드캐스트 두 주소를 제외하면 126개다. /31 예외는 이 문제에 해당하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0208": {
+    "correctIndex": 1,
+    "explanation": "한 주기는 7+21=28ms다. 이용률 7÷28×100=25%다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0209": {
+    "correctIndex": 3,
+    "explanation": "IP 전체 길이에서 IP 헤더와 UDP 헤더를 뺀다. 170−20−8=142바이트다. 링크 계층 헤더는 주어진 길이에 포함되지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0210": {
+    "correctIndex": 2,
+    "explanation": "ACK는 마지막 바이트 다음 번호다. 1070+140=1210이다. 시작 바이트도 길이에 포함되므로 추가로 1을 더하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0211": {
+    "correctIndex": 0,
+    "explanation": "32−25=7개의 나머지 비트가 자유로워서 2^7=128개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0212": {
+    "correctIndex": 1,
+    "explanation": "세 키 모두 기본 해시는 7이다. 7과 8이 차 있어 다음 빈 칸 9에 저장한다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0213": {
+    "correctIndex": 3,
+    "explanation": "행 우선 오프셋은 (행번호×열수+열번호)×원소크기다. 1000+(2×6+3)×4=1060다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0214": {
+    "correctIndex": 2,
+    "explanation": "검색 실패를 확정하려면 21개 원소를 모두 확인한다. 인덱스의 최댓값과 비교 횟수를 혼동하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0215": {
+    "correctIndex": 0,
+    "explanation": "서로 다른 두 정점을 고르는 조합 C(7,2)=7×6÷2이다. 무방향이므로 두 방향을 따로 세지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0216": {
+    "correctIndex": 1,
+    "explanation": "닫는 괄호가 나오기 전 여는 괄호 7개가 모두 쌓인다. 이후에는 줄어들기만 하므로 최대는 7개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0217": {
+    "correctIndex": 3,
+    "explanation": "i별 실행 횟수 1+2+…+8=8×9÷2=36회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0218": {
+    "correctIndex": 2,
+    "explanation": "실행 시작값은 1부터 128까지 2의 거듭제곱이다. 마지막 값도 경계보다 작아서 총 8회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0219": {
+    "correctIndex": 0,
+    "explanation": "합병 단계는 log₂(256)=8개이고 각 단계에서 256개를 처리한다. 곱하면 2048회다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0220": {
+    "correctIndex": 1,
+    "explanation": "깊이별 노드 수 1+2+…+2^7=2^8−1=255개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0221": {
+    "correctIndex": 3,
+    "explanation": "큰 첫 원소 12가 매 비교에서 오른쪽으로 이동한다. 한 패스는 전체 정렬 완료를 보장하지 않는다. 결과는 [8,10,9,11,12]다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0222": {
+    "correctIndex": 2,
+    "explanation": "P1은 0ms, P2는 8ms, P3는 18ms 대기한다. 합은 26ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0223": {
+    "correctIndex": 0,
+    "explanation": "실행 순서는 P2,P3,P1이다. 대기는 0, 8, 18ms로 합은 26ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0224": {
+    "correctIndex": 1,
+    "explanation": "P1과 P2가 각각 8ms씩 사용한 뒤 P3 차례다. 첫 응답은 시각 16ms다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0225": {
+    "correctIndex": 3,
+    "explanation": "주소를 페이지 크기로 나눈 나머지가 오프셋이다. 776=3×256+8이므로 8바이트다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0226": {
+    "correctIndex": 0,
+    "explanation": "세 페이지와 추가 8바이트가 필요하므로 ceil((776)/256)=4페이지다. 마지막 페이지의 일부가 비어도 할당 단위는 페이지다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0227": {
+    "correctIndex": 2,
+    "explanation": "직렬 부분 1/8이 최소 실행시간 비율이다. 최대 향상은 1÷(1/8)=8배다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0228": {
+    "correctIndex": 1,
+    "explanation": "acquire는 하나를 소비하고 release는 하나를 되돌린다. 8−3+1=6개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0229": {
+    "correctIndex": 0,
+    "explanation": "첫 이동 8, 다음 이동 12, 마지막 이동 7로 총 27이다. 대기 요청을 가까운 순서로 재정렬하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0230": {
+    "correctIndex": 1,
+    "explanation": "8MB=64Mb다. 64÷32=2초다. byte와 bit 사이에 8배 차이가 있다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0231": {
+    "correctIndex": 3,
+    "explanation": "호스트 비트는 8개이므로 주소는 2^8개다. 네트워크·브로드캐스트 두 주소를 제외하면 254개다. /31 예외는 이 문제에 해당하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0232": {
+    "correctIndex": 2,
+    "explanation": "한 주기는 8+24=32ms다. 이용률 8÷32×100=25%다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0233": {
+    "correctIndex": 0,
+    "explanation": "IP 전체 길이에서 IP 헤더와 UDP 헤더를 뺀다. 180−20−8=152바이트다. 링크 계층 헤더는 주어진 길이에 포함되지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0234": {
+    "correctIndex": 1,
+    "explanation": "ACK는 마지막 바이트 다음 번호다. 1080+160=1240이다. 시작 바이트도 길이에 포함되므로 추가로 1을 더하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0235": {
+    "correctIndex": 3,
+    "explanation": "32−24=8개의 나머지 비트가 자유로워서 2^8=256개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0236": {
+    "correctIndex": 2,
+    "explanation": "세 키 모두 기본 해시는 8이다. 8과 9이 차 있어 다음 빈 칸 10에 저장한다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0237": {
+    "correctIndex": 0,
+    "explanation": "행 우선 오프셋은 (행번호×열수+열번호)×원소크기다. 1000+(2×6+4)×4=1064다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0238": {
+    "correctIndex": 1,
+    "explanation": "검색 실패를 확정하려면 24개 원소를 모두 확인한다. 인덱스의 최댓값과 비교 횟수를 혼동하지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0239": {
+    "correctIndex": 3,
+    "explanation": "서로 다른 두 정점을 고르는 조합 C(8,2)=8×7÷2이다. 무방향이므로 두 방향을 따로 세지 않는다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0240": {
+    "correctIndex": 2,
+    "explanation": "닫는 괄호가 나오기 전 여는 괄호 8개가 모두 쌓인다. 이후에는 줄어들기만 하므로 최대는 8개다.",
+    "verification": "computed-verified"
+  },
+  "extra-prog-0241": {
+    "correctIndex": 0,
+    "explanation": "프로세스는 일반적으로 독립된 가상 주소 공간을 가진다. 같은 이름은 메모리 공유를 뜻하지 않으며 별도 IPC나 공유 메모리 구성이 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0242": {
+    "correctIndex": 3,
+    "explanation": "같은 프로세스의 스레드는 주소 공간과 힙 등을 공유한다. 실행 위치와 지역 호출 상태를 위해 레지스터·스택은 스레드별로 유지한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0243": {
+    "correctIndex": 1,
+    "explanation": "read-modify-write 전체가 하나의 임계 구역이어야 한다. 쓰기만 잠그면 두 스레드가 이미 같은 이전 값을 읽은 경쟁을 막지 못한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0244": {
+    "correctIndex": 2,
+    "explanation": "깨움은 조건이 현재 참임을 확정하지 않는다. 락을 잡고 while로 조건을 재검사한 뒤 필요한 경우 다시 기다린다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0245": {
+    "correctIndex": 0,
+    "explanation": "페이지 폴트는 해당 주소가 불법이라는 뜻만은 아니다. 유효한 페이지의 비상주 접근은 적재와 매핑 갱신 후 재실행할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0246": {
+    "correctIndex": 3,
+    "explanation": "스래싱에서는 실행보다 페이지 이동에 시간을 쓴다. 메모리 수요를 줄이거나 수용량을 늘려 필요한 작업 집합을 유지하는 것이 핵심이다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0247": {
+    "correctIndex": 1,
+    "explanation": "선점형 스케줄링은 실행 중인 작업에서 CPU를 회수할 수 있다. 비선점형에서는 일반적으로 자발적 반환·종료 시점까지 기다린다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0248": {
+    "correctIndex": 2,
+    "explanation": "에이징은 긴 대기 작업의 우선순위를 올려 기아 가능성을 줄인다. 오래 기다렸다는 이유로 더 낮추는 정책은 문제를 악화시킨다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0249": {
+    "correctIndex": 0,
+    "explanation": "시스템 호출은 사용자 모드 프로그램이 커널의 서비스를 요청하는 경계다. 실제 파일 접근 권한 확인과 장치 작업은 운영체제가 수행한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0250": {
+    "correctIndex": 3,
+    "explanation": "인터럽트는 이벤트 발생 시 처리를 유도한다. 폴링은 CPU가 상태를 계속 확인하는 방식이며 두 방식은 시스템 특성에 따라 선택된다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0251": {
+    "correctIndex": 1,
+    "explanation": "DMA는 설정 이후 장치·메모리 전송을 컨트롤러가 수행하도록 한다. CPU의 설정·완료 처리까지 모두 없어진다는 뜻은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0252": {
+    "correctIndex": 2,
+    "explanation": "할당된 단위 안에 생긴 빈 공간이 내부 단편화다. 여러 할당 사이의 작은 빈 구간이 분산되는 현상은 외부 단편화다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0253": {
+    "correctIndex": 3,
+    "explanation": "전체 빈 용량이 충분해도 연속된 구간이 부족할 수 있다. 이는 할당 사이의 빈 공간 배치 때문에 생기는 외부 단편화다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0254": {
+    "correctIndex": 1,
+    "explanation": "TLB는 주소 변환 정보를 캐시한다. 데이터 캐시가 실제 메모리 내용 재사용을 돕는 것과 역할이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0255": {
+    "correctIndex": 0,
+    "explanation": "Copy-on-write는 공유 중인 내용을 실제로 수정할 때 독립 복사한다. 수정이 없는 페이지 복사를 줄이지만 쓰기 시 추가 처리가 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0256": {
+    "correctIndex": 2,
+    "explanation": "파이프는 프로세스 사이 바이트 스트림 전달에 사용한다. 쉘의 |는 대표적으로 한 프로그램의 출력과 다음 프로그램의 입력을 연결한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0257": {
+    "correctIndex": 3,
+    "explanation": "파일 디스크립터는 해당 프로세스에서 열린 파일 등 I/O 자원을 식별한다. 숫자 자체가 파일의 내용이나 절대 경로는 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0258": {
+    "correctIndex": 1,
+    "explanation": "전역적으로 일관된 자원 획득 순서를 정하면 기다림 그래프의 순환을 막을 수 있다. 락의 배타성을 모두 없애는 정책은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0259": {
+    "correctIndex": 0,
+    "explanation": "우선순위 상속은 락 소유자가 기다리는 높은 우선순위를 임시로 이어받도록 해 필요한 임계 구역을 마치게 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0260": {
+    "correctIndex": 2,
+    "explanation": "재진입 가능한 함수는 동시에 다시 호출돼도 공유된 변경 가능 상태 때문에 실행이 서로 깨지지 않아야 한다. 호출별 상태 분리가 대표 방법이다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0261": {
+    "correctIndex": 3,
+    "explanation": "TCP는 연결 기반의 순서 있는 신뢰성 바이트 스트림을 제공한다. UDP 데이터그램은 자체적으로 같은 보장을 제공하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0262": {
+    "correctIndex": 1,
+    "explanation": "TCP는 바이트 스트림으로 send 호출별 경계를 보장하지 않는다. 수신 버퍼링과 길이 기반 또는 구분자 기반 파싱이 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0263": {
+    "correctIndex": 0,
+    "explanation": "AAAA는 IPv6 주소, A는 IPv4 주소를 나타낸다. MX는 메일 전달 대상 등 다른 목적이다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0264": {
+    "correctIndex": 2,
+    "explanation": "MX 레코드는 도메인의 메일 교환 대상과 우선순위를 제공한다. 주소 레코드는 실제 대상 호스트의 IP를 찾는 별도 단계다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0265": {
+    "correctIndex": 3,
+    "explanation": "DNS 캐시는 응답을 유효 기간 동안 보관한다. 변경 전에 받은 응답의 TTL 때문에 전환 시점은 리졸버별로 다를 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0266": {
+    "correctIndex": 1,
+    "explanation": "로컬 서브넷 밖의 경로가 없으면 기본 라우트의 게이트웨이로 전달한다. 실제 라우팅은 가장 긴 일치 프리픽스가 우선한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0267": {
+    "correctIndex": 0,
+    "explanation": "목적지와 일치하는 경로 중 가장 긴 프리픽스를 선택한다. /16은 /8보다 더 구체적으로 범위를 지정한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0268": {
+    "correctIndex": 2,
+    "explanation": "ARP는 로컬 링크에서 IPv4 주소와 링크 계층 주소를 연결한다. 인터넷 전체 도메인 이름을 찾는 DNS와 역할이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0269": {
+    "correctIndex": 0,
+    "explanation": "포트 기반 NAT는 주소·포트 변환 매핑을 유지해 돌아오는 패킷을 올바른 내부 연결로 전달한다. 공인 IP 하나만으로 각 연결을 식별하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0270": {
+    "correctIndex": 1,
+    "explanation": "401은 요청에 유효한 인증 자격 증명이 없음을 나타내며 인증 관련 응답이다. 서버가 요청을 성공 처리했다는 2xx와 구별한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0271": {
+    "correctIndex": 3,
+    "explanation": "403은 요청을 이해했으나 수행을 거부하는 상태다. 인증 성공만으로 해당 기능 권한까지 부여되지는 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0272": {
+    "correctIndex": 2,
+    "explanation": "조건부 요청의 검증 결과 표현이 바뀌지 않았으면 304로 저장한 표현을 재사용할 수 있다. 새 본문 전체를 내려주는 200과 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0273": {
+    "correctIndex": 1,
+    "explanation": "멱등성은 반복 요청의 의도된 효과에 관한 성질이다. 응답이 항상 동일하거나 부수 로그가 한 번만 생긴다는 보장은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0274": {
+    "correctIndex": 0,
+    "explanation": "safe는 요청 의미가 기본적으로 읽기라는 뜻이다. 로그 같은 부수 효과는 있을 수 있고 통신 암호화·정보 노출 방지와 같은 별도 보안을 보장하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0275": {
+    "correctIndex": 3,
+    "explanation": "TLS 암호화와 함께 서버 인증이 중요하다. 신뢰할 수 있는 체인, 호스트 이름, 유효 기간 등 검증을 무시하면 중간자 공격에 취약해진다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0276": {
+    "correctIndex": 2,
+    "explanation": "CORS는 주로 브라우저의 출처 간 읽기 정책이다. 서버 자체의 인증·인가나 입력 처리 취약점을 대체하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0277": {
+    "correctIndex": 1,
+    "explanation": "HttpOnly는 JavaScript를 통한 쿠키 읽기 노출을 줄인다. 브라우저는 적용 조건에 맞는 요청에 쿠키를 계속 전송할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0278": {
+    "correctIndex": 0,
+    "explanation": "Secure는 쿠키의 전송 채널을 제한한다. HttpOnly나 SameSite 등 다른 속성의 역할까지 자동으로 대체하지는 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0279": {
+    "correctIndex": 2,
+    "explanation": "연결 수립 제한과 연결 이후 데이터 대기 제한은 다르다. 이미 연결된 상태의 늦은 응답을 제어하려면 해당 읽기·응답 구간의 타임아웃을 설정한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0280": {
+    "correctIndex": 3,
+    "explanation": "백오프와 지터는 재시도 집중을 완화한다. 재시도 횟수·시간 상한과 요청의 멱등성도 함께 고려해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0281": {
+    "correctIndex": 2,
+    "explanation": "인증은 신원을 확인하고 인가는 해당 신원이 무엇을 할 수 있는지 판단한다. 로그인 성공이 모든 자원 접근 권한을 뜻하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0282": {
+    "correctIndex": 0,
+    "explanation": "최소 권한은 사고나 침해 시 영향 범위를 줄인다. 기능상 불필요한 쓰기·관리 권한은 제거하고 실제 필요한 작업만 허용한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0283": {
+    "correctIndex": 1,
+    "explanation": "ID 추측을 어렵게 하는 것만으로 권한 검사를 대체할 수 없다. 자원별 소유·조직·역할 정책을 서버에서 적용해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0284": {
+    "correctIndex": 3,
+    "explanation": "deny by default는 누락된 규칙 때문에 접근이 자동 허용되는 위험을 줄인다. 필요한 접근은 검토한 정책으로 명시적으로 부여한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0285": {
+    "correctIndex": 2,
+    "explanation": "비밀번호 검증에는 원문 복구가 필요하지 않다. salt를 포함한 전용 해시로 사전 계산 및 대량 추측 비용을 높이며 Base64는 암호화가 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0286": {
+    "correctIndex": 0,
+    "explanation": "salt는 일반적으로 해시와 함께 저장 가능하다. 사용자마다 해시 계산 입력을 다르게 만들어 같은 비밀번호 비교와 사전 계산표 재사용을 어렵게 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0287": {
+    "correctIndex": 1,
+    "explanation": "지식 요소와 소유 요소를 결합하는 것은 동일 비밀번호를 반복 확인하는 것과 다르다. 개별 요소의 실패·분실 처리와 보안 설정도 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0288": {
+    "correctIndex": 3,
+    "explanation": "권한 수준이 바뀌는 시점에 세션 식별자를 회전하면 공격자가 미리 아는 ID를 이어 쓰는 세션 고정 위험을 줄인다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0289": {
+    "correctIndex": 2,
+    "explanation": "서버가 세션 수명과 무효화를 통제해야 한다. 화면 변경만으로 서버가 인정하는 세션 권한은 사라지지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0290": {
+    "correctIndex": 0,
+    "explanation": "계정·IP 등 여러 신호로 추측 시도를 제어한다. 영구 잠금만 남발하면 공격자가 계정을 막는 서비스 거부 위험도 있어 균형 있는 정책이 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0291": {
+    "correctIndex": 1,
+    "explanation": "HTML 텍스트·속성·URL·스크립트는 문맥이 다르다. 문맥에 맞는 인코딩과 안전한 API를 사용하고 실행 가능한 위치에 불필요하게 넣지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0292": {
+    "correctIndex": 3,
+    "explanation": "브라우저의 쿠키 자동 첨부만으로 사용자의 요청 의도를 증명할 수 없다. 서버가 CSRF 방어 값을 검증하고 출처·쿠키 정책을 보완한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0293": {
+    "correctIndex": 2,
+    "explanation": "문자열 쉘 실행은 사용자 입력을 명령 구문으로 해석할 위험이 있다. 가능하면 전용 API 또는 쉘 없는 실행을 사용하고 인수 자체의 위험도 검증한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0294": {
+    "correctIndex": 0,
+    "explanation": "문자열 한 부분을 지우는 것만으로 변형 인코딩·경로 처리 차이를 막기 어렵다. 최종 해석 경로의 범위와 대상 권한을 검증한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0295": {
+    "correctIndex": 1,
+    "explanation": "첨부 파일은 비신뢰 데이터다. 이름·유형·크기·저장 위치를 통제하고 실행과 공개 접근 권한을 업무 요구에 맞춰 분리한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0296": {
+    "correctIndex": 3,
+    "explanation": "SSRF는 서버의 접근 권한을 이용해 원치 않는 대상에 요청하는 위험이다. 문자열만 보기보다 실제 목적지 해석과 재지정, 네트워크 범위를 통제해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0297": {
+    "correctIndex": 1,
+    "explanation": "로그도 데이터 유출 경로가 될 수 있다. 진단 목적과 최소 기록 원칙을 함께 적용하고 접근 권한·보관 기간도 관리한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0298": {
+    "correctIndex": 2,
+    "explanation": "운영 응답에는 불필요한 내부 구조와 비밀을 노출하지 않는다. 추적 ID로 사용자 신고와 보호된 진단 로그를 연결할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0299": {
+    "correctIndex": 0,
+    "explanation": "Git 기록과 복사본에 비밀이 남을 수 있으므로 파일 삭제만으로 신뢰를 회복하지 못한다. 노출된 자격 증명 자체를 무효화하고 대체해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0300": {
+    "correctIndex": 3,
+    "explanation": "실제 사용 중인 의존성과 도달 가능한 기능을 파악하고 수정된 구현으로 갱신해야 한다. 업데이트 후 호환성·회귀 검사도 함께 수행한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0301": {
+    "correctIndex": 1,
+    "explanation": "인증·재설정 토큰은 공격자가 추측하기 어려워야 한다. 일반 시각·순번은 예측 가능하며 충분한 엔트로피와 수명·단일 사용 정책이 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0302": {
+    "correctIndex": 2,
+    "explanation": "HMAC은 비밀 키를 알고 있는 당사자가 메시지 무결성과 키 소유를 검증하도록 한다. 공개된 단순 해시나 체크섬은 공격자가 함께 다시 계산할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0303": {
+    "correctIndex": 0,
+    "explanation": "전자서명은 서명자의 개인키로 생성하고 대응 공개키로 검증한다. 공개키가 실제 송신자의 것인지 신뢰하는 절차도 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0304": {
+    "correctIndex": 3,
+    "explanation": "가용성은 필요한 시점에 정보·서비스에 접근하고 사용할 수 있는 성질이다. 사건은 여러 속성에 동시에 영향을 줄 수 있지만 질문의 사용 가능성은 가용성에 해당한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0305": {
+    "correctIndex": 1,
+    "explanation": "백업 생성과 복구 가능성은 다르다. 데이터 무결성, 암호화 키 확보, 절차, 복구 목표 충족 여부를 실제 복원으로 검증해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0306": {
+    "correctIndex": 2,
+    "explanation": "처음 발견한 시점에 표시하면 다른 간선이 같은 정점을 다시 예약하지 않는다. 표시 기준과 거리 갱신 규칙을 함께 유지해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0307": {
+    "correctIndex": 0,
+    "explanation": "음수 간선은 이미 확정한 거리보다 나중에 더 짧은 경로를 만들 수 있다. 음수 가중치가 있으면 조건에 맞는 다른 알고리즘을 검토한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0308": {
+    "correctIndex": 3,
+    "explanation": "방향 비순환 그래프에서는 위상 순서를 만들 수 있다. A→B→C→A 같은 순환 의존은 시작 가능한 전체 순서를 막는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0309": {
+    "correctIndex": 1,
+    "explanation": "각 활성 호출 프레임이 상수 공간을 사용하고 동시에 n개가 쌓이므로 최악 O(n)이다. 꼬리 호출 최적화가 없다는 조건을 적용한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0310": {
+    "correctIndex": 0,
+    "explanation": "입력별 결과 캐시는 중복 부분 문제 계산을 줄인다. 캐시가 올바르려면 같은 입력이 같은 결과를 내는 등의 전제가 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0311": {
+    "correctIndex": 2,
+    "explanation": "DP 상태는 미래의 최적 선택에 필요한 정보를 충분히 표현해야 한다. 결과가 달라지는 제약을 누락하면 서로 다른 하위 문제를 잘못 합친다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0312": {
+    "correctIndex": 3,
+    "explanation": "금액 표현 가능성과 최소 동전 개수는 다르다. 큰 동전을 먼저 고르는 규칙이 임의 동전 체계에 대해 최적인 것은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0313": {
+    "correctIndex": 0,
+    "explanation": "분할 비용이 n, n−1, …로 누적되어 합이 제곱 차수다. 균형 분할의 평균적 O(n log n) 조건과 구별한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0314": {
+    "correctIndex": 1,
+    "explanation": "힙은 부모·자식 관계의 부분 순서를 보장한다. 배열 전체 정렬이나 형제 사이의 순서를 요구하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0315": {
+    "correctIndex": 2,
+    "explanation": "BST의 순서 성질과 중위 방문 순서를 결합하면 작은 키부터 출력된다. 역중위는 내림차순이고 전위는 일반적으로 정렬 순서가 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0316": {
+    "correctIndex": 3,
+    "explanation": "Union-Find는 집합 대표 조회와 두 집합 결합을 지원한다. 연결 성분 관리에 적합하며 삭제를 같은 방식으로 쉽게 처리한다는 뜻은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0317": {
+    "correctIndex": 0,
+    "explanation": "인덱스 둘만으로 빈·가득 참을 나타내는 설계에는 추가 규약이 필요하다. 빈 슬롯 예약이나 추가 상태는 흔한 해결 방법이다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0318": {
+    "correctIndex": 1,
+    "explanation": "연결 리스트는 노드 연결을 따라 위치를 찾아야 한다. 이미 해당 노드 참조를 가진 경우의 삽입·삭제와 인덱스 찾는 비용을 구분한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0319": {
+    "correctIndex": 2,
+    "explanation": "정점별 목록과 실제 간선을 저장하므로 O(V+E)다. 인접 행렬은 간선 수가 적어도 보통 V×V 항목을 가진다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0320": {
+    "correctIndex": 3,
+    "explanation": "BFS로 일관되게 양끝 색을 번갈아 배정했는데 충돌하면 홀수 사이클이 존재해 이분 조건을 만족하지 못한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0321": {
+    "correctIndex": 3,
+    "explanation": "양수에서는 오른쪽 확장이 합을 증가시키고 왼쪽 축소가 줄인다. 음수는 방향이 뒤집힐 수 있어 원래 이동 규칙의 근거가 사라진다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0322": {
+    "correctIndex": 1,
+    "explanation": "P[r+1]은 0~r까지이고 P[l]은 0~l−1까지다. 앞부분을 빼면 요청한 닫힌 구간이 남는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0323": {
+    "correctIndex": 2,
+    "explanation": "AND로 원하는 비트만 남긴 뒤 0이 아닌지 확인한다. flags==4는 다른 플래그도 함께 켜진 경우를 잘못 제외한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0324": {
+    "correctIndex": 0,
+    "explanation": "문제의 모듈러 모델에서 260 mod 256=4다. 실제 언어별 오버플로 규칙을 가정하지 않고 명시한 저장 모델만 적용한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0325": {
+    "correctIndex": 3,
+    "explanation": "잘 분산된 해시와 적절한 부하율에서 평균적 상수 시간을 기대한다. 모든 항목이 충돌하면 한 목록을 탐색하는 선형 최악이 생긴다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0326": {
+    "correctIndex": 2,
+    "explanation": "작은 함수나 모듈을 독립적으로 검증하는 수준이 단위 테스트다. 실제 의존 시스템 간 상호작용을 확인하는 통합 테스트와 목적이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0327": {
+    "correctIndex": 1,
+    "explanation": "통합 테스트는 모듈·외부 의존 요소 사이 상호작용을 확인한다. 단위 테스트에서 대체한 DB 동작을 실제 연결로 확인할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0328": {
+    "correctIndex": 0,
+    "explanation": "E2E 테스트는 사용자 흐름을 따라 여러 계층이 연결된 결과를 확인한다. 유지 비용과 실행 시간을 고려해 핵심 경로에 적용한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0329": {
+    "correctIndex": 3,
+    "explanation": "경계 바로 아래·경계·바로 위를 확인하면 <와 <= 등 흔한 비교 오류를 찾기 쉽다. 내부 대표값만 반복하는 것과 목적이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0330": {
+    "correctIndex": 2,
+    "explanation": "같은 처리 결과를 기대하는 입력 집합을 분할하고 대표 사례를 선택한다. 분할의 전제가 맞는지와 경계값도 함께 검토한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0331": {
+    "correctIndex": 1,
+    "explanation": "문장 실행과 조건 결과 실행은 다른 지표다. 거짓 분기에 별도 문장이 없어도 분기 결과를 시험하지 않았을 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0332": {
+    "correctIndex": 0,
+    "explanation": "회귀 검사는 변경 후 기존 기대 동작이 유지되는지 확인한다. 고친 버그를 재현하는 사례와 관련 기존 동작을 함께 확인하면 유용하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0333": {
+    "correctIndex": 3,
+    "explanation": "구체적 정답 목록 대신 다양한 입력에 성립할 속성을 검사한다. 정렬이라면 순서와 원소 보존 등을 조합해 확인할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0334": {
+    "correctIndex": 2,
+    "explanation": "퍼징은 예상하지 못한 입력을 통해 견고성 문제를 찾는 방법이다. 충돌 재현 입력을 저장하고 원인 분석·회귀 검사를 연결한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0335": {
+    "correctIndex": 1,
+    "explanation": "시간은 외부 의존성이다. 제어 가능한 시계로 경계 시각을 명시하면 재현성과 경계 검증을 함께 개선할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0336": {
+    "correctIndex": 0,
+    "explanation": "테스트 대역은 설정한 행동만 재현한다. 실제 시스템의 구문·타입·제약과 연결 계약은 별도 검증이 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0337": {
+    "correctIndex": 3,
+    "explanation": "테스트가 다른 테스트의 변경 상태에 의존하면 재현성과 진단이 어려워진다. 독립 상태나 신뢰할 수 있는 reset으로 순서 영향을 줄인다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0338": {
+    "correctIndex": 2,
+    "explanation": "실패 동작도 API 계약이다. 테스트는 기대한 예외가 실제로 발생하는지와 다른 오류가 우연히 통과하지 않는지를 확인해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0339": {
+    "correctIndex": 1,
+    "explanation": "커버리지는 테스트가 도달한 실행 범위 지표다. 판정(assert)의 품질, 입력 조합, 요구사항 자체의 정확성을 대신하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0340": {
+    "correctIndex": 0,
+    "explanation": "커밋과 원격 푸시는 별도 동작이다. 커밋은 인덱스에 준비한 내용으로 로컬 이력을 만들며 추적·무시 정책도 적용된다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0341": {
+    "correctIndex": 2,
+    "explanation": "revert는 지정 커밋의 효과를 역으로 적용하는 새 커밋을 만든다. 이력을 이동·재작성하는 reset과 목적과 영향이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0342": {
+    "correctIndex": 1,
+    "explanation": "충돌은 의미를 이해해 해소해야 한다. 도구가 합칠 수 있는 수정도 논리적 충돌이 있을 수 있어 관련 검증이 중요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0343": {
+    "correctIndex": 3,
+    "explanation": "CI는 잦은 통합과 자동 검증으로 문제를 일찍 발견하도록 돕는다. 실행한 검사 범위 밖의 모든 문제를 자동으로 해결해 주는 것은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0344": {
+    "correctIndex": 0,
+    "explanation": "lockfile은 의존성 트리의 구체 버전을 고정해 설치 재현성을 높인다. 운영체제나 도구 버전 등 다른 환경 조건도 필요할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0345": {
+    "correctIndex": 2,
+    "explanation": "변경되는 환경 설정은 로직과 분리해 배포 환경에서 제공하고 필요한 값·형식을 검증한다. 비밀 설정은 적절한 비밀 관리도 사용한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0346": {
+    "correctIndex": 1,
+    "explanation": "정적 분석은 실행 없이 확인할 수 있는 규칙을 검토한다. 실제 데이터·연결·요구 동작을 확인하는 실행 검증과 보완 관계다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0347": {
+    "correctIndex": 3,
+    "explanation": "자료형은 표현 가능 범위를 다 담지 않는다. 금액의 유효 범위, 유한 값 여부 등 업무 제약을 명시적으로 확인해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0348": {
+    "correctIndex": 0,
+    "explanation": "같은 바이트라도 인코딩 해석이 다르면 문자가 달라진다. 저장·전송·읽기 경로의 인코딩을 일관되게 지정해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0349": {
+    "correctIndex": 2,
+    "explanation": "문자·코드 포인트·표시 글자와 인코딩 바이트는 다른 단위다. 길이 제한은 요구사항이 어떤 단위를 뜻하는지 정해 검증해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0350": {
+    "correctIndex": 1,
+    "explanation": "리뷰는 설계·가독성·오류·테스트 근거를 사람의 관점에서 평가한다. 자동 검사와 서로 보완하며 분량 하나만으로 정확성을 판단하지 않는다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0351": {
+    "correctIndex": 3,
+    "explanation": "서비스가 계산기를 사용하는 has-a 관계에는 합성과 위임이 자연스럽다. 상속은 적합한 is-a 관계와 대체 가능성을 검토해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0352": {
+    "correctIndex": 0,
+    "explanation": "상위 타입을 기대한 호출자에 하위 타입을 넣어도 계약이 유지돼야 한다. 전제 조건을 더 엄격하게 만드는 것은 기존 정상 호출을 깨뜨릴 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0353": {
+    "correctIndex": 1,
+    "explanation": "단일 책임은 코드 한 줄이나 메서드 하나만 의미하지 않는다. 서로 다른 변경 이유를 분리해 영향을 제한하는 원칙이다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0354": {
+    "correctIndex": 3,
+    "explanation": "안정된 코드의 수정 범위를 줄이면서 새 행동을 추가하도록 추상화 경계를 둔다. 무조건 어떤 코드도 수정하지 말라는 뜻은 아니다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0355": {
+    "correctIndex": 2,
+    "explanation": "클라이언트가 쓰지 않는 계약에 강제로 의존하지 않도록 역할 기준으로 분리한다. 크기만 기계적으로 줄이는 것이 아니라 실제 사용 요구를 반영한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0356": {
+    "correctIndex": 0,
+    "explanation": "고수준 정책을 저수준 세부 구현과 분리하는 추상화에 의존한다. 구현 교체와 대역을 통한 검사도 쉬워질 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0357": {
+    "correctIndex": 1,
+    "explanation": "캡슐화는 단순히 getter·setter 개수를 늘리는 것이 아니다. 객체가 지켜야 하는 불변식을 한 경계에서 유지하도록 상태 변경을 통제한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0358": {
+    "correctIndex": 3,
+    "explanation": "다형적 호출은 런타임 객체의 재정의된 메서드를 사용한다. 문제는 동적 디스패치가 적용되는 메서드라고 명시했다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0359": {
+    "correctIndex": 2,
+    "explanation": "오버로딩은 이름이 같고 인수 목록이 다른 여러 메서드를 제공하는 것이다. 상속받은 메서드의 동작을 다시 정의하는 오버라이딩과 구별한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0360": {
+    "correctIndex": 0,
+    "explanation": "추상 계약은 구현 교체와 협력을 가능하게 하는 경계다. 성능·실제 로직의 정확성·외부 오류 처리는 구현과 검증에서 별도로 다룬다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0361": {
+    "correctIndex": 1,
+    "explanation": "불변성은 상태 변화의 경우를 줄인다. 하지만 내부에 변경 가능한 참조가 남아 있으면 얕은 불변성만 가질 수 있어 설계 범위를 확인해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0362": {
+    "correctIndex": 3,
+    "explanation": "참조 별명은 같은 변경 가능한 상태를 공유한다. 복사의 깊이와 내부 원소의 변경 가능성까지 고려해야 내부 불변식을 지킬 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0363": {
+    "correctIndex": 2,
+    "explanation": "해시 집합은 삽입 시 해시 위치를 사용한다. 키의 기준 상태를 바꾸면 검색 위치가 달라질 수 있다. 동등하면 동일한 해시를 가져야 하는 계약도 중요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0364": {
+    "correctIndex": 0,
+    "explanation": "핸들러 선택 순서가 있는 모델에서는 구체 예외를 앞에 배치해야 의도한 특수 처리를 수행할 수 있다. 언어에 따라 이런 코드 자체를 제한하기도 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0365": {
+    "correctIndex": 1,
+    "explanation": "팩토리는 생성 방식과 호출자의 사용 책임을 분리한다. 하나의 공유 인스턴스만 보장하는 singleton과 목적이 다르다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0366": {
+    "correctIndex": 3,
+    "explanation": "캐시와 원본은 별도 상태다. 무효화·갱신·TTL 등을 요구하는 신선도와 장애 정책에 맞게 설계하고 변경 이벤트를 다뤄야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0367": {
+    "correctIndex": 2,
+    "explanation": "동일한 갱신을 하나로 합치면 원본에 대한 중복 부하를 줄인다. 만료 시각 분산과 필요 시 이전 값 제공 등 정책을 함께 검토할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0368": {
+    "correctIndex": 0,
+    "explanation": "동일 업무 요청을 식별하는 키와 원자적인 기록·상태 관리가 중요하다. 재시도와 새 요청을 구별하고 키의 범위·수명·내용 일치도 정의한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0369": {
+    "correctIndex": 2,
+    "explanation": "아웃박스는 업무 상태와 이벤트 기록의 원자성을 DB 안에서 확보한다. 전달자는 재시도할 수 있으므로 소비자의 중복 처리 대응도 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0370": {
+    "correctIndex": 0,
+    "explanation": "최소 한 번은 유실 방지 쪽 보장이고 재전달이 가능하다. 효과까지 정확히 한 번 만들려면 업무 저장과 중복 판정을 함께 고려한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0371": {
+    "correctIndex": 3,
+    "explanation": "서킷 브레이커는 반복 실패 호출을 억제해 자원 고갈과 연쇄 장애를 완화한다. open·half-open 등 상태에서 제한된 회복 확인을 수행한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0372": {
+    "correctIndex": 1,
+    "explanation": "자원 풀의 구획은 한 작업 부하가 다른 작업 자원을 모두 고갈시키는 영향을 제한한다. 각 구획의 크기·한계·우선순위는 요구에 맞춰 정한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0373": {
+    "correctIndex": 2,
+    "explanation": "백프레셔는 다운스트림 처리 한계를 upstream에 반영한다. 쌓인 작업만 숨기는 대신 부하 수용·조절·거절 규칙을 명시해야 한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0374": {
+    "correctIndex": 0,
+    "explanation": "요청을 여러 서버가 처리하려면 필요한 상태가 어디에 있고 어떻게 공유·검증되는지 정의해야 한다. 공유 저장소나 적합한 토큰 전략을 선택할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0375": {
+    "correctIndex": 3,
+    "explanation": "키셋 방식은 안정된 정렬 키의 경계에서 다음 범위를 구한다. 동점 처리용 고유 키와 정렬 키 변경에 대한 정책도 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0376": {
+    "correctIndex": 1,
+    "explanation": "버전이나 ETag 등으로 읽은 상태가 여전히 유효한지 확인한다. 충돌은 재조회·사용자 병합·재시도 등 명시된 정책으로 처리한다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0377": {
+    "correctIndex": 2,
+    "explanation": "높은 분위수는 느린 쪽 요청의 분포를 보여 준다. 평균만 보면 소수의 매우 느린 요청 영향과 사용자 경험이 충분히 드러나지 않을 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0378": {
+    "correctIndex": 0,
+    "explanation": "분산 추적은 같은 요청의 작업 구간을 연결해 지연·오류 위치를 분석하도록 한다. 메트릭과 로그는 다른 관측 정보로 함께 활용할 수 있다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0379": {
+    "correctIndex": 3,
+    "explanation": "graceful shutdown은 새 작업 유입과 진행 중 작업 완료를 조정한다. 무한 대기를 피하는 종료 제한과 재시작·재처리 정책도 필요하다.",
+    "verification": "original-reviewed"
+  },
+  "extra-prog-0380": {
+    "correctIndex": 1,
+    "explanation": "두 환경 사이 트래픽을 전환하면 빠른 교체·복귀에 도움이 된다. 데이터베이스 변경의 호환성이나 배포 후 데이터 변화는 별도로 관리해야 한다.",
+    "verification": "original-reviewed"
+  }
+}

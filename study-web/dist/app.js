@@ -37,13 +37,25 @@
   const validIds = new Set(questions.map(q => q.id));
   const localOfficial = questions.some(q => q.kind === 'official-sample');
   progress.bookmarks = progress.bookmarks.filter(id => validIds.has(id));
-  const state = { view: 'quiz', track: 'ncs', category: '전체', index: 0, selected: null, submitted: false, reviewMode: 'wrong', lessonId: null, startedAt: Date.now(), elapsed: 0, sessionCount: 0, focusId: null };
+  const state = { view: 'quiz', track: 'ncs', category: '전체', index: 0, selected: null, submitted: false, reviewMode: 'wrong', lessonId: null, startedAt: Date.now(), elapsed: 0, sessionCount: 0, focusId: null, search: '', difficulty: '전체', status: '전체', topic: '전체', listOpen: false, listPage: 0 };
   const $ = selector => document.querySelector(selector);
   const save = () => { try { localStorage.setItem('maro-study-v1', JSON.stringify(progress)); } catch { storageAvailable = false; toast('학습 기록을 저장할 수 없습니다. 브라우저 저장 공간을 확인해 주세요.'); } };
   let toastTimer;
   function toast(message) { $('#toast').textContent = message; $('#toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').hidden = true, 3000); }
   const wrongIds = () => Object.entries(progress.attempts).filter(([id, a]) => validIds.has(id) && a?.correct === false).map(([id]) => id);
-  const filtered = () => questions.filter(q => q.track === state.track && (state.category === '전체' || q.category === state.category));
+  const topicOf = q => q.learningTopic || q.category;
+  const normalize = value => String(value || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+  const filtered = () => questions.filter(q => {
+    if (q.track !== state.track || (state.category !== '전체' && q.category !== state.category)) return false;
+    if (state.difficulty !== '전체' && (q.difficulty || '보통') !== state.difficulty) return false;
+    if (state.topic !== '전체' && topicOf(q) !== state.topic) return false;
+    const attempt = progress.attempts[q.id];
+    if (state.status === '미풀이' && attempt) return false;
+    if (state.status === '오답' && attempt?.correct !== false) return false;
+    if (state.status === '북마크' && !progress.bookmarks.includes(q.id)) return false;
+    const haystack = normalize([q.title, q.prompt, q.passage, q.code, q.category, topicOf(q), ...q.options].join(' '));
+    return !state.search || normalize(state.search).split(' ').every(word => haystack.includes(word));
+  });
   const current = () => state.focusId ? questions.find(q => q.id === state.focusId) : filtered()[state.index];
   const kindLabel = q => q.kind === 'official-sample' ? '공식 예시' : q.kind === 'past-exam' ? '공개 기출' : '자체 연습';
   const sourceFor = q => sources.find(s => s.id === q.sourceId);
@@ -68,20 +80,46 @@
     }).join('')}</section><section class="tip-card"><div class="tip-head">${icon('bulb')}STUDY NOTE</div><p>NCS는 의사소통·문제해결·수리·자원관리 네 영역을 학습합니다. 해설을 확인한 뒤, 틀린 문제를 다시 풀어 보세요.</p><button data-view="review">오답 노트 열기</button></section></aside>`;
   }
   function questionCard(q) {
-    if (!q) return empty('준비된 문제가 없습니다', '다른 영역을 선택해 주세요.');
+    if (!q) return empty('조건에 맞는 문제가 없어요.', '검색어와 필터를 바꾸거나 다른 영역을 선택해 주세요.');
     const answer = answers[q.id]; const source = sourceFor(q);
-    return `<article class="quiz-card"><div class="quiz-top"><div class="quiz-meta"><span class="pill">${escape(q.category)}</span><span class="pill blue">${kindLabel(q)}</span><span class="pill gold">${escape(q.difficulty || '보통')}</span></div><button class="icon-button ${progress.bookmarks.includes(q.id) ? 'saved' : ''}" data-action="bookmark" aria-label="${progress.bookmarks.includes(q.id) ? '북마크 해제' : '문제 북마크'}" aria-pressed="${progress.bookmarks.includes(q.id)}">${icon('bookmark')}</button></div><div class="quiz-body"><div class="question-heading"><span class="question-number">Q.</span><h2>${escape(q.prompt || q.title)}</h2></div>${q.passage ? `<div class="passage">${escape(q.passage)}</div>` : ''}${q.code ? `<pre class="code-block"><code>${escape(q.code)}</code></pre>` : ''}${q.images?.length ? q.images.map((src,i) => `<figure class="question-figure"><img class="question-image" src="${safeUrl(typeof src === 'string' ? src : src.src)}" alt="${escape(q.category)} ${escape(q.number || '')}번 ${i + 1}번째 문제 자료" loading="lazy"><figcaption>${escape(typeof src === 'string' ? '문제 자료' : src.caption || '문제 자료')}</figcaption></figure>`).join('') : ''}${q.image ? `<a href="${safeUrl(q.image)}" target="_blank" rel="noopener"><img class="question-image" src="${safeUrl(q.image)}" alt="${escape(q.category)} 공식 예시 ${escape(q.number || '')}번 문제" loading="lazy"></a>` : ''}<div class="option-list" role="group" aria-label="답 선택">${q.options.map((option, i) => {
+    return `<article class="quiz-card"><div class="quiz-top"><div class="quiz-meta"><span class="pill">${escape(q.category)}</span><span class="pill blue">${kindLabel(q)}</span><span class="pill gold">${escape(q.difficulty || '보통')}</span></div><button class="icon-button ${progress.bookmarks.includes(q.id) ? 'saved' : ''}" data-action="bookmark" aria-label="${progress.bookmarks.includes(q.id) ? '북마크 해제' : '문제 북마크'}" aria-pressed="${progress.bookmarks.includes(q.id)}">${icon('bookmark')}</button></div><div class="quiz-body"><div class="question-heading"><span class="question-number">Q.</span><h2>${escape(q.prompt || q.title)}</h2></div>${passageView(q)}${q.code ? `<pre class="code-block"><code>${escape(q.code)}</code></pre>` : ''}${q.images?.length ? q.images.map((src,i) => `<figure class="question-figure"><img class="question-image" src="${safeUrl(typeof src === 'string' ? src : src.src)}" alt="${escape(q.category)} ${escape(q.number || '')}번 ${i + 1}번째 문제 자료" loading="lazy"><figcaption>${escape(typeof src === 'string' ? '문제 자료' : src.caption || '문제 자료')}</figcaption></figure>`).join('') : ''}${q.image ? `<a href="${safeUrl(q.image)}" target="_blank" rel="noopener"><img class="question-image" src="${safeUrl(q.image)}" alt="${escape(q.category)} 공식 예시 ${escape(q.number || '')}번 문제" loading="lazy"></a>` : ''}<div class="option-list" role="group" aria-label="답 선택">${q.options.map((option, i) => {
       let style = state.selected === i ? 'selected' : '';
       let status = '';
       if (state.submitted && answer) { if (answer.correctIndex === i) { style = 'correct'; status = '정답'; } else if (state.selected === i) { style = 'incorrect'; status = '나의 선택'; } }
       return `<button class="option ${style}" data-action="select" data-index="${i}" aria-pressed="${state.selected === i}" ${state.submitted ? 'disabled' : ''}><span class="option-num">${i + 1}</span><span>${escape(option)}</span>${status ? `<span class="option-state">${status}</span>` : ''}</button>`;
     }).join('')}</div>${state.submitted && answer ? `<div class="explanation ${state.selected !== answer.correctIndex ? 'wrong' : ''}"><strong>${state.selected === answer.correctIndex ? '정답입니다! 잘 이해했어요.' : `정답은 ${answer.correctIndex + 1}번입니다.`}</strong>${escape(answer.explanation)}${answer.images?.length ? answer.images.map(src => `<figure class="question-figure"><img class="question-image" src="${safeUrl(typeof src === 'string' ? src : src.src)}" alt="공식 정답 해설" loading="lazy"><figcaption>${escape(typeof src === 'string' ? '공식 풀이' : src.caption || '공식 풀이')}</figcaption></figure>`).join('') : ''}${answer.detailedSteps?.length ? `<ol>${answer.detailedSteps.map(step => `<li>${escape(step)}</li>`).join('')}</ol>` : ''}<div class="source-line">${answer.verification === 'derived' ? '풀이로 산출한 답안 · 공식 정답 수록 여부와 구분' : answer.verification === 'official-answer' ? '원문 공식 정답 대조' : '자체 제작 연습문제 해설'}</div></div>` : ''}<div class="source-line">${source ? `출처: <a href="${safeUrl(source.url)}" target="_blank" rel="noopener">${escape(source.publisher)} · ${escape(source.title)}</a>${q.page ? ` / 원문 ${q.page}쪽` : ''}${q.number ? ` / ${escape(q.number)}번` : ''}` : 'MARO 자체 제작 연습문제 · 실제 신용보증기금 기출문제가 아닙니다.'}</div></div><div class="quiz-bottom"><span class="timer">${icon('clock')}<span id="question-timer">00:00</span></span><div class="quiz-actions">${state.submitted ? `<button class="secondary-button" data-action="retry">다시 풀기</button><button class="primary-button" data-action="next">다음 문제</button>` : `<button class="primary-button" data-action="submit" ${state.selected === null || !answer ? 'disabled' : ''}>정답 확인하기</button>`}</div></div></article>`;
   }
+  function passageView(q) {
+    if (!q.passage) return '';
+    if (!q.templateId?.startsWith('db-sql-')) return `<div class="passage">${escape(q.passage)}</div>`;
+    const blocks = q.passage.split(/\n\s*\n/), rendered = [];
+    for (let i = 0; i < blocks.length; i++) {
+      const schema = /^([\w]+)\(([^)]+)\)$/.exec(blocks[i]);
+      if (schema && blocks[i + 1]) {
+        const headers = schema[2].split(',').map(s => s.trim());
+        const rows = blocks[i + 1].split('\n').map(row => row.split(' | '));
+        if (rows.every(row => row.length === headers.length)) {
+          rendered.push(`<div class="data-table-wrap" tabindex="0" role="region" aria-label="${escape(schema[1])} 데이터 표"><table class="data-table"><caption>${escape(schema[1])}</caption><thead><tr>${headers.map(h => `<th scope="col">${escape(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${escape(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`); i++; continue;
+        }
+      }
+      rendered.push(`<div class="passage">${escape(blocks[i])}</div>`);
+    }
+    return rendered.join('');
+  }
   function quizView() {
     const bank = filtered(); if (state.index >= bank.length) state.index = 0;
     const cats = state.track === 'ncs' ? categories : [...new Set(questions.filter(q => q.track === state.track).map(q => q.category))];
-    $('#view-root').innerHTML = `<div class="study-layout"><div class="study-main">${tabs()}<div class="filter-row" aria-label="문제 영역">${['전체', ...cats].map(cat => `<button class="filter-chip ${state.category === cat ? 'active' : ''}" data-action="category" data-id="${escape(cat)}" aria-pressed="${state.category === cat}">${escape(cat)}</button>`).join('')}</div>${state.focusId ? '<div class="notice">오답·북마크에서 선택한 문제를 다시 풀고 있습니다. 영역을 선택하면 일반 문제 풀이로 돌아갑니다.</div>' : ''}${questionCard(current())}<div class="question-nav"><button class="quiet-button" data-action="shuffle">${icon('shuffle')}무작위 문제</button><div class="nav-group"><span>${bank.length ? state.index + 1 : 0} / ${bank.length} 문제</span><button class="secondary-button" data-action="prev" ${!state.focusId && state.index === 0 ? 'disabled' : ''}>이전</button><button class="secondary-button" data-action="next" ${!state.focusId && state.index === bank.length - 1 ? 'disabled' : ''}>다음</button></div></div></div>${sidePanel()}</div>`;
+    const position = bank.findIndex(q => q.id === current()?.id);
+    $('#view-root').innerHTML = `<div class="study-layout"><div class="study-main">${tabs()}<div class="filter-row" aria-label="문제 영역">${['전체', ...cats].map(cat => `<button class="filter-chip ${state.category === cat ? 'active' : ''}" data-action="category" data-id="${escape(cat)}" aria-pressed="${state.category === cat}">${escape(cat)} <span class="chip-count">${questions.filter(q => q.track === state.track && (cat === '전체' || q.category === cat)).length}</span></button>`).join('')}</div>${bankControls(bank)}${questionCard(current())}<div class="question-nav"><button class="quiet-button" data-action="shuffle" ${!bank.length ? 'disabled' : ''}>${icon('shuffle')}무작위 문제</button><div class="nav-group"><span>${!current() ? "0 / 0 문제" : position >= 0 ? `${position + 1} / ${bank.length} 문제` : `선택한 문제 · 목록 ${bank.length}개`}</span><button class="secondary-button" data-action="prev" ${!bank.length || position === 0 ? 'disabled' : ''}>이전</button><button class="secondary-button" data-action="next" ${!bank.length || position === bank.length - 1 ? 'disabled' : ''}>다음</button></div></div></div>${sidePanel()}</div>`;
     updateTimer();
+  }
+  function bankControls(bank) {
+    const scoped = questions.filter(q => q.track === state.track && (state.category === '전체' || q.category === state.category));
+    const topics = [...new Set(scoped.map(topicOf))].sort((a,b) => a.localeCompare(b, 'ko'));
+    const select = (name, label, values, selected) => `<label>${label}<select name="${name}" data-filter="${name}" aria-label="${label}">${values.map(value => `<option value="${escape(value)}" ${value === selected ? 'selected' : ''}>${escape(value)}</option>`).join('')}</select></label>`;
+    const pageSize = 12, pageCount = Math.ceil(bank.length / pageSize);
+    state.listPage = Math.max(0, Math.min(state.listPage, pageCount - 1));
+    return `<section class="bank-tools" aria-label="문제 찾기"><form id="question-search" class="bank-search"><label class="sr-only" for="search-query">문제 검색</label><input id="search-query" name="query" type="search" value="${escape(state.search)}" placeholder="검색: JOIN, 슬라이싱, 증가율…" maxlength="120"><button class="secondary-button" type="submit">검색</button></form><div class="bank-filters">${select('topic','학습 주제',['전체',...topics],state.topic)}${select('difficulty','난이도',['전체','기초','보통','심화'],state.difficulty)}${select('status','풀이 상태',['전체','미풀이','오답','북마크'],state.status)}</div><div class="bank-summary"><span>조건에 맞는 문제 <strong>${bank.length.toLocaleString('ko-KR')}개</strong></span><div><button class="quiet-button" data-action="clear-filters">필터 초기화</button><button class="secondary-button" data-action="toggle-list" aria-expanded="${state.listOpen}" aria-controls="bank-question-list">${state.listOpen ? '목록 닫기' : '문제 목록'}</button></div></div>${state.listOpen ? `<div id="bank-question-list" class="bank-list">${bank.length ? bank.slice(state.listPage * pageSize,(state.listPage + 1) * pageSize).map((q,i) => `<button class="bank-question" data-action="pick-question" data-id="${escape(q.id)}"><span class="bank-question-number">${state.listPage * pageSize + i + 1}</span><span><strong>${escape(q.title || q.prompt)}</strong><small>${escape(topicOf(q))} · ${escape(q.difficulty || '보통')}</small></span><span class="bank-question-status">${progress.attempts[q.id] ? progress.attempts[q.id].correct ? '정답' : '오답' : '미풀이'}</span></button>`).join('') : '<p class="bank-no-results">검색어나 필터를 바꿔 주세요.</p>'}</div>${pageCount > 1 ? `<div class="bank-pagination"><button class="secondary-button" data-action="list-prev" ${state.listPage === 0 ? 'disabled' : ''}>목록 이전</button><span>${state.listPage + 1} / ${pageCount}</span><button class="secondary-button" data-action="list-next" ${state.listPage === pageCount - 1 ? 'disabled' : ''}>목록 다음</button></div>` : ''}` : ''}</section>`;
   }
   function empty(title, body, action = '') { return `<div class="empty-state">${icon('book')}<h2>${title}</h2><p>${body}</p>${action}</div>`; }
   function lessonsView() {
@@ -110,10 +148,12 @@
   }
   function resetQuestion() { state.selected = null; state.submitted = false; state.startedAt = Date.now(); state.elapsed = 0; }
   function navigate(view) { if (!labels[view]) return; state.view = view; state.lessonId = null; history.replaceState(null, '', '#' + view); render(); }
-  function setTrack(track) { if (!tracks[track]) return; state.track = track; state.category = '전체'; state.index = 0; state.focusId = null; resetQuestion(); render(); }
+  function clearFilters() { state.search = ''; state.topic = '전체'; state.difficulty = '전체'; state.status = '전체'; state.listPage = 0; }
+  function resetSelection() { state.index = 0; state.focusId = null; state.listPage = 0; resetQuestion(); render(); }
+  function setTrack(track) { if (!tracks[track]) return; state.track = track; state.category = '전체'; clearFilters(); resetSelection(); }
   function move(step) {
     const bank = filtered(); if (!bank.length) return;
-    if (state.focusId) { const i = bank.findIndex(q => q.id === state.focusId); state.index = i >= 0 ? i : 0; state.focusId = null; }
+    if (state.focusId) { const i = bank.findIndex(q => q.id === state.focusId); state.index = i >= 0 ? i : -1; state.focusId = null; }
     state.index = Math.max(0, Math.min(bank.length - 1, state.index + step)); resetQuestion(); render();
   }
   function select(index) { const q = current(); if (!q || state.submitted || !Number.isInteger(index) || index < 0 || index >= q.options.length) throw new Error('유효한 답 번호를 선택해 주세요.'); state.selected = index; quizView(); }
@@ -121,7 +161,7 @@
     const q = current(); if (!q || !answers[q.id] || state.selected === null || state.submitted) return;
     const correct = state.selected === answers[q.id].correctIndex;
     progress.attempts[q.id] = { choice: state.selected, correct, at: new Date().toISOString() };
-    state.elapsed = Math.floor((Date.now() - state.startedAt) / 1000); state.submitted = true; state.sessionCount++; save(); render();
+    state.focusId = q.id; state.elapsed = Math.floor((Date.now() - state.startedAt) / 1000); state.submitted = true; state.sessionCount++; save(); render();
     return { questionId: q.id, correct, correctIndex: answers[q.id].correctIndex, explanation: answers[q.id].explanation };
   }
   function updateTimer() { const el = $('#question-timer'); if (!el) return; const seconds = state.submitted ? state.elapsed : Math.floor((Date.now() - state.startedAt) / 1000); el.textContent = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`; }
@@ -130,21 +170,34 @@
     if (button.dataset.view) return navigate(button.dataset.view);
     const { action, id, index } = button.dataset;
     if (action === 'track') setTrack(id);
-    else if (action === 'category') { state.category = id; state.index = 0; state.focusId = null; resetQuestion(); render(); }
+    else if (action === 'category') { state.category = id; state.topic = '전체'; resetSelection(); }
+    else if (action === 'clear-filters') { state.category = '전체'; clearFilters(); resetSelection(); }
+    else if (action === 'toggle-list') { state.listOpen = !state.listOpen; quizView(); }
+    else if (action === 'list-prev' || action === 'list-next') { state.listPage += action === 'list-next' ? 1 : -1; quizView(); }
+    else if (action === 'pick-question') { const bank = filtered(); const i = bank.findIndex(q => q.id === id); if (i < 0) return; state.index = i; state.focusId = null; state.listOpen = false; resetQuestion(); render(); }
     else if (action === 'select') select(Number(index));
     else if (action === 'submit') submit();
     else if (action === 'next') move(1);
     else if (action === 'prev') move(-1);
-    else if (action === 'shuffle') { const bank = filtered(); if (!bank.length) return; state.focusId = null; const candidates = bank.map((_, i) => i).filter(i => i !== state.index); state.index = candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : 0; resetQuestion(); render(); }
+    else if (action === 'shuffle') { const bank = filtered(); if (!bank.length) return; const currentId = current()?.id; const candidates = bank.map((q, i) => ({q,i})).filter(({q}) => q.id !== currentId); state.focusId = null; state.index = candidates.length ? candidates[Math.floor(Math.random() * candidates.length)].i : 0; resetQuestion(); render(); }
     else if (action === 'retry') { resetQuestion(); render(); }
-    else if (action === 'bookmark') { const q = current(); if (!q) return; progress.bookmarks = progress.bookmarks.includes(q.id) ? progress.bookmarks.filter(id => id !== q.id) : [...progress.bookmarks, q.id]; save(); render(); }
+    else if (action === 'bookmark') { const q = current(); if (!q) return; state.focusId = q.id; progress.bookmarks = progress.bookmarks.includes(q.id) ? progress.bookmarks.filter(id => id !== q.id) : [...progress.bookmarks, q.id]; save(); render(); }
     else if (action === 'review-mode') { state.reviewMode = id; render(); }
-    else if (action === 'open-question') { const q = questions.find(q => q.id === id); if (!q) return; state.track = q.track; state.category = '전체'; state.index = filtered().findIndex(q => q.id === id); state.focusId = id; resetQuestion(); navigate('quiz'); }
+    else if (action === 'open-question') { const q = questions.find(q => q.id === id); if (!q) return; state.track = q.track; state.category = '전체'; clearFilters(); state.index = filtered().findIndex(q => q.id === id); state.focusId = id; resetQuestion(); navigate('quiz'); }
     else if (action === 'lesson') { state.lessonId = id; render(); }
     else if (action === 'lesson-back') { state.lessonId = null; render(); }
     else if (action === 'lesson-complete') { if (!progress.readLessons.includes(id)) progress.readLessons.push(id); save(); toast('개념 학습을 완료했습니다.'); render(); }
-    else if (action === 'lesson-practice') { state.track = id; state.category = '전체'; state.index = 0; state.focusId = null; resetQuestion(); navigate('quiz'); }
+    else if (action === 'lesson-practice') { setTrack(id); navigate('quiz'); }
     else if (action === 'export-progress') { const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'maro-study-progress.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
+  });
+  document.addEventListener('submit', event => {
+    if (event.target.id !== 'question-search') return;
+    event.preventDefault(); state.search = new FormData(event.target).get('query').trim(); resetSelection();
+  });
+  document.addEventListener('change', event => {
+    const filter = event.target.dataset.filter;
+    if (!['topic','difficulty','status'].includes(filter)) return;
+    state[filter] = event.target.value; resetSelection();
   });
   document.querySelectorAll('[data-icon]').forEach(el => el.innerHTML = icon(el.dataset.icon));
   $('#today-date').textContent = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());

@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "totalQuestions": 1200,
+  "trackCounts": { "ncs": 400, "programming": 400, "db": 400 },
+  "ncsCategoryCounts": { "의사소통능력": 100, "문제해결능력": 100, "수리능력": 100, "자원관리능력": 100 },
+  "minimumExpansionStructures": { "ncs": 45, "programming": 50, "db": 50 },
+  "maximumQuestionsPerStructure": 10,
+  "description": "자체 제작 연습문제. 같은 학습 개념에도 서로 다른 자료·조건·코드·시나리오를 적용한 연습 문항을 포함합니다. 실제 신용보증기금 기출이 아닙니다."
+}

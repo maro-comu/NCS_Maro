@@ -1,0 +1,24 @@
+{
+  "questions": 380,
+  "counts": {
+    "의사소통능력": 95,
+    "문제해결능력": 95,
+    "수리능력": 95,
+    "자원관리능력": 95
+  },
+  "structures": 76,
+  "variantsPerStructure": 5,
+  "independentlyComputed": 260,
+  "reviewedQualitative": 120,
+  "correctIndexDistribution": [
+    96,
+    96,
+    96,
+    92
+  ],
+  "limitations": [
+    "직접 작성한 가상 업무 연습문제로 실제 기출이 아니다.",
+    "모형의 수치와 단순화된 가정은 문제 풀이를 위한 것이며 실제 기관 규정이 아니다.",
+    "독립 검산은 계산·논리 문항에 적용하고 정성 문항은 문맥과 보기의 배타성으로 검토한다."
+  ]
+}

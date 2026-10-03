@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadBankManifest } from './load-practice-bank.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8').replace(/^\uFEFF/, '');
@@ -39,8 +40,9 @@ checkUi('study-web/dist');
 
 const publicQuestions = json('docs/data/questions.json');
 const publicAnswers = json('docs/data/answers.json');
-assert.equal(publicQuestions.length, 60, 'public web must contain 60 original questions');
-assert.equal(Object.keys(publicAnswers).length, 60, 'public answer file must contain 60 entries');
+const expectedCount = loadBankManifest().totalQuestions;
+assert.equal(publicQuestions.length, expectedCount, 'public question count must match manifest');
+assert.equal(Object.keys(publicAnswers).length, expectedCount, 'public answer count must match manifest');
 for (const q of publicQuestions) {
   assert.equal(q.kind, 'original', `${q.id}: public question must be labeled original`);
   assert(!unavailablePrompt.test(q.prompt ?? ''), `${q.id}: question asks learner to consult hidden PDF`);
@@ -88,4 +90,4 @@ if (process.argv.includes('--private')) {
   }
 }
 
-console.log(`PASS: public 60 questions and separated answers; no PDF viewer UI or private/local source paths${privateQuestionCount === null ? '' : `; ${privateQuestionCount} private text questions checked`}.`);
+console.log(`PASS: public ${publicQuestions.length} questions and separated answers; no PDF viewer UI or private/local source paths${privateQuestionCount === null ? '' : `; ${privateQuestionCount} private text questions checked`}.`);

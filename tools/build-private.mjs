@@ -1,12 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadPracticeBank } from './load-practice-bank.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8').replace(/^\uFEFF/,''));
 const official=read('private-study/ncs-questions.json');
 const officialAnswers=read('private-study/ncs-answers.json');
-const practice=read('data/practice-questions.json');
-const practiceAnswers=read('data/practice-answers.json');
+const {questions:practice,answers:practiceAnswers}=loadPracticeBank();
 const localPath=value=>value && !/^https?:/i.test(value)?'../../'+value.replaceAll('\\','/').replace(/^\.\//,''):value;
 const imagePath=value=>'../'+value.replace(/^private-study\//,'');
 const questions=[...official.map(q=>({...q,images:q.images?.map(src=>typeof src==='string'?imagePath(src):{...src,src:imagePath(src.src)})})),...practice];

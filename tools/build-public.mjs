@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
+import { loadPracticeBank } from './load-practice-bank.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8').replace(/^\uFEFF/, ''));
-const questions = read('practice-questions.json');
-const answers = read('practice-answers.json');
+const { questions, answers } = loadPracticeBank();
 const lessons = read('lessons.json');
 const sources = fs.existsSync(path.join(root, 'data', 'sources.json')) ? read('sources.json') : [];
 const publicSources = sources.map(s => {
@@ -20,5 +21,8 @@ for (const [name, value] of [['questions.json',questions],['answers.json',answer
 fs.writeFileSync(path.join(dataDir,'question-bank.js'),'window.STUDY_QUESTIONS='+JSON.stringify(questions)+';\n');
 fs.writeFileSync(path.join(dataDir,'answer-key.js'),'window.STUDY_ANSWERS='+JSON.stringify(answers)+';\n');
 fs.writeFileSync(path.join(dataDir,'learning-data.js'),'window.STUDY_LESSONS='+JSON.stringify(lessons)+';\nwindow.STUDY_SOURCES='+JSON.stringify(publicSources)+';\n');
+const revision = createHash('sha256').update(JSON.stringify([questions,answers,lessons,publicSources])).update(fs.readFileSync(path.join(dist,'app.js'))).update(fs.readFileSync(path.join(dist,'styles.css'))).digest('hex').slice(0,12);
+const htmlFile = path.join(dist,'index.html');
+fs.writeFileSync(htmlFile,fs.readFileSync(htmlFile,'utf8').replace(/((?:href|src)="(?:styles\.css|app\.js|data\/(?:question-bank|answer-key|learning-data)\.js))(?:\?v=[a-f0-9]+)?"/g,`$1?v=${revision}"`));
 const docs = path.join(root,'docs'); fs.mkdirSync(docs,{recursive:true}); fs.cpSync(dist,docs,{recursive:true}); fs.writeFileSync(path.join(docs,'.nojekyll'),'');
-console.log(JSON.stringify({publicQuestions:questions.length,answers:Object.keys(answers).length,lessons:lessons.length,sources:publicSources.length,output:'docs'}));
+console.log(JSON.stringify({publicQuestions:questions.length,answers:Object.keys(answers).length,lessons:lessons.length,sources:publicSources.length,revision,output:'docs'}));

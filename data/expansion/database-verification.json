@@ -1,0 +1,7454 @@
+{
+  "summary": {
+    "newQuestions": 380,
+    "sqlExecutionVerified": 260,
+    "conceptReviewed": 120,
+    "questionStructures": 95,
+    "maxVariantsPerStructure": 4,
+    "learningTopics": 95,
+    "sqliteVersion": "3.50.4",
+    "duplicateQuestions": 0,
+    "categories": {
+      "SQL 기초": 16,
+      "조건과 NULL": 44,
+      "문자열 함수": 16,
+      "집계와 그룹": 44,
+      "조인": 32,
+      "서브쿼리": 24,
+      "집합 연산": 16,
+      "CTE와 재귀": 12,
+      "윈도 함수": 32,
+      "정렬과 페이징": 4,
+      "데이터 변경": 12,
+      "트랜잭션": 16,
+      "키와 제약": 20,
+      "정규화": 24,
+      "키와 함수 종속": 4,
+      "ER 모델링": 12,
+      "동시성과 격리": 24,
+      "인덱스와 성능": 12,
+      "보안과 운영": 12,
+      "관계 대수": 4
+    },
+    "documentation": [
+      {
+        "title": "SQLite SELECT 공식 문서",
+        "url": "https://www.sqlite.org/lang_select.html"
+      },
+      {
+        "title": "SQLite 윈도 함수 공식 문서",
+        "url": "https://www.sqlite.org/windowfunctions.html"
+      },
+      {
+        "title": "SQLite SQL 표현식 공식 문서",
+        "url": "https://www.sqlite.org/lang_expr.html"
+      },
+      {
+        "title": "PostgreSQL 제약 조건 공식 문서",
+        "url": "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      },
+      {
+        "title": "PostgreSQL 트랜잭션 격리 공식 문서",
+        "url": "https://www.postgresql.org/docs/current/transaction-iso.html"
+      },
+      {
+        "title": "PostgreSQL 복합 인덱스 공식 문서",
+        "url": "https://www.postgresql.org/docs/current/indexes-multicolumn.html"
+      }
+    ]
+  },
+  "sqlChecks": [
+    {
+      "id": "extra-db-0001",
+      "templateId": "db-sql-distinct",
+      "seed": 0,
+      "query": "SELECT DISTINCT team FROM items ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C)",
+      "distractorQueries": [
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT DISTINCT team FROM groups ORDER BY team;",
+        "SELECT team FROM items WHERE active=0 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0002",
+      "templateId": "db-sql-distinct",
+      "seed": 1,
+      "query": "SELECT DISTINCT team FROM items ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C)",
+      "distractorQueries": [
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT DISTINCT team FROM groups ORDER BY team;",
+        "SELECT team FROM items WHERE active=0 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0003",
+      "templateId": "db-sql-distinct",
+      "seed": 2,
+      "query": "SELECT DISTINCT team FROM items ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C)",
+      "distractorQueries": [
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT DISTINCT team FROM groups ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0004",
+      "templateId": "db-sql-distinct",
+      "seed": 3,
+      "query": "SELECT DISTINCT team FROM items ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C)",
+      "distractorQueries": [
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT DISTINCT team FROM groups ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0005",
+      "templateId": "db-sql-projection",
+      "seed": 0,
+      "query": "SELECT id, value + COALESCE(extra,0) AS total FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          55
+        ],
+        [
+          3,
+          50
+        ]
+      ],
+      "correctOption": "(1, 30) / (2, 55) / (3, 50)",
+      "distractorQueries": [
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value+extra FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value-COALESCE(extra,0) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0006",
+      "templateId": "db-sql-projection",
+      "seed": 1,
+      "query": "SELECT id, value + COALESCE(extra,0) AS total FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          74
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          3,
+          68
+        ]
+      ],
+      "correctOption": "(1, 74) / (2, 25) / (3, 68)",
+      "distractorQueries": [
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value+extra FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value-COALESCE(extra,0) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0007",
+      "templateId": "db-sql-projection",
+      "seed": 2,
+      "query": "SELECT id, value + COALESCE(extra,0) AS total FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          15
+        ],
+        [
+          2,
+          70
+        ],
+        [
+          3,
+          97
+        ]
+      ],
+      "correctOption": "(1, 15) / (2, 70) / (3, 97)",
+      "distractorQueries": [
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value+extra FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value-COALESCE(extra,0) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0008",
+      "templateId": "db-sql-projection",
+      "seed": 3,
+      "query": "SELECT id, value + COALESCE(extra,0) AS total FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          56
+        ],
+        [
+          2,
+          85
+        ],
+        [
+          3,
+          39
+        ]
+      ],
+      "correctOption": "(1, 56) / (2, 85) / (3, 39)",
+      "distractorQueries": [
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value+extra FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value-COALESCE(extra,0) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0009",
+      "templateId": "db-sql-and",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE value>40 AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>40 OR active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE value>40 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0010",
+      "templateId": "db-sql-and",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE value>35 AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(3) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>35 OR active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE value>35 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0011",
+      "templateId": "db-sql-and",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE value>50 AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>50 OR active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE value>50 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0012",
+      "templateId": "db-sql-and",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE value>45 AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (4) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>45 OR active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE value>45 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0013",
+      "templateId": "db-sql-or",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE team='A' OR value>40 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' AND value>40 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE value>40 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0014",
+      "templateId": "db-sql-or",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE team='A' OR value>35 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' AND value>35 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE value>35 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0015",
+      "templateId": "db-sql-or",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE team='A' OR value>50 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4) / (5)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' AND value>50 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE value>50 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0016",
+      "templateId": "db-sql-or",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE team='A' OR value>45 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(1) / (2) / (4) / (6) / (8) / (9)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' AND value>45 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE value>45 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0017",
+      "templateId": "db-sql-precedence",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='B' AND active=1 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0018",
+      "templateId": "db-sql-precedence",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (3) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team IN ('A','B') ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0019",
+      "templateId": "db-sql-precedence",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(2) / (4) / (5) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team IN ('A','B') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0020",
+      "templateId": "db-sql-precedence",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(1) / (3) / (6) / (8) / (9)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team IN ('A','B') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0021",
+      "templateId": "db-sql-parentheses",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' AND active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0022",
+      "templateId": "db-sql-parentheses",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (3) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0023",
+      "templateId": "db-sql-parentheses",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(2) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' AND active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0024",
+      "templateId": "db-sql-parentheses",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE (team='A' OR team='B') AND active=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (3) / (6) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' OR team='B' AND active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE team='A' AND active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0025",
+      "templateId": "db-sql-between",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE value BETWEEN 40 AND 80 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>40 AND value<80 ORDER BY id;",
+        "SELECT id FROM items WHERE value<40 OR value>80 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0026",
+      "templateId": "db-sql-between",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE value BETWEEN 35 AND 80 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (3) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>35 AND value<80 ORDER BY id;",
+        "SELECT id FROM items WHERE value<35 OR value>80 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0027",
+      "templateId": "db-sql-between",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE value BETWEEN 50 AND 80 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (4) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>50 AND value<80 ORDER BY id;",
+        "SELECT id FROM items WHERE value<50 OR value>80 ORDER BY id;",
+        "SELECT id FROM items WHERE value>=50 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0028",
+      "templateId": "db-sql-between",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE value BETWEEN 45 AND 80 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (7) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>45 AND value<80 ORDER BY id;",
+        "SELECT id FROM items WHERE value<45 OR value>80 ORDER BY id;",
+        "SELECT id FROM items WHERE value>=45 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0029",
+      "templateId": "db-sql-in-list",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE team IN ('A','C') ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (2) / (5) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE team='C' ORDER BY id;",
+        "SELECT id FROM items WHERE team NOT IN ('A','C') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0030",
+      "templateId": "db-sql-in-list",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE team IN ('A','C') ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE team='C' ORDER BY id;",
+        "SELECT id FROM items WHERE team NOT IN ('A','C') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0031",
+      "templateId": "db-sql-in-list",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE team IN ('A','C') ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (5) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE team='C' ORDER BY id;",
+        "SELECT id FROM items WHERE team NOT IN ('A','C') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0032",
+      "templateId": "db-sql-in-list",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE team IN ('A','C') ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(1) / (2) / (4) / (6) / (7) / (9)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE team='A' ORDER BY id;",
+        "SELECT id FROM items WHERE team='C' ORDER BY id;",
+        "SELECT id FROM items WHERE team NOT IN ('A','C') ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0033",
+      "templateId": "db-sql-like-prefix",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(1) / (2) / (5)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title='A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title NOT LIKE 'A-%' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0034",
+      "templateId": "db-sql-like-prefix",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (3) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title='A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title NOT LIKE 'A-%' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0035",
+      "templateId": "db-sql-like-prefix",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(2) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title='A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title NOT LIKE 'A-%' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0036",
+      "templateId": "db-sql-like-prefix",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (3) / (5) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title='A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title NOT LIKE 'A-%' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0037",
+      "templateId": "db-sql-like-character",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE title LIKE '_-__' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4) / (5) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title LIKE '_-___' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0038",
+      "templateId": "db-sql-like-character",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE title LIKE '_-__' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4) / (5) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title LIKE '_-___' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0039",
+      "templateId": "db-sql-like-character",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE title LIKE '_-__' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (5) / (6) / (7) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title LIKE '_-___' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0040",
+      "templateId": "db-sql-like-character",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE title LIKE '_-__' ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4) / (5) / (6) / (7) / (8) / (9)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE title LIKE 'A-%' ORDER BY id;",
+        "SELECT id FROM items WHERE title LIKE '_-___' ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0041",
+      "templateId": "db-sql-is-null",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "correctOption": "(1) / (3)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra=NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra=0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0042",
+      "templateId": "db-sql-is-null",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra=NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra=0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0043",
+      "templateId": "db-sql-is-null",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (4) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra=NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra=0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0044",
+      "templateId": "db-sql-is-null",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (5) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra=NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra=0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0045",
+      "templateId": "db-sql-is-not-null",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(2) / (4) / (5) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra>0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra<>NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0046",
+      "templateId": "db-sql-is-not-null",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (3) / (5) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra>0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra<>NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0047",
+      "templateId": "db-sql-is-not-null",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(2) / (3) / (5) / (6) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra>0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra<>NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0048",
+      "templateId": "db-sql-is-not-null",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE extra IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (6) / (8) / (9)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE extra IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE extra>0 ORDER BY id;",
+        "SELECT id FROM items WHERE extra<>NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0049",
+      "templateId": "db-sql-null-equality",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE value=NULL ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0050",
+      "templateId": "db-sql-null-equality",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE value=NULL ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0051",
+      "templateId": "db-sql-null-equality",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE value=NULL ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0052",
+      "templateId": "db-sql-null-equality",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE value=NULL ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value IS NULL ORDER BY id;",
+        "SELECT id FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0053",
+      "templateId": "db-sql-coalesce",
+      "seed": 0,
+      "query": "SELECT id,COALESCE(extra,-1) FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          -1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "correctOption": "(1, -1) / (2, 5) / (3, -1) / (4, 10)",
+      "distractorQueries": [
+        "SELECT id,extra FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(value,-1) FROM items WHERE id<=4 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0054",
+      "templateId": "db-sql-coalesce",
+      "seed": 1,
+      "query": "SELECT id,COALESCE(extra,-1) FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          -1
+        ]
+      ],
+      "correctOption": "(1, 9) / (2, -1) / (3, 3) / (4, -1)",
+      "distractorQueries": [
+        "SELECT id,extra FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(value,-1) FROM items WHERE id<=4 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0055",
+      "templateId": "db-sql-coalesce",
+      "seed": 2,
+      "query": "SELECT id,COALESCE(extra,-1) FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          -1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          -1
+        ]
+      ],
+      "correctOption": "(1, -1) / (2, 0) / (3, 7) / (4, -1)",
+      "distractorQueries": [
+        "SELECT id,extra FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(value,-1) FROM items WHERE id<=4 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0056",
+      "templateId": "db-sql-coalesce",
+      "seed": 3,
+      "query": "SELECT id,COALESCE(extra,-1) FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "correctOption": "(1, 1) / (2, -1) / (3, 4) / (4, 3)",
+      "distractorQueries": [
+        "SELECT id,extra FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,COALESCE(value,-1) FROM items WHERE id<=4 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0057",
+      "templateId": "db-sql-case",
+      "seed": 0,
+      "query": "SELECT id,CASE WHEN value>40 THEN '높음' WHEN value IS NULL THEN '미입력' ELSE '일반' END FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "일반"
+        ],
+        [
+          2,
+          "높음"
+        ],
+        [
+          3,
+          "높음"
+        ],
+        [
+          4,
+          "높음"
+        ],
+        [
+          5,
+          "일반"
+        ],
+        [
+          6,
+          "미입력"
+        ]
+      ],
+      "correctOption": "(1, 일반) / (2, 높음) / (3, 높음) / (4, 높음) / (5, 일반) / (6, 미입력)",
+      "distractorQueries": [
+        "SELECT id,CASE WHEN value>=40 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN active=1 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN value>40 THEN '일반' ELSE '높음' END FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0058",
+      "templateId": "db-sql-case",
+      "seed": 1,
+      "query": "SELECT id,CASE WHEN value>35 THEN '높음' WHEN value IS NULL THEN '미입력' ELSE '일반' END FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "높음"
+        ],
+        [
+          2,
+          "일반"
+        ],
+        [
+          3,
+          "높음"
+        ],
+        [
+          4,
+          "일반"
+        ],
+        [
+          5,
+          "미입력"
+        ],
+        [
+          6,
+          "높음"
+        ],
+        [
+          7,
+          "일반"
+        ]
+      ],
+      "correctOption": "(1, 높음) / (2, 일반) / (3, 높음) / (4, 일반) / (5, 미입력) / (6, 높음) / (7, 일반)",
+      "distractorQueries": [
+        "SELECT id,CASE WHEN value>=35 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN active=1 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN value>35 THEN '일반' ELSE '높음' END FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0059",
+      "templateId": "db-sql-case",
+      "seed": 2,
+      "query": "SELECT id,CASE WHEN value>50 THEN '높음' WHEN value IS NULL THEN '미입력' ELSE '일반' END FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "일반"
+        ],
+        [
+          2,
+          "높음"
+        ],
+        [
+          3,
+          "높음"
+        ],
+        [
+          4,
+          "높음"
+        ],
+        [
+          5,
+          "일반"
+        ],
+        [
+          6,
+          "미입력"
+        ],
+        [
+          7,
+          "일반"
+        ],
+        [
+          8,
+          "일반"
+        ]
+      ],
+      "correctOption": "(1, 일반) / (2, 높음) / (3, 높음) / (4, 높음) / (5, 일반) / (6, 미입력) / (7, 일반) / (8, 일반)",
+      "distractorQueries": [
+        "SELECT id,CASE WHEN value>=50 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN active=1 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN value>50 THEN '일반' ELSE '높음' END FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0060",
+      "templateId": "db-sql-case",
+      "seed": 3,
+      "query": "SELECT id,CASE WHEN value>45 THEN '높음' WHEN value IS NULL THEN '미입력' ELSE '일반' END FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "높음"
+        ],
+        [
+          2,
+          "높음"
+        ],
+        [
+          3,
+          "일반"
+        ],
+        [
+          4,
+          "높음"
+        ],
+        [
+          5,
+          "일반"
+        ],
+        [
+          6,
+          "미입력"
+        ],
+        [
+          7,
+          "일반"
+        ],
+        [
+          8,
+          "높음"
+        ],
+        [
+          9,
+          "일반"
+        ]
+      ],
+      "correctOption": "(1, 높음) / (2, 높음) / (3, 일반) / (4, 높음) / (5, 일반) / (6, 미입력) / (7, 일반) / (8, 높음) / (9, 일반)",
+      "distractorQueries": [
+        "SELECT id,CASE WHEN value>=45 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN active=1 THEN '높음' ELSE '일반' END FROM items ORDER BY id;",
+        "SELECT id,CASE WHEN value>45 THEN '일반' ELSE '높음' END FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0061",
+      "templateId": "db-sql-count-null",
+      "seed": 0,
+      "query": "SELECT COUNT(*),COUNT(value),COUNT(extra) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "correctOption": "(6, 5, 4)",
+      "distractorQueries": [
+        "SELECT COUNT(value),COUNT(*),COUNT(extra) FROM items;",
+        "SELECT COUNT(*),COUNT(*),COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team),COUNT(value),COUNT(extra) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0062",
+      "templateId": "db-sql-count-null",
+      "seed": 1,
+      "query": "SELECT COUNT(*),COUNT(value),COUNT(extra) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          7,
+          6,
+          5
+        ]
+      ],
+      "correctOption": "(7, 6, 5)",
+      "distractorQueries": [
+        "SELECT COUNT(value),COUNT(*),COUNT(extra) FROM items;",
+        "SELECT COUNT(*),COUNT(*),COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team),COUNT(value),COUNT(extra) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0063",
+      "templateId": "db-sql-count-null",
+      "seed": 2,
+      "query": "SELECT COUNT(*),COUNT(value),COUNT(extra) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          8,
+          7,
+          5
+        ]
+      ],
+      "correctOption": "(8, 7, 5)",
+      "distractorQueries": [
+        "SELECT COUNT(value),COUNT(*),COUNT(extra) FROM items;",
+        "SELECT COUNT(*),COUNT(*),COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team),COUNT(value),COUNT(extra) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0064",
+      "templateId": "db-sql-count-null",
+      "seed": 3,
+      "query": "SELECT COUNT(*),COUNT(value),COUNT(extra) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          9,
+          8,
+          6
+        ]
+      ],
+      "correctOption": "(9, 8, 6)",
+      "distractorQueries": [
+        "SELECT COUNT(value),COUNT(*),COUNT(extra) FROM items;",
+        "SELECT COUNT(*),COUNT(*),COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team),COUNT(value),COUNT(extra) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0065",
+      "templateId": "db-sql-sum",
+      "seed": 0,
+      "query": "SELECT SUM(value) FROM items WHERE active=1;",
+      "mutation": "",
+      "result": [
+        [
+          160
+        ]
+      ],
+      "correctOption": "(160)",
+      "distractorQueries": [
+        "SELECT SUM(value) FROM items;",
+        "SELECT SUM(extra) FROM items WHERE active=1;",
+        "SELECT COUNT(value) FROM items WHERE active=1;"
+      ]
+    },
+    {
+      "id": "extra-db-0066",
+      "templateId": "db-sql-sum",
+      "seed": 1,
+      "query": "SELECT SUM(value) FROM items WHERE active=1;",
+      "mutation": "",
+      "result": [
+        [
+          180
+        ]
+      ],
+      "correctOption": "(180)",
+      "distractorQueries": [
+        "SELECT SUM(value) FROM items;",
+        "SELECT SUM(extra) FROM items WHERE active=1;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0067",
+      "templateId": "db-sql-sum",
+      "seed": 2,
+      "query": "SELECT SUM(value) FROM items WHERE active=1;",
+      "mutation": "",
+      "result": [
+        [
+          175
+        ]
+      ],
+      "correctOption": "(175)",
+      "distractorQueries": [
+        "SELECT SUM(value) FROM items;",
+        "SELECT SUM(extra) FROM items WHERE active=1;",
+        "SELECT COUNT(value) FROM items WHERE active=1;"
+      ]
+    },
+    {
+      "id": "extra-db-0068",
+      "templateId": "db-sql-sum",
+      "seed": 3,
+      "query": "SELECT SUM(value) FROM items WHERE active=1;",
+      "mutation": "",
+      "result": [
+        [
+          285
+        ]
+      ],
+      "correctOption": "(285)",
+      "distractorQueries": [
+        "SELECT SUM(value) FROM items;",
+        "SELECT SUM(extra) FROM items WHERE active=1;",
+        "SELECT COUNT(value) FROM items WHERE active=1;"
+      ]
+    },
+    {
+      "id": "extra-db-0069",
+      "templateId": "db-sql-average",
+      "seed": 0,
+      "query": "SELECT ROUND(AVG(value),2) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          46.0
+        ]
+      ],
+      "correctOption": "(46)",
+      "distractorQueries": [
+        "SELECT ROUND(SUM(value)*1.0/COUNT(*),2) FROM items;",
+        "SELECT ROUND(AVG(extra),2) FROM items;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0070",
+      "templateId": "db-sql-average",
+      "seed": 1,
+      "query": "SELECT ROUND(AVG(value),2) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          40.83
+        ]
+      ],
+      "correctOption": "(40.83)",
+      "distractorQueries": [
+        "SELECT ROUND(SUM(value)*1.0/COUNT(*),2) FROM items;",
+        "SELECT ROUND(AVG(extra),2) FROM items;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0071",
+      "templateId": "db-sql-average",
+      "seed": 2,
+      "query": "SELECT ROUND(AVG(value),2) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          50.71
+        ]
+      ],
+      "correctOption": "(50.71)",
+      "distractorQueries": [
+        "SELECT ROUND(SUM(value)*1.0/COUNT(*),2) FROM items;",
+        "SELECT ROUND(AVG(extra),2) FROM items;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0072",
+      "templateId": "db-sql-average",
+      "seed": 3,
+      "query": "SELECT ROUND(AVG(value),2) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          50.63
+        ]
+      ],
+      "correctOption": "(50.63)",
+      "distractorQueries": [
+        "SELECT ROUND(SUM(value)*1.0/COUNT(*),2) FROM items;",
+        "SELECT ROUND(AVG(extra),2) FROM items;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0073",
+      "templateId": "db-sql-min-max",
+      "seed": 0,
+      "query": "SELECT MIN(value),MAX(value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          20,
+          80
+        ]
+      ],
+      "correctOption": "(20, 80)",
+      "distractorQueries": [
+        "SELECT MAX(value),MIN(value) FROM items;",
+        "SELECT MIN(extra),MAX(extra) FROM items;",
+        "SELECT MIN(id),MAX(id) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0074",
+      "templateId": "db-sql-min-max",
+      "seed": 1,
+      "query": "SELECT MIN(value),MAX(value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          10,
+          65
+        ]
+      ],
+      "correctOption": "(10, 65)",
+      "distractorQueries": [
+        "SELECT MAX(value),MIN(value) FROM items;",
+        "SELECT MIN(extra),MAX(extra) FROM items;",
+        "SELECT MIN(id),MAX(id) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0075",
+      "templateId": "db-sql-min-max",
+      "seed": 2,
+      "query": "SELECT MIN(value),MAX(value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          15,
+          90
+        ]
+      ],
+      "correctOption": "(15, 90)",
+      "distractorQueries": [
+        "SELECT MAX(value),MIN(value) FROM items;",
+        "SELECT MIN(extra),MAX(extra) FROM items;",
+        "SELECT MIN(id),MAX(id) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0076",
+      "templateId": "db-sql-min-max",
+      "seed": 3,
+      "query": "SELECT MIN(value),MAX(value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          10,
+          85
+        ]
+      ],
+      "correctOption": "(10, 85)",
+      "distractorQueries": [
+        "SELECT MAX(value),MIN(value) FROM items;",
+        "SELECT MIN(extra),MAX(extra) FROM items;",
+        "SELECT MIN(id),MAX(id) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0077",
+      "templateId": "db-sql-count-distinct",
+      "seed": 0,
+      "query": "SELECT COUNT(DISTINCT value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          4
+        ]
+      ],
+      "correctOption": "(4)",
+      "distractorQueries": [
+        "SELECT COUNT(value) FROM items;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0078",
+      "templateId": "db-sql-count-distinct",
+      "seed": 1,
+      "query": "SELECT COUNT(DISTINCT value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          5
+        ]
+      ],
+      "correctOption": "(5)",
+      "distractorQueries": [
+        "SELECT COUNT(value) FROM items;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0079",
+      "templateId": "db-sql-count-distinct",
+      "seed": 2,
+      "query": "SELECT COUNT(DISTINCT value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          6
+        ]
+      ],
+      "correctOption": "(6)",
+      "distractorQueries": [
+        "SELECT COUNT(value) FROM items;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0080",
+      "templateId": "db-sql-count-distinct",
+      "seed": 3,
+      "query": "SELECT COUNT(DISTINCT value) FROM items;",
+      "mutation": "",
+      "result": [
+        [
+          7
+        ]
+      ],
+      "correctOption": "(7)",
+      "distractorQueries": [
+        "SELECT COUNT(value) FROM items;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(DISTINCT team) FROM items;"
+      ]
+    },
+    {
+      "id": "extra-db-0081",
+      "templateId": "db-sql-group-count",
+      "seed": 0,
+      "query": "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          2
+        ],
+        [
+          "B",
+          2
+        ],
+        [
+          "C",
+          2
+        ]
+      ],
+      "correctOption": "(A, 2) / (B, 2) / (C, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(active) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0082",
+      "templateId": "db-sql-group-count",
+      "seed": 1,
+      "query": "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          3
+        ],
+        [
+          "B",
+          2
+        ],
+        [
+          "C",
+          2
+        ]
+      ],
+      "correctOption": "(A, 3) / (B, 2) / (C, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(active) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0083",
+      "templateId": "db-sql-group-count",
+      "seed": 2,
+      "query": "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          2
+        ],
+        [
+          "B",
+          3
+        ],
+        [
+          "C",
+          3
+        ]
+      ],
+      "correctOption": "(A, 2) / (B, 3) / (C, 3)",
+      "distractorQueries": [
+        "SELECT team,COUNT(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(active) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0084",
+      "templateId": "db-sql-group-count",
+      "seed": 3,
+      "query": "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          3
+        ],
+        [
+          "B",
+          3
+        ],
+        [
+          "C",
+          3
+        ]
+      ],
+      "correctOption": "(A, 3) / (B, 3) / (C, 3)",
+      "distractorQueries": [
+        "SELECT team,COUNT(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(active) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0085",
+      "templateId": "db-sql-group-sum",
+      "seed": 0,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          80
+        ],
+        [
+          "B",
+          130
+        ],
+        [
+          "C",
+          20
+        ]
+      ],
+      "correctOption": "(A, 80) / (B, 130) / (C, 20)",
+      "distractorQueries": [
+        "SELECT team,MAX(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(COALESCE(extra,0)) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0086",
+      "templateId": "db-sql-group-sum",
+      "seed": 1,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          125
+        ],
+        [
+          "B",
+          65
+        ],
+        [
+          "C",
+          55
+        ]
+      ],
+      "correctOption": "(A, 125) / (B, 65) / (C, 55)",
+      "distractorQueries": [
+        "SELECT team,MAX(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(COALESCE(extra,0)) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0087",
+      "templateId": "db-sql-group-sum",
+      "seed": 2,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          110
+        ],
+        [
+          "B",
+          120
+        ],
+        [
+          "C",
+          125
+        ]
+      ],
+      "correctOption": "(A, 110) / (B, 120) / (C, 125)",
+      "distractorQueries": [
+        "SELECT team,MAX(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(COALESCE(extra,0)) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0088",
+      "templateId": "db-sql-group-sum",
+      "seed": 3,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          80
+        ],
+        [
+          "B",
+          110
+        ],
+        [
+          "C",
+          215
+        ]
+      ],
+      "correctOption": "(A, 80) / (B, 110) / (C, 215)",
+      "distractorQueries": [
+        "SELECT team,MAX(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(COALESCE(extra,0)) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0089",
+      "templateId": "db-sql-having-count",
+      "seed": 0,
+      "query": "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "B",
+          2
+        ]
+      ],
+      "correctOption": "(B, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(*) FROM items GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=0 GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0090",
+      "templateId": "db-sql-having-count",
+      "seed": 1,
+      "query": "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          3
+        ],
+        [
+          "C",
+          2
+        ]
+      ],
+      "correctOption": "(A, 3) / (C, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(*) FROM items GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=0 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0091",
+      "templateId": "db-sql-having-count",
+      "seed": 2,
+      "query": "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "B",
+          2
+        ],
+        [
+          "C",
+          2
+        ]
+      ],
+      "correctOption": "(B, 2) / (C, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(*) FROM items GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=0 GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0092",
+      "templateId": "db-sql-having-count",
+      "seed": 3,
+      "query": "SELECT team,COUNT(*) FROM items WHERE active=1 GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          2
+        ],
+        [
+          "B",
+          2
+        ],
+        [
+          "C",
+          2
+        ]
+      ],
+      "correctOption": "(A, 2) / (B, 2) / (C, 2)",
+      "distractorQueries": [
+        "SELECT team,COUNT(*) FROM items GROUP BY team HAVING COUNT(*)>=2 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE active=0 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0093",
+      "templateId": "db-sql-having-sum",
+      "seed": 0,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>100 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "B",
+          130
+        ]
+      ],
+      "correctOption": "(B, 130)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items WHERE value>100 GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0094",
+      "templateId": "db-sql-having-sum",
+      "seed": 1,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>100 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          125
+        ]
+      ],
+      "correctOption": "(A, 125)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items WHERE value>100 GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0095",
+      "templateId": "db-sql-having-sum",
+      "seed": 2,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>100 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          110
+        ],
+        [
+          "B",
+          120
+        ],
+        [
+          "C",
+          125
+        ]
+      ],
+      "correctOption": "(A, 110) / (B, 120) / (C, 125)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items WHERE value>100 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0096",
+      "templateId": "db-sql-having-sum",
+      "seed": 3,
+      "query": "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>100 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "B",
+          110
+        ],
+        [
+          "C",
+          215
+        ]
+      ],
+      "correctOption": "(B, 110) / (C, 215)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items WHERE value>100 GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0097",
+      "templateId": "db-sql-where-group",
+      "seed": 0,
+      "query": "SELECT team,SUM(value) FROM items WHERE value>40 GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          50
+        ],
+        [
+          "B",
+          130
+        ]
+      ],
+      "correctOption": "(A, 50) / (B, 130)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>40 ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE value>40 GROUP BY team ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0098",
+      "templateId": "db-sql-where-group",
+      "seed": 1,
+      "query": "SELECT team,SUM(value) FROM items WHERE value>35 GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          65
+        ],
+        [
+          "B",
+          65
+        ],
+        [
+          "C",
+          45
+        ]
+      ],
+      "correctOption": "(A, 65) / (B, 65) / (C, 45)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>35 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE value>35 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0099",
+      "templateId": "db-sql-where-group",
+      "seed": 2,
+      "query": "SELECT team,SUM(value) FROM items WHERE value>50 GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          70
+        ],
+        [
+          "B",
+          70
+        ],
+        [
+          "C",
+          90
+        ]
+      ],
+      "correctOption": "(A, 70) / (B, 70) / (C, 90)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>50 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE value>50 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0100",
+      "templateId": "db-sql-where-group",
+      "seed": 3,
+      "query": "SELECT team,SUM(value) FROM items WHERE value>45 GROUP BY team ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          55
+        ],
+        [
+          "B",
+          65
+        ],
+        [
+          "C",
+          170
+        ]
+      ],
+      "correctOption": "(A, 55) / (B, 65) / (C, 170)",
+      "distractorQueries": [
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>45 ORDER BY team;",
+        "SELECT team,COUNT(*) FROM items WHERE value>45 GROUP BY team ORDER BY team;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0101",
+      "templateId": "db-sql-empty-aggregate",
+      "seed": 0,
+      "query": "SELECT COUNT(*),SUM(value),AVG(value) FROM items WHERE team='Z';",
+      "mutation": "",
+      "result": [
+        [
+          0,
+          null,
+          null
+        ]
+      ],
+      "correctOption": "(0, NULL, NULL)",
+      "distractorQueries": [
+        "SELECT COUNT(*),COALESCE(SUM(value),0),COALESCE(AVG(value),0) FROM items WHERE team='Z';",
+        "SELECT COUNT(*),SUM(value),AVG(value) FROM items;",
+        "SELECT team,COUNT(*) FROM items WHERE team='Z' GROUP BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0102",
+      "templateId": "db-sql-empty-aggregate",
+      "seed": 1,
+      "query": "SELECT COUNT(*),SUM(value),AVG(value) FROM items WHERE team='Z';",
+      "mutation": "",
+      "result": [
+        [
+          0,
+          null,
+          null
+        ]
+      ],
+      "correctOption": "(0, NULL, NULL)",
+      "distractorQueries": [
+        "SELECT COUNT(*),COALESCE(SUM(value),0),COALESCE(AVG(value),0) FROM items WHERE team='Z';",
+        "SELECT COUNT(*),SUM(value),AVG(value) FROM items;",
+        "SELECT team,COUNT(*) FROM items WHERE team='Z' GROUP BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0103",
+      "templateId": "db-sql-empty-aggregate",
+      "seed": 2,
+      "query": "SELECT COUNT(*),SUM(value),AVG(value) FROM items WHERE team='Z';",
+      "mutation": "",
+      "result": [
+        [
+          0,
+          null,
+          null
+        ]
+      ],
+      "correctOption": "(0, NULL, NULL)",
+      "distractorQueries": [
+        "SELECT COUNT(*),COALESCE(SUM(value),0),COALESCE(AVG(value),0) FROM items WHERE team='Z';",
+        "SELECT COUNT(*),SUM(value),AVG(value) FROM items;",
+        "SELECT team,COUNT(*) FROM items WHERE team='Z' GROUP BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0104",
+      "templateId": "db-sql-empty-aggregate",
+      "seed": 3,
+      "query": "SELECT COUNT(*),SUM(value),AVG(value) FROM items WHERE team='Z';",
+      "mutation": "",
+      "result": [
+        [
+          0,
+          null,
+          null
+        ]
+      ],
+      "correctOption": "(0, NULL, NULL)",
+      "distractorQueries": [
+        "SELECT COUNT(*),COALESCE(SUM(value),0),COALESCE(AVG(value),0) FROM items WHERE team='Z';",
+        "SELECT COUNT(*),SUM(value),AVG(value) FROM items;",
+        "SELECT team,COUNT(*) FROM items WHERE team='Z' GROUP BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0105",
+      "templateId": "db-sql-inner-join",
+      "seed": 0,
+      "query": "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "지원"
+        ],
+        [
+          2,
+          "지원"
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          "심사"
+        ]
+      ],
+      "correctOption": "(1, 지원) / (2, 지원) / (3, 심사) / (4, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i CROSS JOIN groups g ORDER BY i.id,g.team;",
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team<>g.team ORDER BY i.id,g.team;"
+      ]
+    },
+    {
+      "id": "extra-db-0106",
+      "templateId": "db-sql-inner-join",
+      "seed": 1,
+      "query": "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "심사"
+        ],
+        [
+          2,
+          "지원"
+        ],
+        [
+          3,
+          "지원"
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          7,
+          "지원"
+        ]
+      ],
+      "correctOption": "(1, 심사) / (2, 지원) / (3, 지원) / (5, 심사) / (7, 지원)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i CROSS JOIN groups g ORDER BY i.id,g.team;",
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team<>g.team ORDER BY i.id,g.team;"
+      ]
+    },
+    {
+      "id": "extra-db-0107",
+      "templateId": "db-sql-inner-join",
+      "seed": 2,
+      "query": "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          "심사"
+        ],
+        [
+          4,
+          "지원"
+        ],
+        [
+          5,
+          "지원"
+        ],
+        [
+          6,
+          "심사"
+        ],
+        [
+          7,
+          "심사"
+        ]
+      ],
+      "correctOption": "(2, 심사) / (4, 지원) / (5, 지원) / (6, 심사) / (7, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i CROSS JOIN groups g ORDER BY i.id,g.team;",
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team<>g.team ORDER BY i.id,g.team;"
+      ]
+    },
+    {
+      "id": "extra-db-0108",
+      "templateId": "db-sql-inner-join",
+      "seed": 3,
+      "query": "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "지원"
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          6,
+          "지원"
+        ],
+        [
+          8,
+          "심사"
+        ],
+        [
+          9,
+          "지원"
+        ]
+      ],
+      "correctOption": "(1, 지원) / (3, 심사) / (5, 심사) / (6, 지원) / (8, 심사) / (9, 지원)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i CROSS JOIN groups g ORDER BY i.id,g.team;",
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team<>g.team ORDER BY i.id,g.team;"
+      ]
+    },
+    {
+      "id": "extra-db-0109",
+      "templateId": "db-sql-left-join",
+      "seed": 0,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "지원"
+        ],
+        [
+          2,
+          "지원"
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          "심사"
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          null
+        ]
+      ],
+      "correctOption": "(1, 지원) / (2, 지원) / (3, 심사) / (4, 심사) / (5, NULL) / (6, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+        "SELECT i.id,COALESCE(g.label,'미등록') FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0110",
+      "templateId": "db-sql-left-join",
+      "seed": 1,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "심사"
+        ],
+        [
+          2,
+          "지원"
+        ],
+        [
+          3,
+          "지원"
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          "지원"
+        ]
+      ],
+      "correctOption": "(1, 심사) / (2, 지원) / (3, 지원) / (4, NULL) / (5, 심사) / (6, NULL) / (7, 지원)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+        "SELECT i.id,COALESCE(g.label,'미등록') FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0111",
+      "templateId": "db-sql-left-join",
+      "seed": 2,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          "심사"
+        ],
+        [
+          3,
+          null
+        ],
+        [
+          4,
+          "지원"
+        ],
+        [
+          5,
+          "지원"
+        ],
+        [
+          6,
+          "심사"
+        ],
+        [
+          7,
+          "심사"
+        ],
+        [
+          8,
+          null
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 심사) / (3, NULL) / (4, 지원) / (5, 지원) / (6, 심사) / (7, 심사) / (8, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+        "SELECT i.id,COALESCE(g.label,'미등록') FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0112",
+      "templateId": "db-sql-left-join",
+      "seed": 3,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "지원"
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          6,
+          "지원"
+        ],
+        [
+          7,
+          null
+        ],
+        [
+          8,
+          "심사"
+        ],
+        [
+          9,
+          "지원"
+        ]
+      ],
+      "correctOption": "(1, 지원) / (2, NULL) / (3, 심사) / (4, NULL) / (5, 심사) / (6, 지원) / (7, NULL) / (8, 심사) / (9, 지원)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+        "SELECT i.id,COALESCE(g.label,'미등록') FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0113",
+      "templateId": "db-sql-anti-join",
+      "seed": 0,
+      "query": "SELECT i.id FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(5) / (6)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id FROM items i ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0114",
+      "templateId": "db-sql-anti-join",
+      "seed": 1,
+      "query": "SELECT i.id FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(4) / (6)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id FROM items i ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0115",
+      "templateId": "db-sql-anti-join",
+      "seed": 2,
+      "query": "SELECT i.id FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (3) / (8)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id FROM items i ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0116",
+      "templateId": "db-sql-anti-join",
+      "seed": 3,
+      "query": "SELECT i.id FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.team IS NULL ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (4) / (7)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id FROM items i ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0117",
+      "templateId": "db-sql-on-filter",
+      "seed": 0,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          "심사"
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          null
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, NULL) / (3, 심사) / (4, 심사) / (5, NULL) / (6, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0118",
+      "templateId": "db-sql-on-filter",
+      "seed": 1,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "심사"
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          null
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          null
+        ]
+      ],
+      "correctOption": "(1, 심사) / (2, NULL) / (3, NULL) / (4, NULL) / (5, 심사) / (6, NULL) / (7, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0119",
+      "templateId": "db-sql-on-filter",
+      "seed": 2,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          "심사"
+        ],
+        [
+          3,
+          null
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          "심사"
+        ],
+        [
+          7,
+          "심사"
+        ],
+        [
+          8,
+          null
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 심사) / (3, NULL) / (4, NULL) / (5, NULL) / (6, 심사) / (7, 심사) / (8, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0120",
+      "templateId": "db-sql-on-filter",
+      "seed": 3,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          null
+        ],
+        [
+          8,
+          "심사"
+        ],
+        [
+          9,
+          null
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, NULL) / (3, 심사) / (4, NULL) / (5, 심사) / (6, NULL) / (7, NULL) / (8, 심사) / (9, NULL)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0121",
+      "templateId": "db-sql-where-filter",
+      "seed": 0,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          3,
+          "심사"
+        ],
+        [
+          4,
+          "심사"
+        ]
+      ],
+      "correctOption": "(3, 심사) / (4, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label IS NULL ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0122",
+      "templateId": "db-sql-where-filter",
+      "seed": 1,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "심사"
+        ],
+        [
+          5,
+          "심사"
+        ]
+      ],
+      "correctOption": "(1, 심사) / (5, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label IS NULL ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0123",
+      "templateId": "db-sql-where-filter",
+      "seed": 2,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          "심사"
+        ],
+        [
+          6,
+          "심사"
+        ],
+        [
+          7,
+          "심사"
+        ]
+      ],
+      "correctOption": "(2, 심사) / (6, 심사) / (7, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label IS NULL ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0124",
+      "templateId": "db-sql-where-filter",
+      "seed": 3,
+      "query": "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label='심사' ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          3,
+          "심사"
+        ],
+        [
+          5,
+          "심사"
+        ],
+        [
+          8,
+          "심사"
+        ]
+      ],
+      "correctOption": "(3, 심사) / (5, 심사) / (8, 심사)",
+      "distractorQueries": [
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team AND g.label='심사' ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team ORDER BY i.id;",
+        "SELECT i.id,g.label FROM items i LEFT JOIN groups g ON i.team=g.team WHERE g.label IS NULL ORDER BY i.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0125",
+      "templateId": "db-sql-join-multiplicity",
+      "seed": 0,
+      "query": "SELECT i.id,w.units FROM items i JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "correctOption": "(1, 2) / (1, 4) / (2, 3) / (3, 5) / (4, 1)",
+      "distractorQueries": [
+        "SELECT i.id,SUM(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,MAX(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,w.units FROM items i LEFT JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0126",
+      "templateId": "db-sql-join-multiplicity",
+      "seed": 1,
+      "query": "SELECT i.id,w.units FROM items i JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "correctOption": "(2, 4) / (2, 2) / (3, 8) / (5, 3) / (5, 6)",
+      "distractorQueries": [
+        "SELECT i.id,SUM(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,MAX(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,w.units FROM items i LEFT JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0127",
+      "templateId": "db-sql-join-multiplicity",
+      "seed": 2,
+      "query": "SELECT i.id,w.units FROM items i JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "correctOption": "(1, 5) / (3, 1) / (3, 9) / (4, 4) / (6, 2)",
+      "distractorQueries": [
+        "SELECT i.id,SUM(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,MAX(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,w.units FROM items i LEFT JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0128",
+      "templateId": "db-sql-join-multiplicity",
+      "seed": 3,
+      "query": "SELECT i.id,w.units FROM items i JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "correctOption": "(1, 7) / (4, 1) / (4, 5) / (6, 3) / (6, 8)",
+      "distractorQueries": [
+        "SELECT i.id,SUM(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,MAX(w.units) FROM items i JOIN work w ON i.id=w.item_id GROUP BY i.id ORDER BY i.id;",
+        "SELECT i.id,w.units FROM items i LEFT JOIN work w ON i.id=w.item_id ORDER BY i.id,w.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0129",
+      "templateId": "db-sql-cross-join",
+      "seed": 0,
+      "query": "SELECT COUNT(*) FROM items CROSS JOIN groups;",
+      "mutation": "",
+      "result": [
+        [
+          18
+        ]
+      ],
+      "correctOption": "(18)",
+      "distractorQueries": [
+        "SELECT COUNT(*) FROM items JOIN groups ON items.team=groups.team;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(*) FROM groups;"
+      ]
+    },
+    {
+      "id": "extra-db-0130",
+      "templateId": "db-sql-cross-join",
+      "seed": 1,
+      "query": "SELECT COUNT(*) FROM items CROSS JOIN groups;",
+      "mutation": "",
+      "result": [
+        [
+          21
+        ]
+      ],
+      "correctOption": "(21)",
+      "distractorQueries": [
+        "SELECT COUNT(*) FROM items JOIN groups ON items.team=groups.team;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(*) FROM groups;"
+      ]
+    },
+    {
+      "id": "extra-db-0131",
+      "templateId": "db-sql-cross-join",
+      "seed": 2,
+      "query": "SELECT COUNT(*) FROM items CROSS JOIN groups;",
+      "mutation": "",
+      "result": [
+        [
+          24
+        ]
+      ],
+      "correctOption": "(24)",
+      "distractorQueries": [
+        "SELECT COUNT(*) FROM items JOIN groups ON items.team=groups.team;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(*) FROM groups;"
+      ]
+    },
+    {
+      "id": "extra-db-0132",
+      "templateId": "db-sql-cross-join",
+      "seed": 3,
+      "query": "SELECT COUNT(*) FROM items CROSS JOIN groups;",
+      "mutation": "",
+      "result": [
+        [
+          27
+        ]
+      ],
+      "correctOption": "(27)",
+      "distractorQueries": [
+        "SELECT COUNT(*) FROM items JOIN groups ON items.team=groups.team;",
+        "SELECT COUNT(*) FROM items;",
+        "SELECT COUNT(*) FROM groups;"
+      ]
+    },
+    {
+      "id": "extra-db-0133",
+      "templateId": "db-sql-self-join",
+      "seed": 0,
+      "query": "SELECT c.id,p.id FROM items c JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "correctOption": "(2, 1) / (3, 1) / (4, 3) / (5, 3)",
+      "distractorQueries": [
+        "SELECT c.id,p.id FROM items c LEFT JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+        "SELECT c.id,c.parent_id FROM items c WHERE c.parent_id IS NULL ORDER BY c.id;",
+        "SELECT c.id,p.id FROM items c JOIN items p ON c.id=p.parent_id ORDER BY c.id,p.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0134",
+      "templateId": "db-sql-self-join",
+      "seed": 1,
+      "query": "SELECT c.id,p.id FROM items c JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "correctOption": "(2, 1) / (3, 1) / (4, 2) / (5, 2) / (6, 3) / (7, 3)",
+      "distractorQueries": [
+        "SELECT c.id,p.id FROM items c LEFT JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+        "SELECT c.id,c.parent_id FROM items c WHERE c.parent_id IS NULL ORDER BY c.id;",
+        "SELECT c.id,p.id FROM items c JOIN items p ON c.id=p.parent_id ORDER BY c.id,p.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0135",
+      "templateId": "db-sql-self-join",
+      "seed": 2,
+      "query": "SELECT c.id,p.id FROM items c JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "correctOption": "(2, 1) / (3, 1) / (4, 2) / (5, 2) / (7, 4) / (8, 4)",
+      "distractorQueries": [
+        "SELECT c.id,p.id FROM items c LEFT JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+        "SELECT c.id,c.parent_id FROM items c WHERE c.parent_id IS NULL ORDER BY c.id;",
+        "SELECT c.id,p.id FROM items c JOIN items p ON c.id=p.parent_id ORDER BY c.id,p.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0136",
+      "templateId": "db-sql-self-join",
+      "seed": 3,
+      "query": "SELECT c.id,p.id FROM items c JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+      "mutation": "",
+      "result": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "correctOption": "(2, 1) / (3, 1) / (4, 3) / (5, 3) / (6, 4) / (7, 4) / (8, 6) / (9, 6)",
+      "distractorQueries": [
+        "SELECT c.id,p.id FROM items c LEFT JOIN items p ON c.parent_id=p.id ORDER BY c.id;",
+        "SELECT c.id,c.parent_id FROM items c WHERE c.parent_id IS NULL ORDER BY c.id;",
+        "SELECT c.id,p.id FROM items c JOIN items p ON c.id=p.parent_id ORDER BY c.id,p.id;"
+      ]
+    },
+    {
+      "id": "extra-db-0137",
+      "templateId": "db-sql-exists",
+      "seed": 0,
+      "query": "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT i.id FROM items i JOIN work w ON w.item_id=i.id ORDER BY i.id,w.id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0138",
+      "templateId": "db-sql-exists",
+      "seed": 1,
+      "query": "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(2) / (3) / (5)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT i.id FROM items i JOIN work w ON w.item_id=i.id ORDER BY i.id,w.id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0139",
+      "templateId": "db-sql-exists",
+      "seed": 2,
+      "query": "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT i.id FROM items i JOIN work w ON w.item_id=i.id ORDER BY i.id,w.id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0140",
+      "templateId": "db-sql-exists",
+      "seed": 3,
+      "query": "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT i.id FROM items i JOIN work w ON w.item_id=i.id ORDER BY i.id,w.id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0141",
+      "templateId": "db-sql-not-exists",
+      "seed": 0,
+      "query": "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(5) / (6)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0142",
+      "templateId": "db-sql-not-exists",
+      "seed": 1,
+      "query": "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(1) / (4) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0143",
+      "templateId": "db-sql-not-exists",
+      "seed": 2,
+      "query": "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(2) / (5) / (7) / (8)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0144",
+      "templateId": "db-sql-not-exists",
+      "seed": 3,
+      "query": "SELECT i.id FROM items i WHERE NOT EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "correctOption": "(2) / (3) / (5) / (7) / (8) / (9)",
+      "distractorQueries": [
+        "SELECT i.id FROM items i WHERE EXISTS(SELECT 1 FROM work w WHERE w.item_id=i.id) ORDER BY i.id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0145",
+      "templateId": "db-sql-in-subquery",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE id IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ]
+      ],
+      "correctOption": "(3)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+        "SELECT id FROM items WHERE value>=5 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0146",
+      "templateId": "db-sql-in-subquery",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE id IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(3) / (5)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+        "SELECT id FROM items WHERE value>=5 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0147",
+      "templateId": "db-sql-in-subquery",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE id IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "correctOption": "(1) / (3)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+        "SELECT id FROM items WHERE value>=5 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0148",
+      "templateId": "db-sql-in-subquery",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE id IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE units>=5) ORDER BY id;",
+        "SELECT id FROM items WHERE value>=5 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0149",
+      "templateId": "db-sql-not-in-null",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE item_id IS NOT NULL) ORDER BY id;",
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0150",
+      "templateId": "db-sql-not-in-null",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE item_id IS NOT NULL) ORDER BY id;",
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0151",
+      "templateId": "db-sql-not-in-null",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE item_id IS NOT NULL) ORDER BY id;",
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0152",
+      "templateId": "db-sql-not-in-null",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work) ORDER BY id;",
+      "mutation": "",
+      "result": [],
+      "correctOption": "반환 행 없음",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE id NOT IN(SELECT item_id FROM work WHERE item_id IS NOT NULL) ORDER BY id;",
+        "SELECT id FROM items WHERE id IN(SELECT item_id FROM work) ORDER BY id;",
+        "SELECT id FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0153",
+      "templateId": "db-sql-correlated-average",
+      "seed": 0,
+      "query": "SELECT o.id FROM items o WHERE o.value>(SELECT AVG(i.value) FROM items i WHERE i.team=o.team) ORDER BY o.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "SELECT o.id FROM items o WHERE o.value>=(SELECT AVG(i.value) FROM items i WHERE i.team=o.team) ORDER BY o.id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0154",
+      "templateId": "db-sql-correlated-average",
+      "seed": 1,
+      "query": "SELECT o.id FROM items o WHERE o.value>(SELECT AVG(i.value) FROM items i WHERE i.team=o.team) ORDER BY o.id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(3) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0155",
+      "templateId": "db-sql-correlated-average",
+      "seed": 2,
+      "query": "SELECT o.id FROM items o WHERE o.value>(SELECT AVG(i.value) FROM items i WHERE i.team=o.team) ORDER BY o.id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4)",
+      "distractorQueries": [
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0156",
+      "templateId": "db-sql-correlated-average",
+      "seed": 3,
+      "query": "SELECT o.id FROM items o WHERE o.value>(SELECT AVG(i.value) FROM items i WHERE i.team=o.team) ORDER BY o.id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (2) / (4) / (8)",
+      "distractorQueries": [
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0157",
+      "templateId": "db-sql-scalar-max",
+      "seed": 0,
+      "query": "SELECT id FROM items WHERE value=(SELECT MAX(value) FROM items) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          4
+        ]
+      ],
+      "correctOption": "(4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "SELECT id FROM items WHERE value=(SELECT MIN(value) FROM items) ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0158",
+      "templateId": "db-sql-scalar-max",
+      "seed": 1,
+      "query": "SELECT id FROM items WHERE value=(SELECT MAX(value) FROM items) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "correctOption": "(1) / (3)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "SELECT id FROM items WHERE value=(SELECT MIN(value) FROM items) ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0159",
+      "templateId": "db-sql-scalar-max",
+      "seed": 2,
+      "query": "SELECT id FROM items WHERE value=(SELECT MAX(value) FROM items) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ]
+      ],
+      "correctOption": "(3)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "SELECT id FROM items WHERE value=(SELECT MIN(value) FROM items) ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0160",
+      "templateId": "db-sql-scalar-max",
+      "seed": 3,
+      "query": "SELECT id FROM items WHERE value=(SELECT MAX(value) FROM items) ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "SELECT id FROM items WHERE value>(SELECT AVG(value) FROM items) ORDER BY id;",
+        "SELECT id FROM items WHERE value=(SELECT MIN(value) FROM items) ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0161",
+      "templateId": "db-sql-union",
+      "seed": 0,
+      "query": "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0162",
+      "templateId": "db-sql-union",
+      "seed": 1,
+      "query": "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0163",
+      "templateId": "db-sql-union",
+      "seed": 2,
+      "query": "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0164",
+      "templateId": "db-sql-union",
+      "seed": 3,
+      "query": "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (B) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0165",
+      "templateId": "db-sql-union-all",
+      "seed": 0,
+      "query": "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (A) / (A) / (B) / (B) / (B) / (C) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0166",
+      "templateId": "db-sql-union-all",
+      "seed": 1,
+      "query": "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (A) / (A) / (A) / (B) / (B) / (B) / (C) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0167",
+      "templateId": "db-sql-union-all",
+      "seed": 2,
+      "query": "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (A) / (A) / (B) / (B) / (B) / (B) / (C) / (C) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0168",
+      "templateId": "db-sql-union-all",
+      "seed": 3,
+      "query": "SELECT team FROM items UNION ALL SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "A"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "B"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "C"
+        ],
+        [
+          "D"
+        ]
+      ],
+      "correctOption": "(A) / (A) / (A) / (A) / (B) / (B) / (B) / (B) / (C) / (C) / (C) / (D)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0169",
+      "templateId": "db-sql-intersect",
+      "seed": 0,
+      "query": "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "correctOption": "(A) / (B)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0170",
+      "templateId": "db-sql-intersect",
+      "seed": 1,
+      "query": "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "correctOption": "(A) / (B)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0171",
+      "templateId": "db-sql-intersect",
+      "seed": 2,
+      "query": "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "correctOption": "(A) / (B)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0172",
+      "templateId": "db-sql-intersect",
+      "seed": 3,
+      "query": "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A"
+        ],
+        [
+          "B"
+        ]
+      ],
+      "correctOption": "(A) / (B)",
+      "distractorQueries": [
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0173",
+      "templateId": "db-sql-except",
+      "seed": 0,
+      "query": "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(C)",
+      "distractorQueries": [
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0174",
+      "templateId": "db-sql-except",
+      "seed": 1,
+      "query": "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(C)",
+      "distractorQueries": [
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0175",
+      "templateId": "db-sql-except",
+      "seed": 2,
+      "query": "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(C)",
+      "distractorQueries": [
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0176",
+      "templateId": "db-sql-except",
+      "seed": 3,
+      "query": "SELECT team FROM items EXCEPT SELECT team FROM groups ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "C"
+        ]
+      ],
+      "correctOption": "(C)",
+      "distractorQueries": [
+        "SELECT team FROM groups EXCEPT SELECT team FROM items ORDER BY team;",
+        "SELECT team FROM items INTERSECT SELECT team FROM groups ORDER BY team;",
+        "SELECT team FROM items UNION SELECT team FROM groups ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0177",
+      "templateId": "db-sql-cte-filter",
+      "seed": 0,
+      "query": "WITH chosen AS(SELECT id,value FROM items WHERE active=1) SELECT id FROM chosen WHERE value>40 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>40 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=0 AND value>40 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0178",
+      "templateId": "db-sql-cte-filter",
+      "seed": 1,
+      "query": "WITH chosen AS(SELECT id,value FROM items WHERE active=1) SELECT id FROM chosen WHERE value>35 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(3) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>35 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=0 AND value>35 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0179",
+      "templateId": "db-sql-cte-filter",
+      "seed": 2,
+      "query": "WITH chosen AS(SELECT id,value FROM items WHERE active=1) SELECT id FROM chosen WHERE value>50 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>50 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=0 AND value>50 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0180",
+      "templateId": "db-sql-cte-filter",
+      "seed": 3,
+      "query": "WITH chosen AS(SELECT id,value FROM items WHERE active=1) SELECT id FROM chosen WHERE value>45 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          4
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (4) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE value>45 ORDER BY id;",
+        "SELECT id FROM items WHERE active=1 ORDER BY id;",
+        "SELECT id FROM items WHERE active=0 AND value>45 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0181",
+      "templateId": "db-sql-cte-aggregate",
+      "seed": 0,
+      "query": "WITH stats AS(SELECT team,AVG(value) AS mean FROM items GROUP BY team) SELECT team,ROUND(mean,2) FROM stats WHERE mean>40 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "B",
+          65.0
+        ]
+      ],
+      "correctOption": "(B, 65)",
+      "distractorQueries": [
+        "SELECT team,ROUND(AVG(value),2) FROM items WHERE value>40 GROUP BY team ORDER BY team;",
+        "SELECT team,ROUND(AVG(value),2) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>40 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0182",
+      "templateId": "db-sql-cte-aggregate",
+      "seed": 1,
+      "query": "WITH stats AS(SELECT team,AVG(value) AS mean FROM items GROUP BY team) SELECT team,ROUND(mean,2) FROM stats WHERE mean>35 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          41.67
+        ],
+        [
+          "B",
+          65.0
+        ]
+      ],
+      "correctOption": "(A, 41.67) / (B, 65)",
+      "distractorQueries": [
+        "SELECT team,ROUND(AVG(value),2) FROM items WHERE value>35 GROUP BY team ORDER BY team;",
+        "SELECT team,ROUND(AVG(value),2) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>35 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0183",
+      "templateId": "db-sql-cte-aggregate",
+      "seed": 2,
+      "query": "WITH stats AS(SELECT team,AVG(value) AS mean FROM items GROUP BY team) SELECT team,ROUND(mean,2) FROM stats WHERE mean>50 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "A",
+          55.0
+        ],
+        [
+          "B",
+          60.0
+        ]
+      ],
+      "correctOption": "(A, 55) / (B, 60)",
+      "distractorQueries": [
+        "SELECT team,ROUND(AVG(value),2) FROM items WHERE value>50 GROUP BY team ORDER BY team;",
+        "SELECT team,ROUND(AVG(value),2) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>50 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0184",
+      "templateId": "db-sql-cte-aggregate",
+      "seed": 3,
+      "query": "WITH stats AS(SELECT team,AVG(value) AS mean FROM items GROUP BY team) SELECT team,ROUND(mean,2) FROM stats WHERE mean>45 ORDER BY team;",
+      "mutation": "",
+      "result": [
+        [
+          "C",
+          71.67
+        ]
+      ],
+      "correctOption": "(C, 71.67)",
+      "distractorQueries": [
+        "SELECT team,ROUND(AVG(value),2) FROM items WHERE value>45 GROUP BY team ORDER BY team;",
+        "SELECT team,ROUND(AVG(value),2) FROM items GROUP BY team ORDER BY team;",
+        "SELECT team,SUM(value) FROM items GROUP BY team HAVING SUM(value)>45 ORDER BY team;"
+      ]
+    },
+    {
+      "id": "extra-db-0185",
+      "templateId": "db-sql-recursive-cte",
+      "seed": 0,
+      "query": "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<3) SELECT n FROM seq ORDER BY n;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3)",
+      "distractorQueries": [
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<=3) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 0 UNION ALL SELECT n+1 FROM seq WHERE n<3) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+2 FROM seq WHERE n<3) SELECT n FROM seq ORDER BY n;"
+      ]
+    },
+    {
+      "id": "extra-db-0186",
+      "templateId": "db-sql-recursive-cte",
+      "seed": 1,
+      "query": "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<4) SELECT n FROM seq ORDER BY n;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4)",
+      "distractorQueries": [
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<=4) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 0 UNION ALL SELECT n+1 FROM seq WHERE n<4) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+2 FROM seq WHERE n<4) SELECT n FROM seq ORDER BY n;"
+      ]
+    },
+    {
+      "id": "extra-db-0187",
+      "templateId": "db-sql-recursive-cte",
+      "seed": 2,
+      "query": "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<5) SELECT n FROM seq ORDER BY n;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4) / (5)",
+      "distractorQueries": [
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<=5) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 0 UNION ALL SELECT n+1 FROM seq WHERE n<5) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+2 FROM seq WHERE n<5) SELECT n FROM seq ORDER BY n;"
+      ]
+    },
+    {
+      "id": "extra-db-0188",
+      "templateId": "db-sql-recursive-cte",
+      "seed": 3,
+      "query": "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<6) SELECT n FROM seq ORDER BY n;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (2) / (3) / (4) / (5) / (6)",
+      "distractorQueries": [
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+1 FROM seq WHERE n<=6) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 0 UNION ALL SELECT n+1 FROM seq WHERE n<6) SELECT n FROM seq ORDER BY n;",
+        "WITH RECURSIVE seq(n) AS(SELECT 1 UNION ALL SELECT n+2 FROM seq WHERE n<6) SELECT n FROM seq ORDER BY n;"
+      ]
+    },
+    {
+      "id": "extra-db-0189",
+      "templateId": "db-sql-row-number",
+      "seed": 0,
+      "query": "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "correctOption": "(1, 4) / (2, 2) / (3, 3) / (4, 1) / (5, 5)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value ASC,id) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0190",
+      "templateId": "db-sql-row-number",
+      "seed": 1,
+      "query": "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "correctOption": "(1, 1) / (2, 5) / (3, 2) / (4, 6) / (6, 3) / (7, 4)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value ASC,id) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0191",
+      "templateId": "db-sql-row-number",
+      "seed": 2,
+      "query": "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          6
+        ]
+      ],
+      "correctOption": "(1, 7) / (2, 2) / (3, 1) / (4, 3) / (5, 5) / (7, 4) / (8, 6)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value ASC,id) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0192",
+      "templateId": "db-sql-row-number",
+      "seed": 3,
+      "query": "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "correctOption": "(1, 4) / (2, 1) / (3, 6) / (4, 2) / (5, 8) / (7, 5) / (8, 3) / (9, 7)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value ASC,id) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0193",
+      "templateId": "db-sql-rank",
+      "seed": 0,
+      "query": "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "correctOption": "(1, 4) / (2, 2) / (3, 2) / (4, 1) / (5, 5)",
+      "distractorQueries": [
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0194",
+      "templateId": "db-sql-rank",
+      "seed": 1,
+      "query": "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "correctOption": "(1, 1) / (2, 5) / (3, 1) / (4, 6) / (6, 3) / (7, 4)",
+      "distractorQueries": [
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0195",
+      "templateId": "db-sql-rank",
+      "seed": 2,
+      "query": "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          6
+        ]
+      ],
+      "correctOption": "(1, 7) / (2, 2) / (3, 1) / (4, 2) / (5, 5) / (7, 4) / (8, 6)",
+      "distractorQueries": [
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0196",
+      "templateId": "db-sql-rank",
+      "seed": 3,
+      "query": "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "correctOption": "(1, 4) / (2, 1) / (3, 6) / (4, 1) / (5, 8) / (7, 5) / (8, 3) / (9, 7)",
+      "distractorQueries": [
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0197",
+      "templateId": "db-sql-dense-rank",
+      "seed": 0,
+      "query": "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "correctOption": "(1, 3) / (2, 2) / (3, 2) / (4, 1) / (5, 4)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0198",
+      "templateId": "db-sql-dense-rank",
+      "seed": 1,
+      "query": "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          3
+        ]
+      ],
+      "correctOption": "(1, 1) / (2, 4) / (3, 1) / (4, 5) / (6, 2) / (7, 3)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0199",
+      "templateId": "db-sql-dense-rank",
+      "seed": 2,
+      "query": "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "correctOption": "(1, 6) / (2, 2) / (3, 1) / (4, 2) / (5, 4) / (7, 3) / (8, 5)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0200",
+      "templateId": "db-sql-dense-rank",
+      "seed": 3,
+      "query": "SELECT id,DENSE_RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "correctOption": "(1, 3) / (2, 1) / (3, 5) / (4, 1) / (5, 7) / (7, 4) / (8, 2) / (9, 6)",
+      "distractorQueries": [
+        "SELECT id,RANK() OVER(ORDER BY value DESC) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,ROW_NUMBER() OVER(ORDER BY value DESC,id) FROM items WHERE value IS NOT NULL ORDER BY id;",
+        "SELECT id,DENSE_RANK() OVER(ORDER BY value ASC) FROM items WHERE value IS NOT NULL ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0201",
+      "templateId": "db-sql-lag",
+      "seed": 0,
+      "query": "SELECT id,LAG(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          30
+        ],
+        [
+          3,
+          50
+        ],
+        [
+          4,
+          50
+        ],
+        [
+          5,
+          80
+        ],
+        [
+          6,
+          20
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 30) / (3, 50) / (4, 50) / (5, 80) / (6, 20)",
+      "distractorQueries": [
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LAG(value,1,0) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0202",
+      "templateId": "db-sql-lag",
+      "seed": 1,
+      "query": "SELECT id,LAG(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          65
+        ],
+        [
+          3,
+          25
+        ],
+        [
+          4,
+          65
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          45
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 65) / (3, 25) / (4, 65) / (5, 10) / (6, NULL) / (7, 45)",
+      "distractorQueries": [
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LAG(value,1,0) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0203",
+      "templateId": "db-sql-lag",
+      "seed": 2,
+      "query": "SELECT id,LAG(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          3,
+          70
+        ],
+        [
+          4,
+          90
+        ],
+        [
+          5,
+          70
+        ],
+        [
+          6,
+          40
+        ],
+        [
+          7,
+          null
+        ],
+        [
+          8,
+          50
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 15) / (3, 70) / (4, 90) / (5, 70) / (6, 40) / (7, NULL) / (8, 50)",
+      "distractorQueries": [
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LAG(value,1,0) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0204",
+      "templateId": "db-sql-lag",
+      "seed": 3,
+      "query": "SELECT id,LAG(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          55
+        ],
+        [
+          3,
+          85
+        ],
+        [
+          4,
+          35
+        ],
+        [
+          5,
+          85
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          7,
+          null
+        ],
+        [
+          8,
+          45
+        ],
+        [
+          9,
+          65
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 55) / (3, 85) / (4, 35) / (5, 85) / (6, 10) / (7, NULL) / (8, 45) / (9, 65)",
+      "distractorQueries": [
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LAG(value,1,0) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0205",
+      "templateId": "db-sql-lead",
+      "seed": 0,
+      "query": "SELECT id,LEAD(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          50
+        ],
+        [
+          2,
+          50
+        ],
+        [
+          3,
+          80
+        ],
+        [
+          4,
+          20
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          -1
+        ]
+      ],
+      "correctOption": "(1, 50) / (2, 50) / (3, 80) / (4, 20) / (5, NULL) / (6, -1)",
+      "distractorQueries": [
+        "SELECT id,LAG(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,COALESCE(LEAD(value) OVER(ORDER BY id),-1) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0206",
+      "templateId": "db-sql-lead",
+      "seed": 1,
+      "query": "SELECT id,LEAD(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          25
+        ],
+        [
+          2,
+          65
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          4,
+          null
+        ],
+        [
+          5,
+          45
+        ],
+        [
+          6,
+          35
+        ],
+        [
+          7,
+          -1
+        ]
+      ],
+      "correctOption": "(1, 25) / (2, 65) / (3, 10) / (4, NULL) / (5, 45) / (6, 35) / (7, -1)",
+      "distractorQueries": [
+        "SELECT id,LAG(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,COALESCE(LEAD(value) OVER(ORDER BY id),-1) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0207",
+      "templateId": "db-sql-lead",
+      "seed": 2,
+      "query": "SELECT id,LEAD(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          70
+        ],
+        [
+          2,
+          90
+        ],
+        [
+          3,
+          70
+        ],
+        [
+          4,
+          40
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          50
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          8,
+          -1
+        ]
+      ],
+      "correctOption": "(1, 70) / (2, 90) / (3, 70) / (4, 40) / (5, NULL) / (6, 50) / (7, 20) / (8, -1)",
+      "distractorQueries": [
+        "SELECT id,LAG(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,COALESCE(LEAD(value) OVER(ORDER BY id),-1) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0208",
+      "templateId": "db-sql-lead",
+      "seed": 3,
+      "query": "SELECT id,LEAD(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          85
+        ],
+        [
+          2,
+          35
+        ],
+        [
+          3,
+          85
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          45
+        ],
+        [
+          7,
+          65
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          -1
+        ]
+      ],
+      "correctOption": "(1, 85) / (2, 35) / (3, 85) / (4, 10) / (5, NULL) / (6, 45) / (7, 65) / (8, 25) / (9, -1)",
+      "distractorQueries": [
+        "SELECT id,LAG(value,1,-1) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,LEAD(value) OVER(ORDER BY id) FROM items ORDER BY id;",
+        "SELECT id,COALESCE(LEAD(value) OVER(ORDER BY id),-1) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0209",
+      "templateId": "db-sql-running-sum",
+      "seed": 0,
+      "query": "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          80
+        ],
+        [
+          3,
+          130
+        ],
+        [
+          4,
+          210
+        ],
+        [
+          5,
+          230
+        ],
+        [
+          6,
+          230
+        ]
+      ],
+      "correctOption": "(1, 30) / (2, 80) / (3, 130) / (4, 210) / (5, 230) / (6, 230)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0210",
+      "templateId": "db-sql-running-sum",
+      "seed": 1,
+      "query": "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          90
+        ],
+        [
+          3,
+          155
+        ],
+        [
+          4,
+          165
+        ],
+        [
+          5,
+          165
+        ],
+        [
+          6,
+          210
+        ],
+        [
+          7,
+          245
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 90) / (3, 155) / (4, 165) / (5, 165) / (6, 210) / (7, 245)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0211",
+      "templateId": "db-sql-running-sum",
+      "seed": 2,
+      "query": "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          15
+        ],
+        [
+          2,
+          85
+        ],
+        [
+          3,
+          175
+        ],
+        [
+          4,
+          245
+        ],
+        [
+          5,
+          285
+        ],
+        [
+          6,
+          285
+        ],
+        [
+          7,
+          335
+        ],
+        [
+          8,
+          355
+        ]
+      ],
+      "correctOption": "(1, 15) / (2, 85) / (3, 175) / (4, 245) / (5, 285) / (6, 285) / (7, 335) / (8, 355)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0212",
+      "templateId": "db-sql-running-sum",
+      "seed": 3,
+      "query": "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          55
+        ],
+        [
+          2,
+          140
+        ],
+        [
+          3,
+          175
+        ],
+        [
+          4,
+          260
+        ],
+        [
+          5,
+          270
+        ],
+        [
+          6,
+          270
+        ],
+        [
+          7,
+          315
+        ],
+        [
+          8,
+          380
+        ],
+        [
+          9,
+          405
+        ]
+      ],
+      "correctOption": "(1, 55) / (2, 140) / (3, 175) / (4, 260) / (5, 270) / (6, 270) / (7, 315) / (8, 380) / (9, 405)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,SUM(value) OVER(ORDER BY id ROWS BETWEEN 1 PRECEDING AND CURRENT ROW) FROM items ORDER BY id;",
+        "SELECT id,value FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0213",
+      "templateId": "db-sql-partition",
+      "seed": 0,
+      "query": "SELECT id,SUM(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          80
+        ],
+        [
+          2,
+          80
+        ],
+        [
+          3,
+          130
+        ],
+        [
+          4,
+          130
+        ],
+        [
+          5,
+          20
+        ],
+        [
+          6,
+          20
+        ]
+      ],
+      "correctOption": "(1, 80) / (2, 80) / (3, 130) / (4, 130) / (5, 20) / (6, 20)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,MAX(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+        "SELECT id,COUNT(*) OVER(PARTITION BY team) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0214",
+      "templateId": "db-sql-partition",
+      "seed": 1,
+      "query": "SELECT id,SUM(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          125
+        ],
+        [
+          3,
+          125
+        ],
+        [
+          4,
+          55
+        ],
+        [
+          5,
+          65
+        ],
+        [
+          6,
+          55
+        ],
+        [
+          7,
+          125
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 125) / (3, 125) / (4, 55) / (5, 65) / (6, 55) / (7, 125)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,MAX(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+        "SELECT id,COUNT(*) OVER(PARTITION BY team) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0215",
+      "templateId": "db-sql-partition",
+      "seed": 2,
+      "query": "SELECT id,SUM(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          125
+        ],
+        [
+          2,
+          120
+        ],
+        [
+          3,
+          125
+        ],
+        [
+          4,
+          110
+        ],
+        [
+          5,
+          110
+        ],
+        [
+          6,
+          120
+        ],
+        [
+          7,
+          120
+        ],
+        [
+          8,
+          125
+        ]
+      ],
+      "correctOption": "(1, 125) / (2, 120) / (3, 125) / (4, 110) / (5, 110) / (6, 120) / (7, 120) / (8, 125)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,MAX(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+        "SELECT id,COUNT(*) OVER(PARTITION BY team) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0216",
+      "templateId": "db-sql-partition",
+      "seed": 3,
+      "query": "SELECT id,SUM(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          80
+        ],
+        [
+          2,
+          215
+        ],
+        [
+          3,
+          110
+        ],
+        [
+          4,
+          215
+        ],
+        [
+          5,
+          110
+        ],
+        [
+          6,
+          80
+        ],
+        [
+          7,
+          215
+        ],
+        [
+          8,
+          110
+        ],
+        [
+          9,
+          80
+        ]
+      ],
+      "correctOption": "(1, 80) / (2, 215) / (3, 110) / (4, 215) / (5, 110) / (6, 80) / (7, 215) / (8, 110) / (9, 80)",
+      "distractorQueries": [
+        "SELECT id,SUM(value) OVER() FROM items ORDER BY id;",
+        "SELECT id,MAX(value) OVER(PARTITION BY team) FROM items ORDER BY id;",
+        "SELECT id,COUNT(*) OVER(PARTITION BY team) FROM items ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0217",
+      "templateId": "db-sql-window-filter",
+      "seed": 0,
+      "query": "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value DESC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "correctOption": "(2) / (4) / (5)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value ASC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0218",
+      "templateId": "db-sql-window-filter",
+      "seed": 1,
+      "query": "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value DESC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (3) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value ASC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0219",
+      "templateId": "db-sql-window-filter",
+      "seed": 2,
+      "query": "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value DESC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value ASC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0220",
+      "templateId": "db-sql-window-filter",
+      "seed": 3,
+      "query": "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value DESC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (2) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 1;",
+        "WITH ranked AS(SELECT id,team,value,ROW_NUMBER() OVER(PARTITION BY team ORDER BY value ASC,id) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;",
+        "WITH ranked AS(SELECT id,team,value,RANK() OVER(PARTITION BY team ORDER BY value DESC) AS rn FROM items) SELECT id FROM ranked WHERE rn=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0221",
+      "templateId": "db-sql-limit-offset",
+      "seed": 0,
+      "query": "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 2;",
+      "mutation": "",
+      "result": [
+        [
+          3
+        ],
+        [
+          1
+        ]
+      ],
+      "correctOption": "(3) / (1)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2;",
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 1;",
+        "SELECT id FROM items ORDER BY id LIMIT 2 OFFSET 2;"
+      ]
+    },
+    {
+      "id": "extra-db-0222",
+      "templateId": "db-sql-limit-offset",
+      "seed": 1,
+      "query": "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 2;",
+      "mutation": "",
+      "result": [
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2;",
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 1;",
+        "SELECT id FROM items ORDER BY id LIMIT 2 OFFSET 2;"
+      ]
+    },
+    {
+      "id": "extra-db-0223",
+      "templateId": "db-sql-limit-offset",
+      "seed": 2,
+      "query": "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 2;",
+      "mutation": "",
+      "result": [
+        [
+          4
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(4) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2;",
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 1;",
+        "SELECT id FROM items ORDER BY id LIMIT 2 OFFSET 2;"
+      ]
+    },
+    {
+      "id": "extra-db-0224",
+      "templateId": "db-sql-limit-offset",
+      "seed": 3,
+      "query": "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 2;",
+      "mutation": "",
+      "result": [
+        [
+          8
+        ],
+        [
+          1
+        ]
+      ],
+      "correctOption": "(8) / (1)",
+      "distractorQueries": [
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2;",
+        "SELECT id FROM items ORDER BY value DESC,id LIMIT 2 OFFSET 1;",
+        "SELECT id FROM items ORDER BY id LIMIT 2 OFFSET 2;"
+      ]
+    },
+    {
+      "id": "extra-db-0225",
+      "templateId": "db-sql-concat",
+      "seed": 0,
+      "query": "SELECT id,team || ':' || title FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "A:A-접수"
+        ],
+        [
+          2,
+          "A:A-보완"
+        ],
+        [
+          3,
+          "B:B-상담"
+        ]
+      ],
+      "correctOption": "(1, A:A-접수) / (2, A:A-보완) / (3, B:B-상담)",
+      "distractorQueries": [
+        "SELECT id,title || ':' || team FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || title FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || ':' || COALESCE(extra,'없음') FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0226",
+      "templateId": "db-sql-concat",
+      "seed": 1,
+      "query": "SELECT id,team || ':' || title FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "B:A-백업"
+        ],
+        [
+          2,
+          "A:B-점검"
+        ],
+        [
+          3,
+          "A:A-배포"
+        ]
+      ],
+      "correctOption": "(1, B:A-백업) / (2, A:B-점검) / (3, A:A-배포)",
+      "distractorQueries": [
+        "SELECT id,title || ':' || team FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || title FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || ':' || COALESCE(extra,'없음') FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0227",
+      "templateId": "db-sql-concat",
+      "seed": 2,
+      "query": "SELECT id,team || ':' || title FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "C:B-보안"
+        ],
+        [
+          2,
+          "B:A-SQL"
+        ],
+        [
+          3,
+          "C:C-설계"
+        ]
+      ],
+      "correctOption": "(1, C:B-보안) / (2, B:A-SQL) / (3, C:C-설계)",
+      "distractorQueries": [
+        "SELECT id,title || ':' || team FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || title FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || ':' || COALESCE(extra,'없음') FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0228",
+      "templateId": "db-sql-concat",
+      "seed": 3,
+      "query": "SELECT id,team || ':' || title FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "A:C-초안"
+        ],
+        [
+          2,
+          "C:A-검토"
+        ],
+        [
+          3,
+          "B:A-수정"
+        ]
+      ],
+      "correctOption": "(1, A:C-초안) / (2, C:A-검토) / (3, B:A-수정)",
+      "distractorQueries": [
+        "SELECT id,title || ':' || team FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || title FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,team || ':' || COALESCE(extra,'없음') FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0229",
+      "templateId": "db-sql-substring",
+      "seed": 0,
+      "query": "SELECT id,SUBSTR(title,3),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "접수",
+          4
+        ],
+        [
+          2,
+          "보완",
+          4
+        ],
+        [
+          3,
+          "상담",
+          4
+        ]
+      ],
+      "correctOption": "(1, 접수, 4) / (2, 보완, 4) / (3, 상담, 4)",
+      "distractorQueries": [
+        "SELECT id,SUBSTR(title,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,3),LENGTH(title)-2 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,1,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0230",
+      "templateId": "db-sql-substring",
+      "seed": 1,
+      "query": "SELECT id,SUBSTR(title,3),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "백업",
+          4
+        ],
+        [
+          2,
+          "점검",
+          4
+        ],
+        [
+          3,
+          "배포",
+          4
+        ]
+      ],
+      "correctOption": "(1, 백업, 4) / (2, 점검, 4) / (3, 배포, 4)",
+      "distractorQueries": [
+        "SELECT id,SUBSTR(title,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,3),LENGTH(title)-2 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,1,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0231",
+      "templateId": "db-sql-substring",
+      "seed": 2,
+      "query": "SELECT id,SUBSTR(title,3),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "보안",
+          4
+        ],
+        [
+          2,
+          "SQL",
+          5
+        ],
+        [
+          3,
+          "설계",
+          4
+        ]
+      ],
+      "correctOption": "(1, 보안, 4) / (2, SQL, 5) / (3, 설계, 4)",
+      "distractorQueries": [
+        "SELECT id,SUBSTR(title,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,3),LENGTH(title)-2 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,1,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0232",
+      "templateId": "db-sql-substring",
+      "seed": 3,
+      "query": "SELECT id,SUBSTR(title,3),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          "초안",
+          4
+        ],
+        [
+          2,
+          "검토",
+          4
+        ],
+        [
+          3,
+          "수정",
+          4
+        ]
+      ],
+      "correctOption": "(1, 초안, 4) / (2, 검토, 4) / (3, 수정, 4)",
+      "distractorQueries": [
+        "SELECT id,SUBSTR(title,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,3),LENGTH(title)-2 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,SUBSTR(title,1,2),LENGTH(title) FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0233",
+      "templateId": "db-sql-null-arithmetic",
+      "seed": 0,
+      "query": "SELECT id,value+extra FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          55
+        ],
+        [
+          3,
+          null
+        ],
+        [
+          4,
+          90
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 55) / (3, NULL) / (4, 90)",
+      "distractorQueries": [
+        "SELECT id,value+COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=4 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0234",
+      "templateId": "db-sql-null-arithmetic",
+      "seed": 1,
+      "query": "SELECT id,value+extra FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          74
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          68
+        ],
+        [
+          4,
+          null
+        ]
+      ],
+      "correctOption": "(1, 74) / (2, NULL) / (3, 68) / (4, NULL)",
+      "distractorQueries": [
+        "SELECT id,value+COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=4 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0235",
+      "templateId": "db-sql-null-arithmetic",
+      "seed": 2,
+      "query": "SELECT id,value+extra FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          70
+        ],
+        [
+          3,
+          97
+        ],
+        [
+          4,
+          null
+        ]
+      ],
+      "correctOption": "(1, NULL) / (2, 70) / (3, 97) / (4, NULL)",
+      "distractorQueries": [
+        "SELECT id,value+COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=4 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0236",
+      "templateId": "db-sql-null-arithmetic",
+      "seed": 3,
+      "query": "SELECT id,value+extra FROM items WHERE id<=4 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          56
+        ],
+        [
+          2,
+          null
+        ],
+        [
+          3,
+          39
+        ],
+        [
+          4,
+          88
+        ]
+      ],
+      "correctOption": "(1, 56) / (2, NULL) / (3, 39) / (4, 88)",
+      "distractorQueries": [
+        "SELECT id,value+COALESCE(extra,0) FROM items WHERE id<=4 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=4 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0237",
+      "templateId": "db-sql-real-division",
+      "seed": 0,
+      "query": "SELECT id,ROUND(value/3.0,2) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          10.0
+        ],
+        [
+          2,
+          16.67
+        ],
+        [
+          3,
+          16.67
+        ]
+      ],
+      "correctOption": "(1, 10) / (2, 16.67) / (3, 16.67)",
+      "distractorQueries": [
+        "SELECT id,value/3 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,ROUND(value/3.0,0) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value*3 FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0238",
+      "templateId": "db-sql-real-division",
+      "seed": 1,
+      "query": "SELECT id,ROUND(value/3.0,2) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          21.67
+        ],
+        [
+          2,
+          8.33
+        ],
+        [
+          3,
+          21.67
+        ]
+      ],
+      "correctOption": "(1, 21.67) / (2, 8.33) / (3, 21.67)",
+      "distractorQueries": [
+        "SELECT id,value/3 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,ROUND(value/3.0,0) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value*3 FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0239",
+      "templateId": "db-sql-real-division",
+      "seed": 2,
+      "query": "SELECT id,ROUND(value/3.0,2) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          5.0
+        ],
+        [
+          2,
+          23.33
+        ],
+        [
+          3,
+          30.0
+        ]
+      ],
+      "correctOption": "(1, 5) / (2, 23.33) / (3, 30)",
+      "distractorQueries": [
+        "SELECT id,value/3 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value*3 FROM items WHERE id<=3 ORDER BY id;",
+        "행 순서·NULL·누락·중복을 바꾼 오답"
+      ]
+    },
+    {
+      "id": "extra-db-0240",
+      "templateId": "db-sql-real-division",
+      "seed": 3,
+      "query": "SELECT id,ROUND(value/3.0,2) FROM items WHERE id<=3 ORDER BY id;",
+      "mutation": "",
+      "result": [
+        [
+          1,
+          18.33
+        ],
+        [
+          2,
+          28.33
+        ],
+        [
+          3,
+          11.67
+        ]
+      ],
+      "correctOption": "(1, 18.33) / (2, 28.33) / (3, 11.67)",
+      "distractorQueries": [
+        "SELECT id,value/3 FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,ROUND(value/3.0,0) FROM items WHERE id<=3 ORDER BY id;",
+        "SELECT id,value*3 FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0241",
+      "templateId": "db-sql-update",
+      "seed": 0,
+      "query": "SELECT id,value FROM items ORDER BY id;",
+      "mutation": "UPDATE items SET value=value+10 WHERE active=1;",
+      "result": [
+        [
+          1,
+          40
+        ],
+        [
+          2,
+          50
+        ],
+        [
+          3,
+          60
+        ],
+        [
+          4,
+          90
+        ],
+        [
+          5,
+          20
+        ],
+        [
+          6,
+          null
+        ]
+      ],
+      "correctOption": "(1, 40) / (2, 50) / (3, 60) / (4, 90) / (5, 20) / (6, NULL)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items ORDER BY id;",
+        "SELECT id,value+10 FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0242",
+      "templateId": "db-sql-update",
+      "seed": 1,
+      "query": "SELECT id,value FROM items ORDER BY id;",
+      "mutation": "UPDATE items SET value=value+10 WHERE active=1;",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          35
+        ],
+        [
+          3,
+          75
+        ],
+        [
+          4,
+          20
+        ],
+        [
+          5,
+          null
+        ],
+        [
+          6,
+          55
+        ],
+        [
+          7,
+          45
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 35) / (3, 75) / (4, 20) / (5, NULL) / (6, 55) / (7, 45)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items ORDER BY id;",
+        "SELECT id,value+10 FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0243",
+      "templateId": "db-sql-update",
+      "seed": 2,
+      "query": "SELECT id,value FROM items ORDER BY id;",
+      "mutation": "UPDATE items SET value=value+10 WHERE active=1;",
+      "result": [
+        [
+          1,
+          25
+        ],
+        [
+          2,
+          80
+        ],
+        [
+          3,
+          90
+        ],
+        [
+          4,
+          80
+        ],
+        [
+          5,
+          40
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          50
+        ],
+        [
+          8,
+          30
+        ]
+      ],
+      "correctOption": "(1, 25) / (2, 80) / (3, 90) / (4, 80) / (5, 40) / (6, NULL) / (7, 50) / (8, 30)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items ORDER BY id;",
+        "SELECT id,value+10 FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0244",
+      "templateId": "db-sql-update",
+      "seed": 3,
+      "query": "SELECT id,value FROM items ORDER BY id;",
+      "mutation": "UPDATE items SET value=value+10 WHERE active=1;",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          85
+        ],
+        [
+          3,
+          45
+        ],
+        [
+          4,
+          95
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          55
+        ],
+        [
+          8,
+          75
+        ],
+        [
+          9,
+          25
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 85) / (3, 45) / (4, 95) / (5, 10) / (6, NULL) / (7, 55) / (8, 75) / (9, 25)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items ORDER BY id;",
+        "SELECT id,value+10 FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0245",
+      "templateId": "db-sql-delete",
+      "seed": 0,
+      "query": "SELECT id FROM items ORDER BY id;",
+      "mutation": "DELETE FROM items WHERE active=0;",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (6)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id FROM items WHERE value>40 ORDER BY id;",
+        "SELECT id FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0246",
+      "templateId": "db-sql-delete",
+      "seed": 1,
+      "query": "SELECT id FROM items ORDER BY id;",
+      "mutation": "DELETE FROM items WHERE active=0;",
+      "result": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ]
+      ],
+      "correctOption": "(2) / (3) / (4) / (6) / (7)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id FROM items WHERE value>35 ORDER BY id;",
+        "SELECT id FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0247",
+      "templateId": "db-sql-delete",
+      "seed": 2,
+      "query": "SELECT id FROM items ORDER BY id;",
+      "mutation": "DELETE FROM items WHERE active=0;",
+      "result": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (2) / (4) / (6) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id FROM items WHERE value>50 ORDER BY id;",
+        "SELECT id FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0248",
+      "templateId": "db-sql-delete",
+      "seed": 3,
+      "query": "SELECT id FROM items ORDER BY id;",
+      "mutation": "DELETE FROM items WHERE active=0;",
+      "result": [
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "correctOption": "(1) / (3) / (4) / (6) / (7) / (8)",
+      "distractorQueries": [
+        "SELECT id FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id FROM items WHERE value>45 ORDER BY id;",
+        "SELECT id FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0249",
+      "templateId": "db-sql-insert-select",
+      "seed": 0,
+      "query": "SELECT id,value FROM selected ORDER BY id;",
+      "mutation": "CREATE TABLE selected(id INTEGER,value INTEGER);\nINSERT INTO selected SELECT id,value FROM items WHERE active=1;",
+      "result": [
+        [
+          1,
+          30
+        ],
+        [
+          3,
+          50
+        ],
+        [
+          4,
+          80
+        ],
+        [
+          6,
+          null
+        ]
+      ],
+      "correctOption": "(1, 30) / (3, 50) / (4, 80) / (6, NULL)",
+      "distractorQueries": [
+        "SELECT id,value FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 AND value>40 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0250",
+      "templateId": "db-sql-insert-select",
+      "seed": 1,
+      "query": "SELECT id,value FROM selected ORDER BY id;",
+      "mutation": "CREATE TABLE selected(id INTEGER,value INTEGER);\nINSERT INTO selected SELECT id,value FROM items WHERE active=1;",
+      "result": [
+        [
+          2,
+          25
+        ],
+        [
+          3,
+          65
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          6,
+          45
+        ],
+        [
+          7,
+          35
+        ]
+      ],
+      "correctOption": "(2, 25) / (3, 65) / (4, 10) / (6, 45) / (7, 35)",
+      "distractorQueries": [
+        "SELECT id,value FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 AND value>35 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0251",
+      "templateId": "db-sql-insert-select",
+      "seed": 2,
+      "query": "SELECT id,value FROM selected ORDER BY id;",
+      "mutation": "CREATE TABLE selected(id INTEGER,value INTEGER);\nINSERT INTO selected SELECT id,value FROM items WHERE active=1;",
+      "result": [
+        [
+          1,
+          15
+        ],
+        [
+          2,
+          70
+        ],
+        [
+          4,
+          70
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          8,
+          20
+        ]
+      ],
+      "correctOption": "(1, 15) / (2, 70) / (4, 70) / (6, NULL) / (8, 20)",
+      "distractorQueries": [
+        "SELECT id,value FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 AND value>50 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0252",
+      "templateId": "db-sql-insert-select",
+      "seed": 3,
+      "query": "SELECT id,value FROM selected ORDER BY id;",
+      "mutation": "CREATE TABLE selected(id INTEGER,value INTEGER);\nINSERT INTO selected SELECT id,value FROM items WHERE active=1;",
+      "result": [
+        [
+          1,
+          55
+        ],
+        [
+          3,
+          35
+        ],
+        [
+          4,
+          85
+        ],
+        [
+          6,
+          null
+        ],
+        [
+          7,
+          45
+        ],
+        [
+          8,
+          65
+        ]
+      ],
+      "correctOption": "(1, 55) / (3, 35) / (4, 85) / (6, NULL) / (7, 45) / (8, 65)",
+      "distractorQueries": [
+        "SELECT id,value FROM items ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=0 ORDER BY id;",
+        "SELECT id,value FROM items WHERE active=1 AND value>45 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0253",
+      "templateId": "db-sql-rollback",
+      "seed": 0,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+100 WHERE id<=2;\nROLLBACK;",
+      "result": [
+        [
+          1,
+          30
+        ],
+        [
+          2,
+          50
+        ]
+      ],
+      "correctOption": "(1, 30) / (2, 50)",
+      "distractorQueries": [
+        "SELECT id,value+100 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,0 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0254",
+      "templateId": "db-sql-rollback",
+      "seed": 1,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+100 WHERE id<=2;\nROLLBACK;",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          25
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 25)",
+      "distractorQueries": [
+        "SELECT id,value+100 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,0 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0255",
+      "templateId": "db-sql-rollback",
+      "seed": 2,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+100 WHERE id<=2;\nROLLBACK;",
+      "result": [
+        [
+          1,
+          15
+        ],
+        [
+          2,
+          70
+        ]
+      ],
+      "correctOption": "(1, 15) / (2, 70)",
+      "distractorQueries": [
+        "SELECT id,value+100 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,0 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0256",
+      "templateId": "db-sql-rollback",
+      "seed": 3,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+100 WHERE id<=2;\nROLLBACK;",
+      "result": [
+        [
+          1,
+          55
+        ],
+        [
+          2,
+          85
+        ]
+      ],
+      "correctOption": "(1, 55) / (2, 85)",
+      "distractorQueries": [
+        "SELECT id,value+100 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,0 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value FROM items WHERE id<=3 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0257",
+      "templateId": "db-sql-savepoint",
+      "seed": 0,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+10 WHERE id<=2;\nSAVEPOINT s;\nUPDATE items SET value=value+20 WHERE id<=2;\nROLLBACK TO s;\nRELEASE s;\nCOMMIT;",
+      "result": [
+        [
+          1,
+          40
+        ],
+        [
+          2,
+          60
+        ]
+      ],
+      "correctOption": "(1, 40) / (2, 60)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+20 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+10 FROM items WHERE id<=2 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0258",
+      "templateId": "db-sql-savepoint",
+      "seed": 1,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+10 WHERE id<=2;\nSAVEPOINT s;\nUPDATE items SET value=value+20 WHERE id<=2;\nROLLBACK TO s;\nRELEASE s;\nCOMMIT;",
+      "result": [
+        [
+          1,
+          75
+        ],
+        [
+          2,
+          35
+        ]
+      ],
+      "correctOption": "(1, 75) / (2, 35)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+20 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+10 FROM items WHERE id<=2 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0259",
+      "templateId": "db-sql-savepoint",
+      "seed": 2,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+10 WHERE id<=2;\nSAVEPOINT s;\nUPDATE items SET value=value+20 WHERE id<=2;\nROLLBACK TO s;\nRELEASE s;\nCOMMIT;",
+      "result": [
+        [
+          1,
+          25
+        ],
+        [
+          2,
+          80
+        ]
+      ],
+      "correctOption": "(1, 25) / (2, 80)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+20 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+10 FROM items WHERE id<=2 ORDER BY id;"
+      ]
+    },
+    {
+      "id": "extra-db-0260",
+      "templateId": "db-sql-savepoint",
+      "seed": 3,
+      "query": "SELECT id,value FROM items WHERE id<=2 ORDER BY id;",
+      "mutation": "BEGIN;\nUPDATE items SET value=value+10 WHERE id<=2;\nSAVEPOINT s;\nUPDATE items SET value=value+20 WHERE id<=2;\nROLLBACK TO s;\nRELEASE s;\nCOMMIT;",
+      "result": [
+        [
+          1,
+          65
+        ],
+        [
+          2,
+          95
+        ]
+      ],
+      "correctOption": "(1, 65) / (2, 95)",
+      "distractorQueries": [
+        "SELECT id,value-10 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+20 FROM items WHERE id<=2 ORDER BY id;",
+        "SELECT id,value+10 FROM items WHERE id<=2 ORDER BY id;"
+      ]
+    }
+  ]
+}
