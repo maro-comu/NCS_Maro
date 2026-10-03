@@ -1,4 +1,4 @@
-param([int]$Port=8850)
+﻿param([int]$Port=8850)
 $ErrorActionPreference='Stop'
 $studyRoot=$PSScriptRoot
 $studyUrl="http://127.0.0.1:$Port/private-study/web/"

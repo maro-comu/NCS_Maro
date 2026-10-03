@@ -8,11 +8,12 @@ const officialAnswers=read('private-study/ncs-answers.json');
 const practice=read('data/practice-questions.json');
 const practiceAnswers=read('data/practice-answers.json');
 const localPath=value=>value && !/^https?:/i.test(value)?'../../'+value.replaceAll('\\','/').replace(/^\.\//,''):value;
-const questions=[...official.map(q=>({...q,pdf:localPath(q.pdf)})),...practice];
-const answers={...officialAnswers,...practiceAnswers};
+const imagePath=value=>'../'+value.replace(/^private-study\//,'');
+const questions=[...official.map(q=>({...q,images:q.images?.map(src=>typeof src==='string'?imagePath(src):{...src,src:imagePath(src.src)})})),...practice];
+const answers={...Object.fromEntries(Object.entries(officialAnswers).map(([id,a])=>[id,{...a,images:a.images?.map(src=>typeof src==='string'?imagePath(src):{...src,src:imagePath(src.src)})}])),...practiceAnswers};
 const sources=read('private-study/sources.json').map(s=>({...s,file:localPath(s.file),questionFile:localPath(s.questionFile),answerFile:localPath(s.answerFile)}));
 const lessons=read('data/lessons.json');
-for(const q of questions){if(!answers[q.id]||!Number.isInteger(answers[q.id].correctIndex)||answers[q.id].correctIndex<0||answers[q.id].correctIndex>=q.options.length)throw Error('Missing/invalid answer '+q.id);if(q.pdf&&!fs.existsSync(path.resolve(root,q.pdf.slice(6))))throw Error('Missing PDF '+q.pdf);}
+for(const q of questions){if(!answers[q.id]||!Number.isInteger(answers[q.id].correctIndex)||answers[q.id].correctIndex<0||answers[q.id].correctIndex>=q.options.length)throw Error('Missing/invalid answer '+q.id);for(const src of q.images||[]){if(!fs.existsSync(path.resolve(root,'private-study/web',typeof src==='string'?src:src.src)))throw Error('Missing question image '+q.id);}}
 const dir=path.join(root,'private-study/web');fs.mkdirSync(path.join(dir,'data'),{recursive:true});
 for(const file of ['index.html','styles.css','app.js'])fs.copyFileSync(path.join(root,'study-web/dist',file),path.join(dir,file));
 const json=value=>JSON.stringify(value,null,2)+'\n';
